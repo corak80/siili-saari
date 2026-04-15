@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Siili-Saari Care Center — Hedgehog Rehabilitation in Vaasa</title>
-<meta name="description" content="Siili-Saari Care Center rescues, treats, and rehabilitates injured and orphaned hedgehogs in Vaasa, Finland.">
+<title data-i18n="meta.title">Siili-Saari Care Center — Siilien hoitokeskus Vaasassa</title>
+<meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="Siili-Saari Care Center pelastaa, hoitaa ja kuntouttaa loukkaantuneita ja orpoja siilejä Vaasassa.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -71,18 +73,54 @@ nav.scrolled {
 }
 
 .nav-brand {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--teal-deep);
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: 0.02em;
+}
+
+.nav-brand-logo {
+  height: 38px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
   display: flex;
   gap: 2rem;
   list-style: none;
+}
+
+/* ===== LANGUAGE SWITCHER ===== */
+.lang-switcher {
+  display: inline-flex;
+  gap: 0;
+  margin-left: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(26, 92, 82, 0.12);
+  border-radius: 999px;
+  padding: 3px;
+  backdrop-filter: blur(4px);
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.35rem 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-soft);
+  border-radius: 999px;
+  transition: background 0.25s, color 0.25s;
+}
+
+.lang-btn:hover { color: var(--teal-deep); }
+
+.lang-btn.active {
+  background: var(--teal-deep);
+  color: var(--cream);
 }
 
 .nav-links a {
@@ -165,8 +203,8 @@ nav.scrolled {
 }
 
 .hero-logo {
-  width: min(420px, 80vw);
-  border-radius: 20px;
+  width: min(520px, 85vw);
+  height: auto;
   animation: floatIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   filter: drop-shadow(0 20px 40px rgba(26, 92, 82, 0.12));
 }
@@ -690,6 +728,9 @@ footer a:hover { color: var(--sunset); }
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-menu-btn { display: block; }
+  .lang-switcher { margin-left: auto; margin-right: 0.75rem; }
+  .lang-btn { padding: 0.3rem 0.55rem; font-size: 0.72rem; }
+  .nav-brand-logo { height: 32px; }
 
   .nav-links.open {
     display: flex;
@@ -727,14 +768,21 @@ footer a:hover { color: var(--sunset); }
 
 <!-- Navigation -->
 <nav id="navbar">
-  <a href="#" class="nav-brand">Siili-Saari</a>
+  <a href="#" class="nav-brand" aria-label="Siili-Saari Care Center">
+    <img src="logo-horizontal.png" alt="Siili-Saari Care Center" class="nav-brand-logo">
+  </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">What We Do</a></li>
-    <li><a href="#team">Team</a></li>
-    <li><a href="#help">Found a Hedgehog?</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" data-i18n="nav.about">Meistä</a></li>
+    <li><a href="#services" data-i18n="nav.services">Toiminta</a></li>
+    <li><a href="#team" data-i18n="nav.team">Tiimi</a></li>
+    <li><a href="#help" data-i18n="nav.help">Löysitkö siilin?</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">Yhteystiedot</a></li>
   </ul>
+  <div class="lang-switcher" role="group" aria-label="Kielen valinta">
+    <button type="button" data-lang="fi" class="lang-btn active">FI</button>
+    <button type="button" data-lang="sv" class="lang-btn">SV</button>
+    <button type="button" data-lang="en" class="lang-btn">EN</button>
+  </div>
   <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -742,103 +790,13 @@ footer a:hover { color: var(--sunset); }
 
 <!-- Hero -->
 <section class="hero">
-  <img src="logo.jpg" alt="Siili-Saari Care Center — a bandaged hedgehog resting on a small island" class="hero-logo">
+  <img src="logo-heart.png" alt="Siili-Saari Care Center" class="hero-logo">
 
-  <div class="spine-title">
-    <!-- The three i's in SIILI are hedgehog spines; the middle one has a bandage -->
-    <svg viewBox="0 0 820 110" xmlns="http://www.w3.org/2000/svg" aria-label="Siili-Saari">
-      <defs>
-        <!-- Spine gradient for realism -->
-        <linearGradient id="spineGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#7a6555"/>
-          <stop offset="40%" stop-color="#5c4a3a"/>
-          <stop offset="100%" stop-color="#4a3828"/>
-        </linearGradient>
-        <linearGradient id="spineHighlight" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#9a8a7a" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#7a6555" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-
-      <!-- S -->
-      <text x="0" y="90" font-family="Fraunces, serif" font-weight="700" font-size="82" fill="#1a5c52">S</text>
-
-      <!-- First i — spine quill -->
-      <g transform="translate(58, 0)">
-        <rect x="7" y="42" width="10" height="48" rx="3" fill="#1a5c52"/>
-        <!-- Main spine body -->
-        <path d="M12 0 L19 38 L5 38 Z" fill="url(#spineGrad)"/>
-        <!-- Highlight edge -->
-        <path d="M12 0 L14 25 L12 38 L5 38 Z" fill="url(#spineHighlight)"/>
-      </g>
-
-      <!-- Second i — spine quill WITH BANDAGE -->
-      <g transform="translate(92, 0)">
-        <rect x="7" y="42" width="10" height="48" rx="3" fill="#1a5c52"/>
-        <!-- Main spine body -->
-        <path d="M12 0 L19 38 L5 38 Z" fill="url(#spineGrad)"/>
-        <path d="M12 0 L14 25 L12 38 L5 38 Z" fill="url(#spineHighlight)"/>
-        <!-- Bandage wrap — angled for realism -->
-        <g transform="rotate(-8, 12, 18)">
-          <rect x="1" y="12" width="22" height="10" rx="3" fill="#f5efe5" stroke="#d4c4a8" stroke-width="1"/>
-          <!-- Gauze pad -->
-          <rect x="7" y="12" width="10" height="10" rx="2" fill="#ebe3d5"/>
-          <!-- Red cross -->
-          <line x1="12" y1="14.5" x2="12" y2="19.5" stroke="#cc8888" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="9.5" y1="17" x2="14.5" y2="17" stroke="#cc8888" stroke-width="1.5" stroke-linecap="round"/>
-        </g>
-        <!-- Bandage tail ends -->
-        <path d="M1 15 Q-3 13 -2 10" stroke="#d4c4a8" stroke-width="1" fill="none" opacity="0.6"/>
-        <path d="M23 19 Q27 21 26 24" stroke="#d4c4a8" stroke-width="1" fill="none" opacity="0.6"/>
-      </g>
-
-      <!-- Third i — spine quill (slightly tilted for organic feel) -->
-      <g transform="translate(126, 0)">
-        <rect x="7" y="42" width="10" height="48" rx="3" fill="#1a5c52"/>
-        <path d="M12 2 L19 38 L5 38 Z" fill="url(#spineGrad)"/>
-        <path d="M12 2 L14 25 L12 38 L5 38 Z" fill="url(#spineHighlight)"/>
-      </g>
-
-      <!-- L -->
-      <text x="153" y="90" font-family="Fraunces, serif" font-weight="700" font-size="82" fill="#1a5c52">L</text>
-
-      <!-- I (uppercase — also a spine) -->
-      <g transform="translate(200, 0)">
-        <rect x="7" y="42" width="10" height="48" rx="3" fill="#1a5c52"/>
-        <path d="M12 6 L18 38 L6 38 Z" fill="url(#spineGrad)"/>
-        <path d="M12 6 L14 25 L12 38 L6 38 Z" fill="url(#spineHighlight)"/>
-      </g>
-
-      <!-- Hyphen -->
-      <rect x="228" y="58" width="26" height="6" rx="3" fill="#1a5c52"/>
-
-      <!-- S -->
-      <text x="268" y="90" font-family="Fraunces, serif" font-weight="700" font-size="82" fill="#1a5c52">S</text>
-
-      <!-- A -->
-      <text x="326" y="90" font-family="Fraunces, serif" font-weight="700" font-size="82" fill="#1a5c52">A</text>
-
-      <!-- A -->
-      <text x="392" y="90" font-family="Fraunces, serif" font-weight="700" font-size="82" fill="#1a5c52">A</text>
-
-      <!-- R -->
-      <text x="458" y="90" font-family="Fraunces, serif" font-weight="700" font-size="82" fill="#1a5c52">R</text>
-
-      <!-- Final I — spine -->
-      <g transform="translate(520, 0)">
-        <rect x="7" y="42" width="10" height="48" rx="3" fill="#1a5c52"/>
-        <path d="M12 6 L18 38 L6 38 Z" fill="url(#spineGrad)"/>
-        <path d="M12 6 L14 25 L12 38 L6 38 Z" fill="url(#spineHighlight)"/>
-      </g>
-    </svg>
-  </div>
-
-  <p class="hero-subtitle">Care Center</p>
-  <p class="hero-tagline">Giving hedgehogs a second chance, one tiny patient at a time</p>
+  <p class="hero-tagline" data-i18n="hero.tagline">Annamme siileille uuden mahdollisuuden, yksi pieni potilas kerrallaan</p>
 
   <div class="hero-scroll">
     <a href="#about">
-      <span>Discover</span>
+      <span data-i18n="hero.discover">Tutustu</span>
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M10 4 L10 16 M5 11 L10 16 L15 11"/>
       </svg>
@@ -851,31 +809,31 @@ footer a:hover { color: var(--sunset); }
   <div class="section-inner">
     <div class="about-content">
       <div class="about-text reveal">
-        <p class="section-label">About Us</p>
-        <h2 class="section-title">Where healing meets nature</h2>
-        <p>
-          Siili-Saari Care Center is a hedgehog rehabilitation center operated by
+        <p class="section-label" data-i18n="about.label">Meistä</p>
+        <h2 class="section-title" data-i18n="about.title">Luonto ja hoiva kohtaavat</h2>
+        <p data-i18n="about.p1" data-i18n-html="true">
+          Siili-Saari Care Center on siilien kuntoutuskeskus, jota ylläpitää
           <a href="https://saarivet.fi" style="color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-light);">Eläinklinikka Saari</a>
-          in Vaasa, Finland. We rescue, treat, and rehabilitate injured and orphaned hedgehogs
-          (<span class="latin-name">Erinaceus europaeus</span>) before releasing them back into the wild.
+          Vaasassa. Pelastamme, hoidamme ja kuntoutamme loukkaantuneita ja orpoja siilejä
+          (<span class="latin-name">Erinaceus europaeus</span>) ennen niiden vapauttamista luontoon.
         </p>
-        <p>
-          The European hedgehog population faces growing threats from habitat loss, traffic, pesticides, and climate change.
-          Our mission is to provide professional veterinary care for these beloved creatures and educate the community on how to coexist with them.
+        <p data-i18n="about.p2">
+          Euroopan siilikantaa uhkaavat elinympäristöjen häviäminen, liikenne, torjunta-aineet ja ilmastonmuutos.
+          Tehtävämme on tarjota ammattitaitoista eläinlääketieteellistä hoitoa näille rakastetuille eläimille ja opastaa yhteisöä elämään niiden kanssa sopusoinnussa.
         </p>
         <div class="about-stats">
           <div class="stat">
             <div class="stat-number">2026</div>
-            <div class="stat-label">Founded</div>
+            <div class="stat-label" data-i18n="about.stat.founded">Perustettu</div>
           </div>
           <div class="stat">
             <div class="stat-number">Vaasa</div>
-            <div class="stat-label">Ostrobothnia, Finland</div>
+            <div class="stat-label" data-i18n="about.stat.region">Pohjanmaa, Suomi</div>
           </div>
         </div>
       </div>
       <div class="about-visual reveal" style="transition-delay: 0.15s;">
-        <img src="logo.jpg" alt="Siili-Saari mascot — a bandaged hedgehog resting peacefully on a green island">
+        <img src="logo-circle.png" alt="Siili-Saari Care Center logo">
       </div>
     </div>
   </div>
@@ -884,8 +842,8 @@ footer a:hover { color: var(--sunset); }
 <!-- Services -->
 <section class="services" id="services">
   <div class="section-inner">
-    <p class="section-label reveal">What We Do</p>
-    <h2 class="section-title reveal">From rescue to release</h2>
+    <p class="section-label reveal" data-i18n="services.label">Toiminta</p>
+    <h2 class="section-title reveal" data-i18n="services.title">Pelastuksesta vapauteen</h2>
     <div class="services-grid">
       <div class="service-card reveal" style="transition-delay: 0.05s;">
         <div class="service-icon rescue">
@@ -896,8 +854,8 @@ footer a:hover { color: var(--sunset); }
             <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
           </svg>
         </div>
-        <h3>Rescue & First Aid</h3>
-        <p>Emergency intake and stabilization for injured, sick, or orphaned hedgehogs found by the public. Immediate triage, warmth, and hydration.</p>
+        <h3 data-i18n="services.rescue.title">Pelastus ja ensiapu</h3>
+        <p data-i18n="services.rescue.body">Kiireellinen vastaanotto ja tilan vakauttaminen löydetyille loukkaantuneille, sairaille tai orvoille siileille. Välitön triage, lämpö ja nesteytys.</p>
       </div>
       <div class="service-card reveal" style="transition-delay: 0.1s;">
         <div class="service-icon medical">
@@ -908,8 +866,8 @@ footer a:hover { color: var(--sunset); }
             <line x1="8" y1="12" x2="16" y2="12"/>
           </svg>
         </div>
-        <h3>Medical Treatment</h3>
-        <p>Full veterinary diagnostics and care — from X-rays and surgery to parasite treatment, wound management, and medication protocols.</p>
+        <h3 data-i18n="services.medical.title">Lääketieteellinen hoito</h3>
+        <p data-i18n="services.medical.body">Täysi eläinlääketieteellinen diagnostiikka ja hoito — röntgenkuvauksista ja leikkauksista loisten hoitoon, haavanhoitoon ja lääkitysprotokolliin.</p>
       </div>
       <div class="service-card reveal" style="transition-delay: 0.15s;">
         <div class="service-icon rehab">
@@ -919,8 +877,8 @@ footer a:hover { color: var(--sunset); }
             <path d="M2 12h20"/>
           </svg>
         </div>
-        <h3>Rehabilitation & Release</h3>
-        <p>Gradual recovery in natural-style outdoor enclosures. Weight monitoring, foraging skills assessment, and safe release into suitable habitats.</p>
+        <h3 data-i18n="services.rehab.title">Kuntoutus ja vapauttaminen</h3>
+        <p data-i18n="services.rehab.body">Asteittainen toipuminen luonnonmukaisissa ulkoaidatuksissa. Painon seuranta, ravinnonhakutaitojen arviointi ja turvallinen vapauttaminen sopiviin elinympäristöihin.</p>
       </div>
       <div class="service-card reveal" style="transition-delay: 0.2s;">
         <div class="service-icon edu">
@@ -929,8 +887,8 @@ footer a:hover { color: var(--sunset); }
             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
           </svg>
         </div>
-        <h3>Education</h3>
-        <p>Community outreach, school visits, and public awareness campaigns about hedgehog conservation and how to create hedgehog-friendly gardens.</p>
+        <h3 data-i18n="services.edu.title">Koulutus</h3>
+        <p data-i18n="services.edu.body">Yhteisötiedotus, koulukäynnit ja yleisötietoisuuskampanjat siilien suojelusta sekä siili­ystävällisten puutarhojen luomisesta.</p>
       </div>
     </div>
   </div>
@@ -939,23 +897,23 @@ footer a:hover { color: var(--sunset); }
 <!-- Team -->
 <section class="team" id="team">
   <div class="section-inner">
-    <p class="section-label reveal">Our Team</p>
-    <h2 class="section-title reveal">The people behind the spines</h2>
+    <p class="section-label reveal" data-i18n="team.label">Tiimimme</p>
+    <h2 class="section-title reveal" data-i18n="team.title">Ihmiset piikkien takana</h2>
     <div class="team-grid">
       <div class="team-card reveal" style="transition-delay: 0.05s;">
         <img src="assaf.webp" alt="Assaf Wydra" class="team-photo">
         <div class="team-info">
           <h3>Assaf Wydra</h3>
-          <p class="team-role">Veterinarian & Founder</p>
-          <p>Licensed veterinarian and owner of Eläinklinikka Saari. Provides medical care, surgery, and oversees all rehabilitation protocols.</p>
+          <p class="team-role" data-i18n="team.assaf.role">Eläinlääkäri ja perustaja</p>
+          <p data-i18n="team.assaf.bio">Laillistettu eläinlääkäri ja Eläinklinikka Saaren omistaja. Vastaa lääketieteellisestä hoidosta, leikkauksista ja kaikkien kuntoutusprotokollien valvonnasta.</p>
         </div>
       </div>
       <div class="team-card reveal" style="transition-delay: 0.1s;">
         <img src="johanna.png" alt="Johanna Tidström" class="team-photo">
         <div class="team-info">
           <h3>Johanna Tidström</h3>
-          <p class="team-role">Co-founder & Operations</p>
-          <p>Vaasa-based entrepreneur bringing organizational expertise to wildlife care. Manages center operations, volunteer coordination, and community outreach.</p>
+          <p class="team-role" data-i18n="team.johanna.role">Perustajajäsen ja toiminta</p>
+          <p data-i18n="team.johanna.bio">Vaasalainen yrittäjä, joka tuo organisatorista osaamista luonnonvaraisten eläinten hoitoon. Hoitaa keskuksen toimintaa, vapaaehtoistyön koordinointia ja yhteisötiedotusta.</p>
         </div>
       </div>
     </div>
@@ -965,36 +923,36 @@ footer a:hover { color: var(--sunset); }
 <!-- How to Help -->
 <section class="help" id="help">
   <div class="section-inner">
-    <p class="section-label reveal">How to Help</p>
-    <h2 class="section-title reveal">Found an injured hedgehog?</h2>
-    <p class="help-intro reveal">Every minute counts. Here's what to do while you wait for professional help.</p>
+    <p class="section-label reveal" data-i18n="help.label">Miten auttaa</p>
+    <h2 class="section-title reveal" data-i18n="help.title">Löysitkö loukkaantuneen siilin?</h2>
+    <p class="help-intro reveal" data-i18n="help.intro">Jokainen minuutti on tärkeä. Näin toimit odottaessasi ammattiapua.</p>
     <div class="steps">
       <div class="step reveal" style="transition-delay: 0.05s;">
         <div class="step-number">01</div>
-        <h3>Pick it up gently</h3>
-        <p>Use gardening gloves or a thick towel. Hedgehogs can curl into a ball — this is normal, handle with care.</p>
+        <h3 data-i18n="help.step1.title">Nosta varovasti</h3>
+        <p data-i18n="help.step1.body">Käytä puutarhahanskoja tai paksua pyyhettä. Siili voi kääriytyä palloksi — se on normaalia, käsittele varoen.</p>
       </div>
       <div class="step reveal" style="transition-delay: 0.1s;">
         <div class="step-number">02</div>
-        <h3>Place in a box</h3>
-        <p>Use a cardboard box with air holes. Line the bottom with a towel or newspaper for comfort.</p>
+        <h3 data-i18n="help.step2.title">Laita laatikkoon</h3>
+        <p data-i18n="help.step2.body">Käytä pahvilaatikkoa, jossa on ilmareikiä. Laita pohjalle pyyhe tai sanomalehti mukavuuden vuoksi.</p>
       </div>
       <div class="step reveal" style="transition-delay: 0.15s;">
         <div class="step-number">03</div>
-        <h3>Keep warm & quiet</h3>
-        <p>Place a warm water bottle wrapped in a towel beside (not on) the hedgehog. Keep in a quiet, dark room.</p>
+        <h3 data-i18n="help.step3.title">Pidä lämpimänä ja rauhassa</h3>
+        <p data-i18n="help.step3.body">Aseta pyyhkeeseen kääritty lämpöpullo siilin viereen (ei päälle). Säilytä hiljaisessa, pimeässä huoneessa.</p>
       </div>
       <div class="step reveal" style="transition-delay: 0.2s;">
         <div class="step-number">04</div>
-        <h3>Call us immediately</h3>
-        <p>Contact Siili-Saari Care Center. We'll guide you through next steps and arrange pickup if needed.</p>
+        <h3 data-i18n="help.step4.title">Soita meille heti</h3>
+        <p data-i18n="help.step4.body">Ota yhteyttä Siili-Saari Care Centeriin. Opastamme sinut eteenpäin ja järjestämme tarvittaessa noudon.</p>
       </div>
     </div>
     <div class="help-emergency reveal" style="transition-delay: 0.25s;">
       <div class="help-emergency-icon">📞</div>
       <p>
-        Emergency line: <a href="tel:+35863217300">+358 6 321 7300</a><br>
-        <small style="opacity: 0.7;">During clinic hours — evenings & weekends, leave a voicemail and we'll call back</small>
+        <span data-i18n="help.emergency.label">Hätälinja</span>: <a href="tel:+35863217300">+358 6 321 7300</a><br>
+        <small style="opacity: 0.7;" data-i18n="help.emergency.hours">Klinikan aukioloaikoina — iltaisin ja viikonloppuisin jätä viesti vastaajaan, soitamme takaisin</small>
       </p>
     </div>
   </div>
@@ -1003,8 +961,8 @@ footer a:hover { color: var(--sunset); }
 <!-- Contact -->
 <section class="contact" id="contact">
   <div class="section-inner">
-    <p class="section-label reveal">Contact</p>
-    <h2 class="section-title reveal">Get in touch</h2>
+    <p class="section-label reveal" data-i18n="contact.label">Yhteystiedot</p>
+    <h2 class="section-title reveal" data-i18n="contact.title">Ota yhteyttä</h2>
     <div class="contact-grid">
       <div class="contact-item reveal" style="transition-delay: 0.05s;">
         <div class="contact-icon">
@@ -1012,7 +970,7 @@ footer a:hover { color: var(--sunset); }
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
           </svg>
         </div>
-        <h3>Phone</h3>
+        <h3 data-i18n="contact.phone">Puhelin</h3>
         <a href="tel:+35863217300">+358 6 321 7300</a>
       </div>
       <div class="contact-item reveal" style="transition-delay: 0.1s;">
@@ -1022,7 +980,7 @@ footer a:hover { color: var(--sunset); }
             <polyline points="22,6 12,13 2,6"/>
           </svg>
         </div>
-        <h3>Email</h3>
+        <h3 data-i18n="contact.email">Sähköposti</h3>
         <a href="mailto:info@saarivet.fi">info@saarivet.fi</a>
       </div>
       <div class="contact-item reveal" style="transition-delay: 0.15s;">
@@ -1032,8 +990,8 @@ footer a:hover { color: var(--sunset); }
             <circle cx="12" cy="10" r="3"/>
           </svg>
         </div>
-        <h3>Visit Us</h3>
-        <p>Gerbyntie 20<br>65230 Vaasa, Finland</p>
+        <h3 data-i18n="contact.visit">Vieraile luonamme</h3>
+        <p data-i18n="contact.address" data-i18n-html="true">Gerbyntie 20<br>65230 Vaasa, Suomi</p>
       </div>
     </div>
   </div>
@@ -1042,11 +1000,221 @@ footer a:hover { color: var(--sunset); }
 <!-- Footer -->
 <footer>
   <div class="footer-brand">Siili-Saari Care Center</div>
-  <p>A project by <a href="https://saarivet.fi">Eläinklinikka Saari</a> &middot; Vaasa, Finland</p>
-  <p style="margin-top: 0.75rem; font-size: 0.8rem;">Jokaisella siilillä on merkitystä &middot; Every hedgehog matters</p>
+  <p data-i18n="footer.project" data-i18n-html="true">Projekti: <a href="https://saarivet.fi">Eläinklinikka Saari</a> &middot; Vaasa, Suomi</p>
+  <p style="margin-top: 0.75rem; font-size: 0.8rem;" data-i18n="footer.motto">Jokaisella siilillä on merkitystä</p>
 </footer>
 
 <script>
+// ===== i18n dictionary =====
+const I18N = {
+  fi: {
+    'meta.title': 'Siili-Saari Care Center — Siilien hoitokeskus Vaasassa',
+    'meta.description': 'Siili-Saari Care Center pelastaa, hoitaa ja kuntouttaa loukkaantuneita ja orpoja siilejä Vaasassa.',
+    'nav.about': 'Meistä',
+    'nav.services': 'Toiminta',
+    'nav.team': 'Tiimi',
+    'nav.help': 'Löysitkö siilin?',
+    'nav.contact': 'Yhteystiedot',
+    'hero.tagline': 'Annamme siileille uuden mahdollisuuden, yksi pieni potilas kerrallaan',
+    'hero.discover': 'Tutustu',
+    'about.label': 'Meistä',
+    'about.title': 'Luonto ja hoiva kohtaavat',
+    'about.p1': 'Siili-Saari Care Center on siilien kuntoutuskeskus, jota ylläpitää <a href="https://saarivet.fi" style="color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-light);">Eläinklinikka Saari</a> Vaasassa. Pelastamme, hoidamme ja kuntoutamme loukkaantuneita ja orpoja siilejä (<span class="latin-name">Erinaceus europaeus</span>) ennen niiden vapauttamista luontoon.',
+    'about.p2': 'Euroopan siilikantaa uhkaavat elinympäristöjen häviäminen, liikenne, torjunta-aineet ja ilmastonmuutos. Tehtävämme on tarjota ammattitaitoista eläinlääketieteellistä hoitoa näille rakastetuille eläimille ja opastaa yhteisöä elämään niiden kanssa sopusoinnussa.',
+    'about.stat.founded': 'Perustettu',
+    'about.stat.region': 'Pohjanmaa, Suomi',
+    'services.label': 'Toiminta',
+    'services.title': 'Pelastuksesta vapauteen',
+    'services.rescue.title': 'Pelastus ja ensiapu',
+    'services.rescue.body': 'Kiireellinen vastaanotto ja tilan vakauttaminen löydetyille loukkaantuneille, sairaille tai orvoille siileille. Välitön triage, lämpö ja nesteytys.',
+    'services.medical.title': 'Lääketieteellinen hoito',
+    'services.medical.body': 'Täysi eläinlääketieteellinen diagnostiikka ja hoito — röntgenkuvauksista ja leikkauksista loisten hoitoon, haavanhoitoon ja lääkitysprotokolliin.',
+    'services.rehab.title': 'Kuntoutus ja vapauttaminen',
+    'services.rehab.body': 'Asteittainen toipuminen luonnonmukaisissa ulkoaidatuksissa. Painon seuranta, ravinnonhakutaitojen arviointi ja turvallinen vapauttaminen sopiviin elinympäristöihin.',
+    'services.edu.title': 'Koulutus',
+    'services.edu.body': 'Yhteisötiedotus, koulukäynnit ja yleisötietoisuuskampanjat siilien suojelusta sekä siiliystävällisten puutarhojen luomisesta.',
+    'team.label': 'Tiimimme',
+    'team.title': 'Ihmiset piikkien takana',
+    'team.assaf.role': 'Eläinlääkäri ja perustaja',
+    'team.assaf.bio': 'Laillistettu eläinlääkäri ja Eläinklinikka Saaren omistaja. Vastaa lääketieteellisestä hoidosta, leikkauksista ja kaikkien kuntoutusprotokollien valvonnasta.',
+    'team.johanna.role': 'Perustajajäsen ja toiminta',
+    'team.johanna.bio': 'Vaasalainen yrittäjä, joka tuo organisatorista osaamista luonnonvaraisten eläinten hoitoon. Hoitaa keskuksen toimintaa, vapaaehtoistyön koordinointia ja yhteisötiedotusta.',
+    'help.label': 'Miten auttaa',
+    'help.title': 'Löysitkö loukkaantuneen siilin?',
+    'help.intro': 'Jokainen minuutti on tärkeä. Näin toimit odottaessasi ammattiapua.',
+    'help.step1.title': 'Nosta varovasti',
+    'help.step1.body': 'Käytä puutarhahanskoja tai paksua pyyhettä. Siili voi kääriytyä palloksi — se on normaalia, käsittele varoen.',
+    'help.step2.title': 'Laita laatikkoon',
+    'help.step2.body': 'Käytä pahvilaatikkoa, jossa on ilmareikiä. Laita pohjalle pyyhe tai sanomalehti mukavuuden vuoksi.',
+    'help.step3.title': 'Pidä lämpimänä ja rauhassa',
+    'help.step3.body': 'Aseta pyyhkeeseen kääritty lämpöpullo siilin viereen (ei päälle). Säilytä hiljaisessa, pimeässä huoneessa.',
+    'help.step4.title': 'Soita meille heti',
+    'help.step4.body': 'Ota yhteyttä Siili-Saari Care Centeriin. Opastamme sinut eteenpäin ja järjestämme tarvittaessa noudon.',
+    'help.emergency.label': 'Hätälinja',
+    'help.emergency.hours': 'Klinikan aukioloaikoina — iltaisin ja viikonloppuisin jätä viesti vastaajaan, soitamme takaisin',
+    'contact.label': 'Yhteystiedot',
+    'contact.title': 'Ota yhteyttä',
+    'contact.phone': 'Puhelin',
+    'contact.email': 'Sähköposti',
+    'contact.visit': 'Vieraile luonamme',
+    'contact.address': 'Gerbyntie 20<br>65230 Vaasa, Suomi',
+    'footer.project': 'Projekti: <a href="https://saarivet.fi">Eläinklinikka Saari</a> &middot; Vaasa, Suomi',
+    'footer.motto': 'Jokaisella siilillä on merkitystä',
+  },
+  sv: {
+    'meta.title': 'Siili-Saari Care Center — Igelkottsrehabilitering i Vasa',
+    'meta.description': 'Siili-Saari Care Center räddar, behandlar och rehabiliterar skadade och föräldralösa igelkottar i Vasa, Finland.',
+    'nav.about': 'Om oss',
+    'nav.services': 'Verksamhet',
+    'nav.team': 'Team',
+    'nav.help': 'Hittade du en igelkott?',
+    'nav.contact': 'Kontakt',
+    'hero.tagline': 'Vi ger igelkottar en andra chans, en liten patient i taget',
+    'hero.discover': 'Läs mer',
+    'about.label': 'Om oss',
+    'about.title': 'Där vård möter naturen',
+    'about.p1': 'Siili-Saari Care Center är ett rehabiliteringscenter för igelkottar som drivs av <a href="https://saarivet.fi" style="color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-light);">Djurkliniken Saari</a> i Vasa. Vi räddar, behandlar och rehabiliterar skadade och föräldralösa igelkottar (<span class="latin-name">Erinaceus europaeus</span>) innan vi släpper dem tillbaka ut i naturen.',
+    'about.p2': 'Den europeiska igelkottspopulationen hotas av förlust av livsmiljöer, trafik, bekämpningsmedel och klimatförändringar. Vårt uppdrag är att erbjuda professionell veterinärvård för dessa älskade djur och utbilda samhället om hur man kan samexistera med dem.',
+    'about.stat.founded': 'Grundat',
+    'about.stat.region': 'Österbotten, Finland',
+    'services.label': 'Verksamhet',
+    'services.title': 'Från räddning till frigivning',
+    'services.rescue.title': 'Räddning och första hjälpen',
+    'services.rescue.body': 'Akut mottagande och stabilisering av skadade, sjuka eller föräldralösa igelkottar som hittats av allmänheten. Omedelbar triage, värme och vätska.',
+    'services.medical.title': 'Medicinsk vård',
+    'services.medical.body': 'Fullständig veterinärmedicinsk diagnostik och vård — från röntgen och kirurgi till parasitbehandling, sårvård och medicineringsprotokoll.',
+    'services.rehab.title': 'Rehabilitering och frigivning',
+    'services.rehab.body': 'Gradvis återhämtning i naturliga utomhushägn. Viktkontroll, bedömning av födosöksförmåga och säker frigivning i lämpliga livsmiljöer.',
+    'services.edu.title': 'Utbildning',
+    'services.edu.body': 'Samhällsinformation, skolbesök och upplysningskampanjer om igelkottsskydd och hur man skapar igelkottsvänliga trädgårdar.',
+    'team.label': 'Vårt team',
+    'team.title': 'Människorna bakom taggarna',
+    'team.assaf.role': 'Veterinär och grundare',
+    'team.assaf.bio': 'Legitimerad veterinär och ägare av Djurkliniken Saari. Ansvarar för medicinsk vård, kirurgi och övervakar alla rehabiliteringsprotokoll.',
+    'team.johanna.role': 'Medgrundare och verksamhet',
+    'team.johanna.bio': 'Vasabaserad företagare som bidrar med organisatorisk expertis till djurvård. Sköter centrets verksamhet, volontärkoordinering och samhällsinformation.',
+    'help.label': 'Så här hjälper du',
+    'help.title': 'Hittade du en skadad igelkott?',
+    'help.intro': 'Varje minut räknas. Så här gör du medan du väntar på professionell hjälp.',
+    'help.step1.title': 'Lyft försiktigt',
+    'help.step1.body': 'Använd trädgårdshandskar eller en tjock handduk. Igelkotten kan rulla ihop sig till en boll — det är normalt, hantera försiktigt.',
+    'help.step2.title': 'Placera i en låda',
+    'help.step2.body': 'Använd en kartong med luftningshål. Lägg en handduk eller tidningspapper i botten för bekvämlighet.',
+    'help.step3.title': 'Håll varmt och lugnt',
+    'help.step3.body': 'Placera en varmvattenflaska insvept i en handduk bredvid (inte på) igelkotten. Förvara i ett tyst, mörkt rum.',
+    'help.step4.title': 'Ring oss omedelbart',
+    'help.step4.body': 'Kontakta Siili-Saari Care Center. Vi vägleder dig genom nästa steg och ordnar hämtning vid behov.',
+    'help.emergency.label': 'Akutlinje',
+    'help.emergency.hours': 'Under klinikens öppettider — kvällar och helger, lämna ett meddelande så ringer vi tillbaka',
+    'contact.label': 'Kontakt',
+    'contact.title': 'Ta kontakt',
+    'contact.phone': 'Telefon',
+    'contact.email': 'E-post',
+    'contact.visit': 'Besök oss',
+    'contact.address': 'Gerbyvägen 20<br>65230 Vasa, Finland',
+    'footer.project': 'Ett projekt av <a href="https://saarivet.fi">Djurkliniken Saari</a> &middot; Vasa, Finland',
+    'footer.motto': 'Varje igelkott har betydelse',
+  },
+  en: {
+    'meta.title': 'Siili-Saari Care Center — Hedgehog Rehabilitation in Vaasa',
+    'meta.description': 'Siili-Saari Care Center rescues, treats, and rehabilitates injured and orphaned hedgehogs in Vaasa, Finland.',
+    'nav.about': 'About',
+    'nav.services': 'What We Do',
+    'nav.team': 'Team',
+    'nav.help': 'Found a Hedgehog?',
+    'nav.contact': 'Contact',
+    'hero.tagline': 'Giving hedgehogs a second chance, one tiny patient at a time',
+    'hero.discover': 'Discover',
+    'about.label': 'About Us',
+    'about.title': 'Where healing meets nature',
+    'about.p1': 'Siili-Saari Care Center is a hedgehog rehabilitation center operated by <a href="https://saarivet.fi" style="color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-light);">Eläinklinikka Saari</a> in Vaasa, Finland. We rescue, treat, and rehabilitate injured and orphaned hedgehogs (<span class="latin-name">Erinaceus europaeus</span>) before releasing them back into the wild.',
+    'about.p2': 'The European hedgehog population faces growing threats from habitat loss, traffic, pesticides, and climate change. Our mission is to provide professional veterinary care for these beloved creatures and educate the community on how to coexist with them.',
+    'about.stat.founded': 'Founded',
+    'about.stat.region': 'Ostrobothnia, Finland',
+    'services.label': 'What We Do',
+    'services.title': 'From rescue to release',
+    'services.rescue.title': 'Rescue & First Aid',
+    'services.rescue.body': 'Emergency intake and stabilization for injured, sick, or orphaned hedgehogs found by the public. Immediate triage, warmth, and hydration.',
+    'services.medical.title': 'Medical Treatment',
+    'services.medical.body': 'Full veterinary diagnostics and care — from X-rays and surgery to parasite treatment, wound management, and medication protocols.',
+    'services.rehab.title': 'Rehabilitation & Release',
+    'services.rehab.body': 'Gradual recovery in natural-style outdoor enclosures. Weight monitoring, foraging skills assessment, and safe release into suitable habitats.',
+    'services.edu.title': 'Education',
+    'services.edu.body': 'Community outreach, school visits, and public awareness campaigns about hedgehog conservation and how to create hedgehog-friendly gardens.',
+    'team.label': 'Our Team',
+    'team.title': 'The people behind the spines',
+    'team.assaf.role': 'Veterinarian & Founder',
+    'team.assaf.bio': 'Licensed veterinarian and owner of Eläinklinikka Saari. Provides medical care, surgery, and oversees all rehabilitation protocols.',
+    'team.johanna.role': 'Co-founder & Operations',
+    'team.johanna.bio': 'Vaasa-based entrepreneur bringing organizational expertise to wildlife care. Manages center operations, volunteer coordination, and community outreach.',
+    'help.label': 'How to Help',
+    'help.title': 'Found an injured hedgehog?',
+    'help.intro': "Every minute counts. Here's what to do while you wait for professional help.",
+    'help.step1.title': 'Pick it up gently',
+    'help.step1.body': 'Use gardening gloves or a thick towel. Hedgehogs can curl into a ball — this is normal, handle with care.',
+    'help.step2.title': 'Place in a box',
+    'help.step2.body': 'Use a cardboard box with air holes. Line the bottom with a towel or newspaper for comfort.',
+    'help.step3.title': 'Keep warm & quiet',
+    'help.step3.body': 'Place a warm water bottle wrapped in a towel beside (not on) the hedgehog. Keep in a quiet, dark room.',
+    'help.step4.title': 'Call us immediately',
+    'help.step4.body': "Contact Siili-Saari Care Center. We'll guide you through next steps and arrange pickup if needed.",
+    'help.emergency.label': 'Emergency line',
+    'help.emergency.hours': "During clinic hours — evenings & weekends, leave a voicemail and we'll call back",
+    'contact.label': 'Contact',
+    'contact.title': 'Get in touch',
+    'contact.phone': 'Phone',
+    'contact.email': 'Email',
+    'contact.visit': 'Visit Us',
+    'contact.address': 'Gerbyntie 20<br>65230 Vaasa, Finland',
+    'footer.project': 'A project by <a href="https://saarivet.fi">Eläinklinikka Saari</a> &middot; Vaasa, Finland',
+    'footer.motto': 'Every hedgehog matters',
+  },
+};
+
+// ===== Apply translation =====
+function applyLang(lang) {
+  if (!I18N[lang]) lang = 'fi';
+  const dict = I18N[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const val = dict[key];
+    if (val == null) return;
+    const attr = el.getAttribute('data-i18n-attr');
+    if (attr) {
+      el.setAttribute(attr, val);
+    } else if (el.getAttribute('data-i18n-html') === 'true') {
+      el.innerHTML = val;
+    } else {
+      el.textContent = val;
+    }
+  });
+  // Update title separately (it also has data-i18n but textContent won't trigger tab title refresh on some browsers)
+  if (dict['meta.title']) document.title = dict['meta.title'];
+  // Active button state
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+  try { localStorage.setItem('ss-lang', lang); } catch (e) {}
+}
+
+function detectInitialLang() {
+  try {
+    const saved = localStorage.getItem('ss-lang');
+    if (saved && I18N[saved]) return saved;
+  } catch (e) {}
+  const browser = (navigator.language || 'fi').slice(0, 2).toLowerCase();
+  if (I18N[browser]) return browser;
+  return 'fi';
+}
+
+// ===== Wire up UI =====
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
+});
+
+applyLang(detectInitialLang());
+
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
