@@ -7,10 +7,37 @@
 <meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="Siili-Saari Care Center pelastaa, hoitaa ja kuntouttaa loukkaantuneita ja orpoja siilejä Vaasassa.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
+/* Self-hosted variable fonts (GDPR-friendly — no third-party CDN) */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('fonts/fraunces-latin.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('fonts/fraunces-latin-italic.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 100 1000;
+  font-display: swap;
+  src: url('fonts/dmsans-latin.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 100 1000;
+  font-display: swap;
+  src: url('fonts/dmsans-latin-italic.woff2') format('woff2-variations');
+}
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -372,8 +399,8 @@ section {
 
 .about-visual img {
   width: 100%;
-  border-radius: 24px;
-  box-shadow: 0 24px 48px rgba(26, 92, 82, 0.1);
+  height: auto;
+  filter: drop-shadow(0 16px 32px rgba(26, 92, 82, 0.12));
 }
 
 .about-visual::before {
@@ -712,6 +739,22 @@ footer a:hover { color: var(--sunset); }
   margin-bottom: 0.5rem;
 }
 
+.footer-impressum {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.footer-legal {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.footer-legal a {
+  border-bottom: 1px solid rgba(250, 246, 240, 0.3);
+  padding-bottom: 1px;
+}
+
 /* ===== SCROLL ANIMATIONS ===== */
 .reveal {
   opacity: 0;
@@ -1001,219 +1044,15 @@ footer a:hover { color: var(--sunset); }
 <footer>
   <div class="footer-brand">Siili-Saari Care Center</div>
   <p data-i18n="footer.project" data-i18n-html="true">Projekti: <a href="https://saarivet.fi">Eläinklinikka Saari</a> &middot; Vaasa, Suomi</p>
+  <p class="footer-impressum" data-i18n="footer.impressum" data-i18n-html="true">Eläinklinikka Saari Oy &middot; Y-tunnus 0708667-9 &middot; Gerbyntie 18, 65230 Vaasa</p>
+  <p class="footer-legal">
+    <a href="tietosuoja.html" data-i18n="footer.privacy">Tietosuojaseloste</a>
+  </p>
   <p style="margin-top: 0.75rem; font-size: 0.8rem;" data-i18n="footer.motto">Jokaisella siilillä on merkitystä</p>
 </footer>
 
+<script src="i18n.js"></script>
 <script>
-// ===== i18n dictionary =====
-const I18N = {
-  fi: {
-    'meta.title': 'Siili-Saari Care Center — Siilien hoitokeskus Vaasassa',
-    'meta.description': 'Siili-Saari Care Center pelastaa, hoitaa ja kuntouttaa loukkaantuneita ja orpoja siilejä Vaasassa.',
-    'nav.about': 'Meistä',
-    'nav.services': 'Toiminta',
-    'nav.team': 'Tiimi',
-    'nav.help': 'Löysitkö siilin?',
-    'nav.contact': 'Yhteystiedot',
-    'hero.tagline': 'Annamme siileille uuden mahdollisuuden, yksi pieni potilas kerrallaan',
-    'hero.discover': 'Tutustu',
-    'about.label': 'Meistä',
-    'about.title': 'Luonto ja hoiva kohtaavat',
-    'about.p1': 'Siili-Saari Care Center on siilien kuntoutuskeskus, jota ylläpitää <a href="https://saarivet.fi" style="color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-light);">Eläinklinikka Saari</a> Vaasassa. Pelastamme, hoidamme ja kuntoutamme loukkaantuneita ja orpoja siilejä (<span class="latin-name">Erinaceus europaeus</span>) ennen niiden vapauttamista luontoon.',
-    'about.p2': 'Euroopan siilikantaa uhkaavat elinympäristöjen häviäminen, liikenne, torjunta-aineet ja ilmastonmuutos. Tehtävämme on tarjota ammattitaitoista eläinlääketieteellistä hoitoa näille rakastetuille eläimille ja opastaa yhteisöä elämään niiden kanssa sopusoinnussa.',
-    'about.stat.founded': 'Perustettu',
-    'about.stat.region': 'Pohjanmaa, Suomi',
-    'services.label': 'Toiminta',
-    'services.title': 'Pelastuksesta vapauteen',
-    'services.rescue.title': 'Pelastus ja ensiapu',
-    'services.rescue.body': 'Kiireellinen vastaanotto ja tilan vakauttaminen löydetyille loukkaantuneille, sairaille tai orvoille siileille. Välitön triage, lämpö ja nesteytys.',
-    'services.medical.title': 'Lääketieteellinen hoito',
-    'services.medical.body': 'Täysi eläinlääketieteellinen diagnostiikka ja hoito — röntgenkuvauksista ja leikkauksista loisten hoitoon, haavanhoitoon ja lääkitysprotokolliin.',
-    'services.rehab.title': 'Kuntoutus ja vapauttaminen',
-    'services.rehab.body': 'Asteittainen toipuminen luonnonmukaisissa ulkoaidatuksissa. Painon seuranta, ravinnonhakutaitojen arviointi ja turvallinen vapauttaminen sopiviin elinympäristöihin.',
-    'services.edu.title': 'Koulutus',
-    'services.edu.body': 'Yhteisötiedotus, koulukäynnit ja yleisötietoisuuskampanjat siilien suojelusta sekä siiliystävällisten puutarhojen luomisesta.',
-    'team.label': 'Tiimimme',
-    'team.title': 'Ihmiset piikkien takana',
-    'team.assaf.role': 'Eläinlääkäri ja perustaja',
-    'team.assaf.bio': 'Laillistettu eläinlääkäri ja Eläinklinikka Saaren omistaja. Vastaa lääketieteellisestä hoidosta, leikkauksista ja kaikkien kuntoutusprotokollien valvonnasta.',
-    'team.johanna.role': 'Perustajajäsen ja toiminta',
-    'team.johanna.bio': 'Vaasalainen yrittäjä, joka tuo organisatorista osaamista luonnonvaraisten eläinten hoitoon. Hoitaa keskuksen toimintaa, vapaaehtoistyön koordinointia ja yhteisötiedotusta.',
-    'help.label': 'Miten auttaa',
-    'help.title': 'Löysitkö loukkaantuneen siilin?',
-    'help.intro': 'Jokainen minuutti on tärkeä. Näin toimit odottaessasi ammattiapua.',
-    'help.step1.title': 'Nosta varovasti',
-    'help.step1.body': 'Käytä puutarhahanskoja tai paksua pyyhettä. Siili voi kääriytyä palloksi — se on normaalia, käsittele varoen.',
-    'help.step2.title': 'Laita laatikkoon',
-    'help.step2.body': 'Käytä pahvilaatikkoa, jossa on ilmareikiä. Laita pohjalle pyyhe tai sanomalehti mukavuuden vuoksi.',
-    'help.step3.title': 'Pidä lämpimänä ja rauhassa',
-    'help.step3.body': 'Aseta pyyhkeeseen kääritty lämpöpullo siilin viereen (ei päälle). Säilytä hiljaisessa, pimeässä huoneessa.',
-    'help.step4.title': 'Soita meille heti',
-    'help.step4.body': 'Ota yhteyttä Siili-Saari Care Centeriin. Opastamme sinut eteenpäin ja järjestämme tarvittaessa noudon.',
-    'help.emergency.label': 'Hätälinja',
-    'help.emergency.hours': 'Klinikan aukioloaikoina — iltaisin ja viikonloppuisin jätä viesti vastaajaan, soitamme takaisin',
-    'contact.label': 'Yhteystiedot',
-    'contact.title': 'Ota yhteyttä',
-    'contact.phone': 'Puhelin',
-    'contact.email': 'Sähköposti',
-    'contact.visit': 'Vieraile luonamme',
-    'contact.address': 'Gerbyntie 20<br>65230 Vaasa, Suomi',
-    'footer.project': 'Projekti: <a href="https://saarivet.fi">Eläinklinikka Saari</a> &middot; Vaasa, Suomi',
-    'footer.motto': 'Jokaisella siilillä on merkitystä',
-  },
-  sv: {
-    'meta.title': 'Siili-Saari Care Center — Igelkottsrehabilitering i Vasa',
-    'meta.description': 'Siili-Saari Care Center räddar, behandlar och rehabiliterar skadade och föräldralösa igelkottar i Vasa, Finland.',
-    'nav.about': 'Om oss',
-    'nav.services': 'Verksamhet',
-    'nav.team': 'Team',
-    'nav.help': 'Hittade du en igelkott?',
-    'nav.contact': 'Kontakt',
-    'hero.tagline': 'Vi ger igelkottar en andra chans, en liten patient i taget',
-    'hero.discover': 'Läs mer',
-    'about.label': 'Om oss',
-    'about.title': 'Där vård möter naturen',
-    'about.p1': 'Siili-Saari Care Center är ett rehabiliteringscenter för igelkottar som drivs av <a href="https://saarivet.fi" style="color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-light);">Djurkliniken Saari</a> i Vasa. Vi räddar, behandlar och rehabiliterar skadade och föräldralösa igelkottar (<span class="latin-name">Erinaceus europaeus</span>) innan vi släpper dem tillbaka ut i naturen.',
-    'about.p2': 'Den europeiska igelkottspopulationen hotas av förlust av livsmiljöer, trafik, bekämpningsmedel och klimatförändringar. Vårt uppdrag är att erbjuda professionell veterinärvård för dessa älskade djur och utbilda samhället om hur man kan samexistera med dem.',
-    'about.stat.founded': 'Grundat',
-    'about.stat.region': 'Österbotten, Finland',
-    'services.label': 'Verksamhet',
-    'services.title': 'Från räddning till frigivning',
-    'services.rescue.title': 'Räddning och första hjälpen',
-    'services.rescue.body': 'Akut mottagande och stabilisering av skadade, sjuka eller föräldralösa igelkottar som hittats av allmänheten. Omedelbar triage, värme och vätska.',
-    'services.medical.title': 'Medicinsk vård',
-    'services.medical.body': 'Fullständig veterinärmedicinsk diagnostik och vård — från röntgen och kirurgi till parasitbehandling, sårvård och medicineringsprotokoll.',
-    'services.rehab.title': 'Rehabilitering och frigivning',
-    'services.rehab.body': 'Gradvis återhämtning i naturliga utomhushägn. Viktkontroll, bedömning av födosöksförmåga och säker frigivning i lämpliga livsmiljöer.',
-    'services.edu.title': 'Utbildning',
-    'services.edu.body': 'Samhällsinformation, skolbesök och upplysningskampanjer om igelkottsskydd och hur man skapar igelkottsvänliga trädgårdar.',
-    'team.label': 'Vårt team',
-    'team.title': 'Människorna bakom taggarna',
-    'team.assaf.role': 'Veterinär och grundare',
-    'team.assaf.bio': 'Legitimerad veterinär och ägare av Djurkliniken Saari. Ansvarar för medicinsk vård, kirurgi och övervakar alla rehabiliteringsprotokoll.',
-    'team.johanna.role': 'Medgrundare och verksamhet',
-    'team.johanna.bio': 'Vasabaserad företagare som bidrar med organisatorisk expertis till djurvård. Sköter centrets verksamhet, volontärkoordinering och samhällsinformation.',
-    'help.label': 'Så här hjälper du',
-    'help.title': 'Hittade du en skadad igelkott?',
-    'help.intro': 'Varje minut räknas. Så här gör du medan du väntar på professionell hjälp.',
-    'help.step1.title': 'Lyft försiktigt',
-    'help.step1.body': 'Använd trädgårdshandskar eller en tjock handduk. Igelkotten kan rulla ihop sig till en boll — det är normalt, hantera försiktigt.',
-    'help.step2.title': 'Placera i en låda',
-    'help.step2.body': 'Använd en kartong med luftningshål. Lägg en handduk eller tidningspapper i botten för bekvämlighet.',
-    'help.step3.title': 'Håll varmt och lugnt',
-    'help.step3.body': 'Placera en varmvattenflaska insvept i en handduk bredvid (inte på) igelkotten. Förvara i ett tyst, mörkt rum.',
-    'help.step4.title': 'Ring oss omedelbart',
-    'help.step4.body': 'Kontakta Siili-Saari Care Center. Vi vägleder dig genom nästa steg och ordnar hämtning vid behov.',
-    'help.emergency.label': 'Akutlinje',
-    'help.emergency.hours': 'Under klinikens öppettider — kvällar och helger, lämna ett meddelande så ringer vi tillbaka',
-    'contact.label': 'Kontakt',
-    'contact.title': 'Ta kontakt',
-    'contact.phone': 'Telefon',
-    'contact.email': 'E-post',
-    'contact.visit': 'Besök oss',
-    'contact.address': 'Gerbyvägen 20<br>65230 Vasa, Finland',
-    'footer.project': 'Ett projekt av <a href="https://saarivet.fi">Djurkliniken Saari</a> &middot; Vasa, Finland',
-    'footer.motto': 'Varje igelkott har betydelse',
-  },
-  en: {
-    'meta.title': 'Siili-Saari Care Center — Hedgehog Rehabilitation in Vaasa',
-    'meta.description': 'Siili-Saari Care Center rescues, treats, and rehabilitates injured and orphaned hedgehogs in Vaasa, Finland.',
-    'nav.about': 'About',
-    'nav.services': 'What We Do',
-    'nav.team': 'Team',
-    'nav.help': 'Found a Hedgehog?',
-    'nav.contact': 'Contact',
-    'hero.tagline': 'Giving hedgehogs a second chance, one tiny patient at a time',
-    'hero.discover': 'Discover',
-    'about.label': 'About Us',
-    'about.title': 'Where healing meets nature',
-    'about.p1': 'Siili-Saari Care Center is a hedgehog rehabilitation center operated by <a href="https://saarivet.fi" style="color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-light);">Eläinklinikka Saari</a> in Vaasa, Finland. We rescue, treat, and rehabilitate injured and orphaned hedgehogs (<span class="latin-name">Erinaceus europaeus</span>) before releasing them back into the wild.',
-    'about.p2': 'The European hedgehog population faces growing threats from habitat loss, traffic, pesticides, and climate change. Our mission is to provide professional veterinary care for these beloved creatures and educate the community on how to coexist with them.',
-    'about.stat.founded': 'Founded',
-    'about.stat.region': 'Ostrobothnia, Finland',
-    'services.label': 'What We Do',
-    'services.title': 'From rescue to release',
-    'services.rescue.title': 'Rescue & First Aid',
-    'services.rescue.body': 'Emergency intake and stabilization for injured, sick, or orphaned hedgehogs found by the public. Immediate triage, warmth, and hydration.',
-    'services.medical.title': 'Medical Treatment',
-    'services.medical.body': 'Full veterinary diagnostics and care — from X-rays and surgery to parasite treatment, wound management, and medication protocols.',
-    'services.rehab.title': 'Rehabilitation & Release',
-    'services.rehab.body': 'Gradual recovery in natural-style outdoor enclosures. Weight monitoring, foraging skills assessment, and safe release into suitable habitats.',
-    'services.edu.title': 'Education',
-    'services.edu.body': 'Community outreach, school visits, and public awareness campaigns about hedgehog conservation and how to create hedgehog-friendly gardens.',
-    'team.label': 'Our Team',
-    'team.title': 'The people behind the spines',
-    'team.assaf.role': 'Veterinarian & Founder',
-    'team.assaf.bio': 'Licensed veterinarian and owner of Eläinklinikka Saari. Provides medical care, surgery, and oversees all rehabilitation protocols.',
-    'team.johanna.role': 'Co-founder & Operations',
-    'team.johanna.bio': 'Vaasa-based entrepreneur bringing organizational expertise to wildlife care. Manages center operations, volunteer coordination, and community outreach.',
-    'help.label': 'How to Help',
-    'help.title': 'Found an injured hedgehog?',
-    'help.intro': "Every minute counts. Here's what to do while you wait for professional help.",
-    'help.step1.title': 'Pick it up gently',
-    'help.step1.body': 'Use gardening gloves or a thick towel. Hedgehogs can curl into a ball — this is normal, handle with care.',
-    'help.step2.title': 'Place in a box',
-    'help.step2.body': 'Use a cardboard box with air holes. Line the bottom with a towel or newspaper for comfort.',
-    'help.step3.title': 'Keep warm & quiet',
-    'help.step3.body': 'Place a warm water bottle wrapped in a towel beside (not on) the hedgehog. Keep in a quiet, dark room.',
-    'help.step4.title': 'Call us immediately',
-    'help.step4.body': "Contact Siili-Saari Care Center. We'll guide you through next steps and arrange pickup if needed.",
-    'help.emergency.label': 'Emergency line',
-    'help.emergency.hours': "During clinic hours — evenings & weekends, leave a voicemail and we'll call back",
-    'contact.label': 'Contact',
-    'contact.title': 'Get in touch',
-    'contact.phone': 'Phone',
-    'contact.email': 'Email',
-    'contact.visit': 'Visit Us',
-    'contact.address': 'Gerbyntie 20<br>65230 Vaasa, Finland',
-    'footer.project': 'A project by <a href="https://saarivet.fi">Eläinklinikka Saari</a> &middot; Vaasa, Finland',
-    'footer.motto': 'Every hedgehog matters',
-  },
-};
-
-// ===== Apply translation =====
-function applyLang(lang) {
-  if (!I18N[lang]) lang = 'fi';
-  const dict = I18N[lang];
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    const val = dict[key];
-    if (val == null) return;
-    const attr = el.getAttribute('data-i18n-attr');
-    if (attr) {
-      el.setAttribute(attr, val);
-    } else if (el.getAttribute('data-i18n-html') === 'true') {
-      el.innerHTML = val;
-    } else {
-      el.textContent = val;
-    }
-  });
-  // Update title separately (it also has data-i18n but textContent won't trigger tab title refresh on some browsers)
-  if (dict['meta.title']) document.title = dict['meta.title'];
-  // Active button state
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-  });
-  try { localStorage.setItem('ss-lang', lang); } catch (e) {}
-}
-
-function detectInitialLang() {
-  try {
-    const saved = localStorage.getItem('ss-lang');
-    if (saved && I18N[saved]) return saved;
-  } catch (e) {}
-  const browser = (navigator.language || 'fi').slice(0, 2).toLowerCase();
-  if (I18N[browser]) return browser;
-  return 'fi';
-}
-
-// ===== Wire up UI =====
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
-});
-
-applyLang(detectInitialLang());
 
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
