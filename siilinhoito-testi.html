@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!-- Siili-Saari Care Center · Siilinhoidon testi / Kunskapstest / Care quiz -->
+<!-- Standalone companion to siilinhoito.html. Not linked from nav or sitemap. -->
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siilinhoidon testi — Siili-Saari Care Center</title>
+<meta name="description" content="Testaa tietosi siilien hoidosta. Vapaaehtoisten kertaustesti Siili-Saaren hoito-oppaan pohjalta.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Siilinhoidon testi — vapaaehtoisille">
+<meta property="og:description" content="Testaa tietosi siilien hoidosta ennen kuin otat siilin hoitoon.">
+<meta property="og:image" content="https://siilisaari.fi/hoglet.jpg">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:site_name" content="Siili-Saari Care Center">
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:italic;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin-italic.woff2') format('woff2-variations')}
+:root{
+  --teal-deep:#1a5c52; --teal:#2d7a6d; --teal-light:#3d9b8a;
+  --sunset:#e8a84c; --sunset-warm:#d4863a;
+  --cream:#faf6f0; --cream-dark:#f0e8da;
+  --bark:#5c4a3a; --moss:#4a6d45;
+  --white:#fff; --text:#2c2418; --text-soft:#5a4d3e;
+  --border:#e7ddcc;
+  --danger:#b3392e; --danger-bg:#fbecea;
+  --ok:#2e7d4f; --ok-bg:#eaf5ee;
+  --shadow:0 18px 50px rgba(26,92,82,.10); --shadow-sm:0 6px 22px rgba(26,92,82,.07);
+  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --max:760px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--sans);color:var(--text);line-height:1.7;background:var(--cream)}
+a{color:var(--teal-deep)}
+nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(250,246,240,.9);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(26,92,82,.06)}
+.nav-brand-logo{height:38px;width:auto;display:block}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.back-home{font-size:.82rem;font-weight:600;color:var(--text-soft);text-decoration:none;border-bottom:1px solid transparent;transition:.2s;white-space:nowrap}
+.back-home:hover{color:var(--teal-deep);border-bottom-color:var(--teal-light)}
+.lang-switcher{display:inline-flex;background:rgba(255,255,255,.6);border:1px solid rgba(26,92,82,.12);border-radius:999px;padding:3px}
+.lang-btn{background:none;border:none;cursor:pointer;padding:.35rem .75rem;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.05em;color:var(--text-soft);border-radius:999px;transition:.25s}
+.lang-btn:hover{color:var(--teal-deep)}
+.lang-btn.active{background:var(--teal-deep);color:var(--cream)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+.hero{padding:clamp(2.2rem,6vw,3.6rem) 0 1rem;background:radial-gradient(1000px 420px at 85% -10%,rgba(232,168,76,.16),transparent 60%),radial-gradient(800px 480px at -8% 20%,rgba(45,122,109,.12),transparent 60%)}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sunset-warm);margin-bottom:.8rem}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--sunset);border-radius:2px}
+h1{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1.1;color:var(--teal-deep);font-size:clamp(1.9rem,5vw,3rem);margin-bottom:.8rem}
+h1 em{font-style:italic;color:var(--sunset-warm)}
+.lead{font-size:1.08rem;color:var(--text-soft)}
+
+.quiz{padding:1.4rem 0 3rem}
+.q{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.4rem;margin-bottom:1rem;box-shadow:var(--shadow-sm)}
+.q .qn{font-family:var(--serif);font-size:.82rem;font-weight:600;color:var(--sunset-warm);letter-spacing:.06em}
+.q h3{font-family:var(--serif);font-weight:600;color:var(--teal-deep);font-size:1.15rem;line-height:1.3;margin:.25rem 0 .9rem}
+.opt{display:flex;gap:.7rem;align-items:flex-start;padding:.7rem .9rem;border:1.5px solid var(--border);border-radius:11px;margin-bottom:.55rem;cursor:pointer;transition:.15s;background:var(--cream)}
+.opt:hover{border-color:var(--teal-light);background:#fff}
+.opt input{margin-top:.35rem;accent-color:var(--teal-deep);flex:none;width:16px;height:16px}
+.opt .txt{flex:1}
+.opt.correct{border-color:var(--ok);background:var(--ok-bg)}
+.opt.wrong{border-color:var(--danger);background:var(--danger-bg)}
+.opt .mark{font-weight:800;flex:none;display:none}
+.opt.correct .mark{display:inline;color:var(--ok)}
+.opt.wrong .mark{display:inline;color:var(--danger)}
+.graded .opt{cursor:default;pointer-events:none}
+.explain{display:none;margin-top:.7rem;padding:.75rem .95rem;border-radius:10px;background:#f4f0e8;border-left:3px solid var(--sunset);font-size:.93rem;color:var(--text-soft)}
+.graded .explain{display:block}
+.explain b{color:var(--bark)}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-top:1.2rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.98rem;padding:.85rem 1.7rem;border-radius:999px;text-decoration:none;transition:.25s;cursor:pointer;border:0;font-family:inherit}
+.btn-primary{background:var(--teal-deep);color:var(--cream)}
+.btn-primary:hover{background:#124840;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--teal-deep);border:1.5px solid var(--teal-deep)}
+.btn-ghost:hover{background:var(--teal-deep);color:var(--cream)}
+.scorebox{display:none;background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-align:center;box-shadow:var(--shadow-sm);margin-bottom:1.2rem}
+.scorebox.show{display:block}
+.scorebox .big{font-family:var(--serif);font-size:2.6rem;font-weight:600;line-height:1}
+.scorebox .big.pass{color:var(--ok)}
+.scorebox .big.fail{color:var(--sunset-warm)}
+.scorebox p{margin:.6rem 0 0;color:var(--text-soft)}
+.hint{font-size:.9rem;color:var(--text-soft)}
+footer{background:var(--teal-deep);color:var(--cream);padding:2rem 0;text-align:center}
+footer p{margin:0 auto;max-width:56ch;font-size:.9rem;opacity:.9}
+footer a{color:var(--sunset);font-weight:600}
+.i18n{display:none}.i18n.show{display:inline}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="index.html" aria-label="Siili-Saari"><img class="nav-brand-logo" src="logo-horizontal.png" alt="Siili-Saari"></a>
+  <div class="nav-right">
+    <a class="back-home" href="siilinhoito.html">
+      <span class="i18n show" data-l="fi">← Hoito-opas</span><span class="i18n" data-l="sv">← Skötselguide</span><span class="i18n" data-l="en">← Care guide</span>
+    </a>
+    <div class="lang-switcher" role="group" aria-label="Language">
+      <button type="button" data-lang="fi" class="lang-btn active">FI</button>
+      <button type="button" data-lang="sv" class="lang-btn">SV</button>
+      <button type="button" data-lang="en" class="lang-btn">EN</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="i18n show" data-l="fi">Vapaaehtoisten testi</span><span class="i18n" data-l="sv">Test för frivilliga</span><span class="i18n" data-l="en">Volunteer quiz</span></span>
+    <h1><span class="i18n show" data-l="fi">Testaa <em>tietosi</em></span><span class="i18n" data-l="sv">Testa dina <em>kunskaper</em></span><span class="i18n" data-l="en">Test your <em>knowledge</em></span></h1>
+    <p class="lead">
+      <span class="i18n show" data-l="fi">Lyhyt kertaus hoito-oppaasta. Valitse kuhunkin kysymykseen paras vastaus ja tarkista lopuksi. Läpipääsyyn tarvitset 11/13 oikein.</span>
+      <span class="i18n" data-l="sv">En kort repetition av skötselguiden. Välj bästa svaret på varje fråga och kontrollera till sist. För godkänt behöver du 11/13 rätt.</span>
+      <span class="i18n" data-l="en">A short recap of the care guide. Pick the best answer to each question and check at the end. You need 11/13 to pass.</span>
+    </p>
+  </div>
+</section>
+
+<div class="wrap quiz">
+  <div class="scorebox" id="scorebox"></div>
+  <form id="quiz"></form>
+  <div class="actions">
+    <button type="button" class="btn btn-primary" id="checkbtn">
+      <span class="i18n show" data-l="fi">Tarkista vastaukset</span><span class="i18n" data-l="sv">Kontrollera svaren</span><span class="i18n" data-l="en">Check answers</span>
+    </button>
+    <button type="button" class="btn btn-ghost" id="resetbtn" style="display:none">
+      <span class="i18n show" data-l="fi">Yritä uudelleen</span><span class="i18n" data-l="sv">Försök igen</span><span class="i18n" data-l="en">Try again</span>
+    </button>
+    <span class="hint" id="hint"></span>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>
+      <span class="i18n show" data-l="fi">Kertaa tarvittaessa <a href="siilinhoito.html">hoito-opas</a>. Epäselvässä tilanteessa kysy aina ensin.</span>
+      <span class="i18n" data-l="sv">Repetera vid behov <a href="siilinhoito.html">skötselguiden</a>. Vid oklarhet, fråga alltid först.</span>
+      <span class="i18n" data-l="en">Revisit the <a href="siilinhoito.html">care guide</a> if needed. When unsure, always ask first.</span>
+    </p>
+  </div>
+</footer>
+
+<script>
+const T = {
+  fi:{score:"Sait", of:"/", pts:"oikein", pass:"Hienoa! Osaat perusteet – muista silti kysyä aina epäselvässä tilanteessa.", fail:"Kertaa vielä hoito-opas ja yritä uudelleen – tärkeintä ei ole läpäisy vaan että siili saa oikeaa hoitoa.", pick:"Vastaa kaikkiin kysymyksiin ennen tarkistusta."},
+  sv:{score:"Du fick", of:"/", pts:"rätt", pass:"Bra! Du kan grunderna – kom ändå ihåg att alltid fråga vid oklarhet.", fail:"Repetera skötselguiden och försök igen – det viktigaste är inte att bli godkänd, utan att igelkotten får rätt vård.", pick:"Svara på alla frågor innan du kontrollerar."},
+  en:{score:"You scored", of:"/", pts:"correct", pass:"Great! You know the basics – still, always ask when unsure.", fail:"Review the care guide and try again – the point isn't passing, it's that the hedgehog gets the right care.", pick:"Answer every question before checking."}
+};
+
+const Q = [
+  { a:1,
+    fi:{q:"Löydät siilin liikkumasta keskellä päivää. Mitä se yleensä tarkoittaa?",
+        o:["Kaikki on hyvin – siilit liikkuvat usein päivällä","Jokin on todennäköisesti vialla; siili tarvitsee arvion","Se ottaa aurinkoa ja lämmittelee"],
+        e:"Siili on yöeläin. Päivällä liikkuva siili on yleensä pulassa – poikkeuksena ruokaa tai pesämateriaalia keräävä emo, joka piipahtaa hetken."},
+    sv:{q:"Du hittar en igelkott som rör sig mitt på dagen. Vad betyder det oftast?",
+        o:["Allt är bra – igelkottar rör sig ofta dagtid","Något är troligen fel; igelkotten behöver bedömas","Den solar och värmer sig"],
+        e:"Igelkotten är ett nattdjur. En igelkott ute dagtid har oftast något fel – undantaget är en moder som kort samlar mat eller bomaterial."},
+    en:{q:"You find a hedgehog moving in the middle of the day. What does that usually mean?",
+        o:["All is well – hedgehogs are often out by day","Something is probably wrong; it needs assessment","It's sunbathing to warm up"],
+        e:"The hedgehog is nocturnal. One out by day usually has something wrong – the exception is a mother briefly gathering food or nest material."} },
+
+  { a:1,
+    fi:{q:"Tuot sisään heikon, kylmettyneen siilin. Mikä on ensimmäinen asia?",
+        o:["Tarjoa heti ruokaa ja vettä","Lämmitä se ensin – älä syötä tai juota kylmää siiliä","Anna lusikallinen lämmintä maitoa"],
+        e:"Lämmitä ensin. Kylmä siili ei pysty sulattamaan; ruoka tai vesi kylmään eläimeen on vaarallista. Lämpö + hämärä laatikko + nopeasti hoitoon."},
+    sv:{q:"Du tar in en svag, nedkyld igelkott. Vad gör du först?",
+        o:["Erbjud genast mat och vatten","Värm den först – mata eller vattna inte en kall igelkott","Ge en sked varm mjölk"],
+        e:"Värm först. En kall igelkott kan inte smälta maten; mat eller vatten till ett kallt djur är farligt. Värme + mörk låda + snabbt till vård."},
+    en:{q:"You bring in a weak, chilled hedgehog. What is the first thing to do?",
+        o:["Offer food and water right away","Warm it first – don't feed or water a cold hedgehog","Give a spoon of warm milk"],
+        e:"Warm it first. A cold hedgehog can't digest; food or water into a cold animal is dangerous. Warmth + a dark box + fast to care."} },
+
+  { a:2,
+    fi:{q:"Siili vuotaa verta ja siinä on kärpäsenmunia. Käytätkö lämmintä vesipulloa?",
+        o:["Kyllä, lämpö auttaa aina","Kyllä, mutta vain 10 minuuttia","En – vuotavaa tai kärpäsenmunaista siiliä ei lämmitetä, vie suoraan hoitoon"],
+        e:"Poikkeus lämpösääntöön: lämpö kiihdyttää verenvuotoa ja kuoriuttaa kärpäsenmunat. Vie tällainen siili suoraan hoitoon."},
+    sv:{q:"Igelkotten blöder och har flugägg. Använder du en varm vattenflaska?",
+        o:["Ja, värme hjälper alltid","Ja, men bara 10 minuter","Nej – en blödande eller flugäggig igelkott värms inte, för den direkt till vård"],
+        e:"Undantag från värmeregeln: värme ökar blödning och kläcker flugäggen. För en sådan igelkott direkt till vård."},
+    en:{q:"The hedgehog is bleeding and has fly eggs. Do you use a warm water bottle?",
+        o:["Yes, heat always helps","Yes, but only for 10 minutes","No – a bleeding or fly-egg-covered hedgehog is not warmed; take it straight to care"],
+        e:"Exception to the warmth rule: heat speeds bleeding and hatches fly eggs. Take such a hedgehog straight to care."} },
+
+  { a:0,
+    fi:{q:"Mikä näistä sopii vieroitetulle siilille?",
+        o:["Lihapitoinen märkä kissanruoka","Lehmänmaito ja leipä","Jauhomadot pääruokana"],
+        e:"Perusruoka on lihapitoinen (ei kalapohjainen) märkä kissan- tai koiranruoka. Maito ja leipä ovat kiellettyjä, ja jauhomadot pääruokana aiheuttavat luustosairautta."},
+    sv:{q:"Vilket av dessa passar en avvand igelkott?",
+        o:["Köttig våt kattmat","Komjölk och bröd","Mjölmask som huvudföda"],
+        e:"Basfödan är köttig (inte fiskbaserad) våt katt- eller hundmat. Mjölk och bröd är förbjudna, och mjölmask som huvudföda orsakar bensjukdom."},
+    en:{q:"Which of these is suitable for a weaned hedgehog?",
+        o:["Meaty wet cat food","Cow's milk and bread","Mealworms as the staple"],
+        e:"The staple is meaty (not fish-based) wet cat or dog food. Milk and bread are forbidden, and mealworms as a staple cause bone disease."} },
+
+  { a:2,
+    fi:{q:"Miksi lehmänmaitoa ei koskaan anneta siilille?",
+        o:["Se on liian kallista","Siili ei pidä mausta","Siilit ovat laktoosi-intolerantteja – maito aiheuttaa tappavan ripulin"],
+        e:"Vanha ”leipää ja maitoa” -ohje on väärä. Siilit eivät siedä laktoosia; maito aiheuttaa ripulia, kuivumista ja voi tappaa."},
+    sv:{q:"Varför ger man aldrig komjölk till en igelkott?",
+        o:["Den är för dyr","Igelkotten gillar inte smaken","Igelkottar är laktosintoleranta – mjölk orsakar dödlig diarré"],
+        e:"Det gamla rådet ”bröd och mjölk” är fel. Igelkottar tål inte laktos; mjölk ger diarré, uttorkning och kan döda."},
+    en:{q:"Why is cow's milk never given to a hedgehog?",
+        o:["It's too expensive","The hedgehog dislikes the taste","Hedgehogs are lactose-intolerant – milk causes fatal diarrhoea"],
+        e:"The old \"bread and milk\" advice is wrong. Hedgehogs can't tolerate lactose; milk causes diarrhoea, dehydration and can kill."} },
+
+  { a:1,
+    fi:{q:"Orpo poikanen on kylmä. Ruokitko sen heti?",
+        o:["Kyllä, nälkä on suurin vaara","En – lämmitä ensin normaaliin ruumiinlämpöön, sitten nesteytä, vasta sitten maito","Kyllä, mutta vain kylmää maitoa"],
+        e:"Älä koskaan ruoki kylmää poikasta. Kylmän vastasyntyneen ruoansulatus pysähtyy ja maito voi mennä keuhkoihin. Lämmin ensin, sitten nesteytys, vasta sitten maito."},
+    sv:{q:"En föräldralös unge är kall. Matar du den genast?",
+        o:["Ja, hunger är den största faran","Nej – värm först till normal kroppstemperatur, sedan vätska, först därefter mjölk","Ja, men bara kall mjölk"],
+        e:"Mata aldrig en kall unge. En kall nyföddens matsmältning stannar och mjölk kan hamna i lungorna. Varm först, sedan vätska, först därefter mjölk."},
+    en:{q:"An orphaned hoglet is cold. Do you feed it right away?",
+        o:["Yes, hunger is the biggest danger","No – warm it to normal body temperature first, then rehydrate, only then milk","Yes, but only cold milk"],
+        e:"Never feed a cold hoglet. A cold newborn's digestion shuts down and milk can enter the lungs. Warm first, then rehydrate, only then milk."} },
+
+  { a:0,
+    fi:{q:"Mitä maitoa orvolle poikaselle annetaan?",
+        o:["Pentujen maidonkorviketta (esim. Esbilac tai Royal Canin Babydog Milk)","Tavallista lehmänmaitoa","Kevytmaitoa lämmitettynä"],
+        e:"Käytä pentujen maidonkorviketta. Vuohenmaito on vain hätävara. Lehmänmaitoa ei koskaan."},
+    sv:{q:"Vilken mjölk ger man en föräldralös unge?",
+        o:["Valpmjölksersättning (t.ex. Esbilac eller Royal Canin Babydog Milk)","Vanlig komjölk","Uppvärmd lättmjölk"],
+        e:"Använd valpmjölksersättning. Getmjölk är endast en nödlösning. Aldrig komjölk."},
+    en:{q:"What milk is given to an orphaned hoglet?",
+        o:["A puppy milk replacer (e.g. Esbilac or Royal Canin Babydog Milk)","Ordinary cow's milk","Warmed semi-skimmed milk"],
+        e:"Use a puppy milk replacer. Goat's milk is only an emergency stand-in. Never cow's milk."} },
+
+  { a:1,
+    fi:{q:"Miksi poikanen pitää stimuloida virtsaamaan ja ulostamaan joka ruokinnan yhteydessä?",
+        o:["Jotta se oppii siistiksi nopeammin","Muuten rakko tai suoli voi venyä ja revetä (n. 3,5 viikkoon asti)","Se ei ole tarpeen, poikanen hoitaa itse"],
+        e:"Ennen n. 3,5 viikon ikää poikanen ei osaa tyhjentää rakkoa ja suolta itse. Sively hellästi vanupuikolla, jossa hiukan manteliöljyä, joka ruokinnan jälkeen."},
+    sv:{q:"Varför måste ungen stimuleras att kissa och bajsa vid varje matning?",
+        o:["För att den ska bli rumsren snabbare","Annars kan blåsan eller tarmen tänjas och brista (till ca 3,5 veckor)","Det behövs inte, ungen sköter det själv"],
+        e:"Före ca 3,5 veckors ålder kan ungen inte tömma blåsa och tarm själv. Stryk mjukt med en bomullspinne med lite mandelolja efter varje matning."},
+    en:{q:"Why must a hoglet be stimulated to urinate and defecate at every feed?",
+        o:["So it becomes house-trained faster","Otherwise the bladder or bowel can stretch and rupture (until ~3.5 weeks)","It isn't needed, the hoglet manages alone"],
+        e:"Before about 3.5 weeks a hoglet can't empty its bladder and bowel by itself. Stroke gently with a cotton bud with a little almond oil after every feed."} },
+
+  { a:2,
+    fi:{q:"Kuinka painava syyspoikasen tulisi yleensä olla ennen talvea?",
+        o:["Noin 150 g","Noin 300 g","Noin 600 g (lähteet vaihtelevat; alaraja ~450 g)"],
+        e:"Turvallisena rajana pidetään yleensä n. 600 g. Liian pientä syyspoikasta ei vapauteta vaan talvehditaan sisällä lämpimässä (n. 18–20 °C)."},
+    sv:{q:"Hur tung bör en höstunge oftast vara före vintern?",
+        o:["Cirka 150 g","Cirka 300 g","Cirka 600 g (källorna varierar; nedre gräns ~450 g)"],
+        e:"Som säker gräns anses vanligen ca 600 g. En för liten höstunge släpps inte ut utan övervintras inomhus i värme (ca 18–20 °C)."},
+    en:{q:"How heavy should an autumn hoglet usually be before winter?",
+        o:["About 150 g","About 300 g","About 600 g (sources vary; floor ~450 g)"],
+        e:"The commonly used safe threshold is ~600 g. A too-small autumn hoglet is not released but overwintered indoors in the warm (~18–20 °C)."} },
+
+  { a:0,
+    fi:{q:"Montako siiliä pidetään yhdessä häkissä?",
+        o:["Yksi (vain saman pesueen poikaset saavat olla yhdessä)","Kaksi, seuraksi","Niin monta kuin mahtuu"],
+        e:"Siilit ovat yksineläjiä – yhdessä ne tappelevat ja tartuttavat toisiaan. Vain saman pesueen poikaset saavat olla yhdessä (enintään 4/laatikko)."},
+    sv:{q:"Hur många igelkottar hålls i samma bur?",
+        o:["En (endast ungar från samma kull får vara ihop)","Två, för sällskap","Så många som ryms"],
+        e:"Igelkottar är ensamlevande – tillsammans slåss de och smittar varandra. Endast ungar från samma kull får vara ihop (högst 4/låda)."},
+    en:{q:"How many hedgehogs are kept in one enclosure?",
+        o:["One (only same-litter hoglets may share)","Two, for company","As many as fit"],
+        e:"Hedgehogs are solitary – together they fight and infect each other. Only hoglets from the same litter may share (max 4/box)."} },
+
+  { a:1,
+    fi:{q:"Mikä on tärkein suoja tartunnoilta siilin käsittelyn jälkeen?",
+        o:["Suihkussa käynti kerran päivässä","Käsienpesu saippualla heti käsittelyn jälkeen","Hengityssuojaimen käyttö"],
+        e:"Siili voi kantaa mm. salmonellaa oireettomasti. Käsienpesu saippualla heti käsittelyn, ruokakuppien tai häkin puhdistuksen jälkeen on tärkein yksittäinen suoja. Käytä myös hanskoja."},
+    sv:{q:"Vad är det viktigaste skyddet mot smitta efter hantering av en igelkott?",
+        o:["Att duscha en gång om dagen","Handtvätt med tvål genast efter hantering","Att använda andningsskydd"],
+        e:"En igelkott kan bära bl.a. salmonella utan symptom. Handtvätt med tvål genast efter hantering, matskålar eller rengöring av buren är det viktigaste enskilda skyddet. Använd även handskar."},
+    en:{q:"What is the most important protection against infection after handling a hedgehog?",
+        o:["Showering once a day","Washing hands with soap immediately after handling","Wearing a face mask"],
+        e:"A hedgehog can carry e.g. salmonella without symptoms. Washing hands with soap right after handling, food dishes or cleaning the enclosure is the single most important protection. Wear gloves too."} },
+
+  { a:2,
+    fi:{q:"Siilillä on mahdollisesti sisä- tai keuhkomatoja. Kuka päättää madotuksesta?",
+        o:["Kuka tahansa vapaaehtoinen, heti","Kaupan madotusvalmisteella ohjeen mukaan","Eläinlääkäri, ulostenäytteen perusteella"],
+        e:"Madotus on eläinlääkärin päätös. Väärä tai liian nopea madotus voi pahentaa tilaa; oikea lääke ja annos vaativat ulostenäytteen ja eläimen kunnon arvion."},
+    sv:{q:"Igelkotten har möjligen tarm- eller lungmask. Vem beslutar om avmaskning?",
+        o:["Vilken frivillig som helst, genast","Med avmaskningsmedel från butiken enligt anvisning","Veterinären, utifrån ett avföringsprov"],
+        e:"Avmaskning är veterinärens beslut. Fel eller för snabb avmaskning kan förvärra tillståndet; rätt medel och dos kräver avföringsprov och bedömning av djurets kondition."},
+    en:{q:"The hedgehog may have gut- or lungworms. Who decides on deworming?",
+        o:["Any volunteer, right away","With a shop-bought dewormer as directed","The vet, based on a faecal sample"],
+        e:"Deworming is the vet's decision. The wrong or too-fast deworming can worsen things; the right drug and dose need a faecal sample and an assessment of the animal's condition."} },
+
+  { a:1,
+    fi:{q:"Tarvitsetko Suomessa luvan tai maksat maksun auttaaksesi avutonta villisiiliä lyhytaikaisesti?",
+        o:["Kyllä, aina tarvitaan viranomaisen lupa","Et – avuttoman eläimen auttaminen ja lyhytaikainen hoitoon toimittaminen on jokaisen oikeus, ilman lupaa ja maksua","Vain jos siili on alle 600 g"],
+        e:"Eläinten hyvinvointilain mukaan jokaisella on velvollisuus auttaa avutonta villieläintä, ja sen saa ottaa lyhytaikaisesti haltuun ensiapua tai hoitoon toimittamista varten ilman lupaa ja maksua. Vasta jatkuva, järjestelmällinen hoitotoiminta vaatii ilmoituksen."},
+    sv:{q:"Behöver du i Finland tillstånd eller betala en avgift för att kortvarigt hjälpa en hjälplös vild igelkott?",
+        o:["Ja, myndighetens tillstånd krävs alltid","Nej – att hjälpa ett hjälplöst djur och kortvarigt föra det till vård är var och ens rätt, utan tillstånd och avgift","Bara om igelkotten väger under 600 g"],
+        e:"Enligt lagen om djurvälfärd är var och en skyldig att hjälpa ett hjälplöst vilt djur och får ta det i kortvarig besittning för första hjälpen eller transport till vård, utan tillstånd och avgift. Först kontinuerlig, systematisk vårdverksamhet kräver en anmälan."},
+    en:{q:"In Finland, do you need a permit or pay a fee to briefly help a helpless wild hedgehog?",
+        o:["Yes, an authority's permit is always required","No – helping a helpless animal and briefly getting it to care is everyone's right, with no permit or fee","Only if the hedgehog is under 600 g"],
+        e:"Under the Animal Welfare Act everyone has a duty to help a helpless wild animal and may take it into short-term possession for first aid or transport to care, with no permit or fee. Only continuous, systematic rehab activity requires a notification."} }
+];
+
+let lang='fi', graded=false, answers={};
+const form=document.getElementById('quiz');
+const scorebox=document.getElementById('scorebox');
+const checkbtn=document.getElementById('checkbtn');
+const resetbtn=document.getElementById('resetbtn');
+const hint=document.getElementById('hint');
+
+function render(){
+  form.innerHTML = Q.map((q,i)=>{
+    const d=q[lang];
+    const opts=d.o.map((o,j)=>{
+      const sel=answers[i]===j?'checked':'';
+      return `<label class="opt" data-q="${i}" data-o="${j}"><input type="radio" name="q${i}" value="${j}" ${sel} ${graded?'disabled':''}><span class="txt">${o}</span><span class="mark"></span></label>`;
+    }).join('');
+    return `<div class="q ${graded?'graded':''}" id="q${i}">
+      <div class="qn">${String(i+1).padStart(2,'0')} / ${Q.length}</div>
+      <h3>${d.q}</h3>${opts}
+      <div class="explain"><b>${lang==='fi'?'Miksi':lang==='sv'?'Varför':'Why'}:</b> ${d.e}</div>
+    </div>`;
+  }).join('');
+  form.querySelectorAll('input[type=radio]').forEach(r=>{
+    r.addEventListener('change',e=>{answers[+e.target.name.slice(1)]=+e.target.value;});
+  });
+  if(graded) applyMarks();
+}
+function applyMarks(){
+  Q.forEach((q,i)=>{
+    const box=document.getElementById('q'+i);
+    box.querySelectorAll('.opt').forEach(opt=>{
+      const j=+opt.dataset.o;
+      if(j===q.a){opt.classList.add('correct');opt.querySelector('.mark').textContent='✓';}
+      else if(answers[i]===j){opt.classList.add('wrong');opt.querySelector('.mark').textContent='✕';}
+    });
+  });
+}
+function check(){
+  if(Object.keys(answers).length<Q.length){hint.textContent=T[lang].pick;return;}
+  hint.textContent='';graded=true;
+  let s=0;Q.forEach((q,i)=>{if(answers[i]===q.a)s++;});
+  const pass=s>=11;
+  scorebox.className='scorebox show';
+  scorebox.innerHTML=`<div class="big ${pass?'pass':'fail'}">${s} <span style="font-size:1.2rem;color:var(--text-soft)">${T[lang].of} ${Q.length}</span></div>
+    <p><b>${T[lang].score} ${s}/${Q.length} ${T[lang].pts}.</b><br>${pass?T[lang].pass:T[lang].fail}</p>`;
+  render();
+  checkbtn.style.display='none';resetbtn.style.display='';
+  scorebox.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function reset(){graded=false;answers={};scorebox.className='scorebox';checkbtn.style.display='';resetbtn.style.display='none';hint.textContent='';render();window.scrollTo({top:0,behavior:'smooth'});}
+
+document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{
+  lang=b.dataset.lang;document.documentElement.lang=lang;
+  try{localStorage.setItem('ss-lang',lang)}catch(e){}
+  document.querySelectorAll('.lang-btn').forEach(x=>x.classList.toggle('active',x.dataset.lang===lang));
+  document.querySelectorAll('.i18n').forEach(el=>el.classList.toggle('show',el.dataset.l===lang));
+  render();
+  if(graded){let s=0;Q.forEach((q,i)=>{if(answers[i]===q.a)s++;});const pass=s>=11;
+    scorebox.innerHTML=`<div class="big ${pass?'pass':'fail'}">${s} <span style="font-size:1.2rem;color:var(--text-soft)">${T[lang].of} ${Q.length}</span></div><p><b>${T[lang].score} ${s}/${Q.length} ${T[lang].pts}.</b><br>${pass?T[lang].pass:T[lang].fail}</p>`;}
+}));
+checkbtn.addEventListener('click',check);
+resetbtn.addEventListener('click',reset);
+
+var _s=(function(){try{return localStorage.getItem('ss-lang')}catch(e){return null}})();
+if(_s==='sv'||_s==='en'||_s==='fi'){lang=_s;document.documentElement.lang=lang;
+  document.querySelectorAll('.lang-btn').forEach(x=>x.classList.toggle('active',x.dataset.lang===lang));
+  document.querySelectorAll('.i18n').forEach(el=>el.classList.toggle('show',el.dataset.l===lang));}
+render();
+</script>
+</body>
+</html>
