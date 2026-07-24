@@ -89,6 +89,9 @@ footer{background:var(--teal-deep);color:var(--cream);padding:2rem 0;text-align:
 footer p{margin:0 auto;max-width:56ch;font-size:.9rem;opacity:.9}
 footer a{color:var(--sunset);font-weight:600}
 .i18n{display:none}.i18n.show{display:inline}
+.whoami{margin-top:1rem;padding:.8rem 1.1rem;border-radius:12px;font-size:1rem;background:var(--ok-bg);border:1px solid #bfe0cb;color:#1e5a38}
+.whoami b{color:var(--teal-deep)}
+.whoami.warn{background:#fcf3e2;border-color:#eed3a6;color:#6f4a12}
 </style>
 </head>
 <body>
@@ -115,6 +118,12 @@ footer a{color:var(--sunset);font-weight:600}
       <span class="i18n" data-l="sv">En kort repetition av skötselguiden. Välj bästa svaret på varje fråga och kontrollera till sist. För godkänt behöver du 11/13 rätt.</span>
       <span class="i18n" data-l="en">A short recap of the care guide. Pick the best answer to each question and check at the end. You need 11/13 to pass.</span>
     </p>
+    <div id="whoami" class="whoami" style="display:none"></div>
+    <div id="noname" class="whoami warn" style="display:none">
+      <span class="i18n show" data-l="fi">Avaathan oman henkilökohtaisen linkkisi, jonka sait meiltä – niin näemme tuloksesi. Voit silti tehdä testin harjoitteluksi.</span>
+      <span class="i18n" data-l="sv">Öppna gärna din egen personliga länk som du fått av oss – då ser vi ditt resultat. Du kan ändå göra testet som övning.</span>
+      <span class="i18n" data-l="en">Please open the personal link we sent you – that way we see your result. You can still take the quiz for practice.</span>
+    </div>
   </div>
 </section>
 
@@ -294,6 +303,18 @@ const Q = [
         e:"Under the Animal Welfare Act everyone has a duty to help a helpless wild animal and may take it into short-term possession for first aid or transport to care, with no permit or fee. Only continuous, systematic rehab activity requires a notification."} }
 ];
 
+// Personalized per-volunteer links: siilinhoito-testi.html?v=<token>
+const VOLUNTEERS = {
+  anneli:{name:"Anneli Ketonen"}, elina:{name:"Elina Videman"}, marika:{name:"Marika Bergvik"},
+  henna:{name:"Henna Vauhkala"}, nea:{name:"Nea Bäck"}, olga:{name:"Olga Sandström"},
+  jusa:{name:"Jusa Martin"}, carita:{name:"Carita Uschanov"}, nina:{name:"Nina Konki"},
+  taija:{name:"Taija Fält-Vehkalahti"}, edith:{name:"Edith Toikander"}, petri:{name:"Petri Nieminen"}
+};
+const ENDPOINT='https://dashboard.saarivet.fi/tv/api/quiz-result';
+const vToken=(new URLSearchParams(location.search).get('v')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,60);
+const volunteer=VOLUNTEERS[vToken]||null;
+let attempt=1, lastSent=null;
+
 let lang='fi', graded=false, answers={};
 const form=document.getElementById('quiz');
 const scorebox=document.getElementById('scorebox');
@@ -340,14 +361,45 @@ function check(){
   render();
   checkbtn.style.display='none';resetbtn.style.display='';
   scorebox.scrollIntoView({behavior:'smooth',block:'center'});
+  submitResult(s,pass);
 }
-function reset(){graded=false;answers={};scorebox.className='scorebox';checkbtn.style.display='';resetbtn.style.display='none';hint.textContent='';render();window.scrollTo({top:0,behavior:'smooth'});}
+
+// Best-effort: notify the clinic of the result. Only for a known personalized link,
+// and only once per (attempt, score) so a re-check doesn't double-send. Never blocks the UI.
+function submitResult(score, pass){
+  if(!volunteer) return;
+  const sig=attempt+':'+score;
+  if(lastSent===sig) return; lastSent=sig;
+  const wrong=[];
+  Q.forEach((q,i)=>{ if(answers[i]!==q.a){ const d=q[lang];
+    wrong.push({n:i+1, q:d.q, chosen:d.o[answers[i]]||'—', correct:d.o[q.a]}); }});
+  try{
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,
+      body:JSON.stringify({volunteer:vToken,name:volunteer.name,score,total:Q.length,pass,lang,attempt,wrong,source:'quiz',website:''})
+    }).catch(()=>{});
+  }catch(e){}
+}
+function reset(){graded=false;answers={};attempt++;scorebox.className='scorebox';checkbtn.style.display='';resetbtn.style.display='none';hint.textContent='';render();window.scrollTo({top:0,behavior:'smooth'});}
+
+function greet(){
+  const who=document.getElementById('whoami'), no=document.getElementById('noname');
+  if(volunteer){
+    const first=volunteer.name.split(' ')[0];
+    const msg={fi:`Hei <b>${first}</b>! Tämä testi on sinua varten – tuloksesi lähetetään Siili-Saarelle.`,
+               sv:`Hej <b>${first}</b>! Det här testet är för dig – ditt resultat skickas till Siili-Saari.`,
+               en:`Hi <b>${first}</b>! This quiz is for you – your result is sent to Siili-Saari.`};
+    who.innerHTML=msg[lang]||msg.fi; who.style.display='block'; no.style.display='none';
+  } else {
+    who.style.display='none'; no.style.display='block';
+  }
+}
 
 document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{
   lang=b.dataset.lang;document.documentElement.lang=lang;
   try{localStorage.setItem('ss-lang',lang)}catch(e){}
   document.querySelectorAll('.lang-btn').forEach(x=>x.classList.toggle('active',x.dataset.lang===lang));
   document.querySelectorAll('.i18n').forEach(el=>el.classList.toggle('show',el.dataset.l===lang));
+  greet();
   render();
   if(graded){let s=0;Q.forEach((q,i)=>{if(answers[i]===q.a)s++;});const pass=s>=11;
     scorebox.innerHTML=`<div class="big ${pass?'pass':'fail'}">${s} <span style="font-size:1.2rem;color:var(--text-soft)">${T[lang].of} ${Q.length}</span></div><p><b>${T[lang].score} ${s}/${Q.length} ${T[lang].pts}.</b><br>${pass?T[lang].pass:T[lang].fail}</p>`;}
@@ -359,6 +411,7 @@ var _s=(function(){try{return localStorage.getItem('ss-lang')}catch(e){return nu
 if(_s==='sv'||_s==='en'||_s==='fi'){lang=_s;document.documentElement.lang=lang;
   document.querySelectorAll('.lang-btn').forEach(x=>x.classList.toggle('active',x.dataset.lang===lang));
   document.querySelectorAll('.i18n').forEach(el=>el.classList.toggle('show',el.dataset.l===lang));}
+greet();
 render();
 </script>
 </body>
