@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- Siili-Saari Care Center · Tutustumistapaaminen / Introduktionsmöte / Intro meeting -->
+<!-- Standalone meeting-time form. Personalized via ?v=<token>. Not in nav/sitemap. -->
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutustumistapaaminen — Siili-Saari Care Center</title>
+<meta name="description" content="Milloin sinulle sopisi tutustumistapaaminen hoitolalla?">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tutustumistapaaminen — Siili-Saari">
+<meta property="og:image" content="https://siilisaari.fi/hoglet.jpg">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:site_name" content="Siili-Saari Care Center">
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin.woff2') format('woff2-variations')}
+:root{
+  --teal-deep:#1a5c52; --teal:#2d7a6d; --teal-light:#3d9b8a;
+  --sunset:#e8a84c; --sunset-warm:#d4863a;
+  --cream:#faf6f0; --white:#fff; --text:#2c2418; --text-soft:#5a4d3e;
+  --border:#e7ddcc; --ok:#2e7d4f; --ok-bg:#eaf5ee; --danger:#b3392e; --danger-bg:#fbecea;
+  --shadow-sm:0 6px 22px rgba(26,92,82,.07);
+  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --max:640px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--text);line-height:1.65;background:var(--cream)}
+a{color:var(--teal-deep)}
+nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(250,246,240,.9);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(26,92,82,.06)}
+.nav-brand-logo{height:38px;width:auto;display:block}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.back-home{font-size:.82rem;font-weight:600;color:var(--text-soft);text-decoration:none;border-bottom:1px solid transparent}
+.back-home:hover{color:var(--teal-deep);border-bottom-color:var(--teal-light)}
+.lang-switcher{display:inline-flex;background:rgba(255,255,255,.6);border:1px solid rgba(26,92,82,.12);border-radius:999px;padding:3px}
+.lang-btn{background:none;border:none;cursor:pointer;padding:.35rem .75rem;font:600 .78rem var(--sans);letter-spacing:.05em;color:var(--text-soft);border-radius:999px;transition:.25s}
+.lang-btn:hover{color:var(--teal-deep)}
+.lang-btn.active{background:var(--teal-deep);color:var(--cream)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+.hero{padding:clamp(2.2rem,6vw,3.4rem) 0 1rem;background:radial-gradient(1000px 420px at 85% -10%,rgba(232,168,76,.16),transparent 60%),radial-gradient(800px 480px at -8% 20%,rgba(45,122,109,.12),transparent 60%)}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sunset-warm);margin-bottom:.8rem}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--sunset);border-radius:2px}
+h1{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1.1;color:var(--teal-deep);font-size:clamp(1.8rem,5vw,2.7rem);margin-bottom:.7rem}
+h1 em{font-style:italic;color:var(--sunset-warm)}
+.lead{font-size:1.05rem;color:var(--text-soft)}
+.whoami{margin-top:1rem;padding:.8rem 1.1rem;border-radius:12px;font-size:1rem;background:var(--ok-bg);border:1px solid #bfe0cb;color:#1e5a38}
+.whoami b{color:var(--teal-deep)}
+form{padding:1.4rem 0 3rem}
+.group{margin-bottom:1.5rem}
+.group>h2{font-family:var(--serif);font-size:1.12rem;color:var(--teal-deep);margin-bottom:.6rem}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+.chip{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.1rem;border:1.5px solid var(--border);border-radius:13px;cursor:pointer;background:var(--white);font-size:1rem;transition:.15s}
+.chip:hover{border-color:var(--teal-light)}
+.chip:has(input:checked){border-color:var(--teal);background:var(--ok-bg);color:var(--teal-deep);font-weight:600}
+.chip input{width:18px;height:18px;accent-color:var(--teal-deep)}
+textarea{width:100%;min-height:70px;padding:.8rem 1rem;border:1.5px solid var(--border);border-radius:13px;font:inherit;font-size:.98rem;color:var(--text);background:var(--white);resize:vertical}
+textarea:focus{outline:2px solid var(--teal);outline-offset:1px}
+input[type=text]{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:13px;font:inherit;font-size:1rem;background:var(--white)}
+.namewrap{display:none;margin-bottom:1.5rem}
+.namewrap label{display:block;font-weight:600;margin-bottom:.4rem;color:var(--teal-deep)}
+.honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:1rem;padding:.9rem 1.9rem;border-radius:999px;cursor:pointer;border:0;font-family:inherit;background:var(--teal-deep);color:var(--cream);transition:.25s;margin-top:.4rem}
+.btn:hover{background:#124840;transform:translateY(-2px)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.status{margin-top:1rem;padding:.9rem 1.1rem;border-radius:12px;font-size:.98rem;display:none}
+.status.ok{display:block;background:var(--ok-bg);border:1px solid #bfe0cb;color:#1e5a38}
+.status.err{display:block;background:var(--danger-bg);border:1px solid #eabbb4;color:#7a241c}
+footer{background:var(--teal-deep);color:var(--cream);padding:1.8rem 0;text-align:center;font-size:.9rem;opacity:.95}
+[data-lang]:not(.lang-btn){display:none}
+[data-lang]:not(.lang-btn).show{display:revert}
+</style>
+<noscript><style>[data-lang]:not(.lang-btn){display:none!important}[data-lang="fi"]:not(.lang-btn){display:revert!important}.lang-switcher{display:none!important}</style></noscript>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="index.html" aria-label="Siili-Saari"><img class="nav-brand-logo" src="logo-horizontal.png" alt="Siili-Saari"></a>
+  <div class="nav-right">
+    <a class="back-home" href="siilinhoito.html">
+      <span data-lang="fi" class="show">← Hoito-opas</span><span data-lang="sv">← Skötselguide</span><span data-lang="en">← Care guide</span>
+    </a>
+    <div class="lang-switcher" role="group" aria-label="Language">
+      <button type="button" data-lang="fi" class="lang-btn active">FI</button>
+      <button type="button" data-lang="sv" class="lang-btn">SV</button>
+      <button type="button" data-lang="en" class="lang-btn">EN</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span data-lang="fi" class="show">Tutustumistapaaminen</span><span data-lang="sv">Introduktionsmöte</span><span data-lang="en">Intro meeting</span></span>
+    <h1><span data-lang="fi" class="show">Milloin sinulle <em>sopii</em>?</span><span data-lang="sv">När <em>passar</em> det dig?</span><span data-lang="en">When <em>suits</em> you?</span></h1>
+    <p class="lead">
+      <span data-lang="fi" class="show">Alkukuusta pidämme lyhyen tutustumistapaamisen hoitolalla (n. 1 h) – kierrämme tilat ja tutustumme toisiimme. Rastita ajat, jotka sinulle yleensä sopivat.</span>
+      <span data-lang="sv">I början av augusti håller vi ett kort introduktionsmöte på vårdcentret (ca 1 h) – vi visar runt och lär känna varandra. Kryssa för de tider som vanligtvis passar dig.</span>
+      <span data-lang="en">In early August we'll hold a short introduction meeting at the centre (~1 h) – a tour and getting to know each other. Tick the times that usually suit you.</span>
+    </p>
+    <div id="whoami" class="whoami" style="display:none"></div>
+  </div>
+</section>
+
+<div class="wrap">
+<form id="meetform" novalidate>
+  <div class="honeypot"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+  <div class="namewrap" id="namewrap">
+    <label><span data-lang="fi" class="show">Nimesi</span><span data-lang="sv">Ditt namn</span><span data-lang="en">Your name</span></label>
+    <input type="text" id="nameinput" maxlength="120" autocomplete="name">
+  </div>
+
+  <div class="group">
+    <h2><span data-lang="fi" class="show">Mitkä päivät?</span><span data-lang="sv">Vilka dagar?</span><span data-lang="en">Which days?</span></h2>
+    <div class="chips">
+      <label class="chip"><input type="checkbox" name="day" value="weekday"><span data-lang="fi" class="show">Arkisin</span><span data-lang="sv">Vardagar</span><span data-lang="en">Weekdays</span></label>
+      <label class="chip"><input type="checkbox" name="day" value="weekend"><span data-lang="fi" class="show">Viikonloppuisin</span><span data-lang="sv">Helger</span><span data-lang="en">Weekends</span></label>
+    </div>
+  </div>
+
+  <div class="group">
+    <h2><span data-lang="fi" class="show">Mihin aikaan?</span><span data-lang="sv">Vilken tid?</span><span data-lang="en">What time?</span></h2>
+    <div class="chips">
+      <label class="chip"><input type="checkbox" name="time" value="morning"><span data-lang="fi" class="show">Aamupäivä</span><span data-lang="sv">Förmiddag</span><span data-lang="en">Morning</span></label>
+      <label class="chip"><input type="checkbox" name="time" value="afternoon"><span data-lang="fi" class="show">Iltapäivä</span><span data-lang="sv">Eftermiddag</span><span data-lang="en">Afternoon</span></label>
+    </div>
+  </div>
+
+  <div class="group">
+    <h2><span data-lang="fi" class="show">Muita toiveita?</span><span data-lang="sv">Övriga önskemål?</span><span data-lang="en">Anything else?</span></h2>
+    <div class="lead" style="font-size:.9rem;margin-bottom:.5rem"><span data-lang="fi" class="show">Esim. sopivat päivämäärät tai kellonajat, tai päivät jotka eivät käy. Vapaaehtoinen.</span><span data-lang="sv">T.ex. lämpliga datum eller klockslag, eller dagar som inte passar. Frivilligt.</span><span data-lang="en">E.g. dates or times that suit, or days that don't work. Optional.</span></div>
+    <textarea name="notes" maxlength="1000"></textarea>
+  </div>
+
+  <button type="submit" class="btn" id="submitbtn">
+    <span data-lang="fi" class="show">Lähetä</span><span data-lang="sv">Skicka</span><span data-lang="en">Send</span>
+  </button>
+  <div class="status" id="status">
+    <span class="msg-ok"><span data-lang="fi" class="show">Kiitos! Katsomme sopivan ajan ja palaamme asiaan. 🦔</span><span data-lang="sv">Tack! Vi hittar en lämplig tid och återkommer. 🦔</span><span data-lang="en">Thanks! We'll find a suitable time and get back to you. 🦔</span></span>
+    <span class="msg-err"><span data-lang="fi" class="show">Lähetys ei onnistunut. Yritä hetken kuluttua uudelleen.</span><span data-lang="sv">Sändningen misslyckades. Försök igen om en stund.</span><span data-lang="en">Sending failed. Please try again shortly.</span></span>
+  </div>
+</form>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span data-lang="fi" class="show">Nähdään pian! 🦔</span><span data-lang="sv">Vi ses snart! 🦔</span><span data-lang="en">See you soon! 🦔</span>
+  </div>
+</footer>
+
+<script>
+const VOLUNTEERS = {
+  anneli:{name:"Anneli Ketonen"}, elina:{name:"Elina Videman"}, marika:{name:"Marika Bergvik"},
+  henna:{name:"Henna Vauhkala"}, nea:{name:"Nea Bäck"}, olga:{name:"Olga Sandström"},
+  jusa:{name:"Jusa Martin"}, carita:{name:"Carita Uschanov"}, nina:{name:"Nina Konki"},
+  taija:{name:"Taija Fält-Vehkalahti"}, edith:{name:"Edith Toikander"}, petri:{name:"Petri Nieminen"}
+};
+const ENDPOINT='https://dashboard.saarivet.fi/tv/api/volunteer-meeting';
+const vToken=(new URLSearchParams(location.search).get('v')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,60);
+const volunteer=VOLUNTEERS[vToken]||null;
+
+let lang='fi';
+const buttons=document.querySelectorAll('.lang-btn');
+function setLang(l){
+  lang=l;document.documentElement.lang=l;
+  try{localStorage.setItem('ss-lang',l)}catch(e){}
+  document.querySelectorAll('[data-lang]:not(.lang-btn)').forEach(el=>el.classList.toggle('show',el.getAttribute('data-lang')===l));
+  buttons.forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+  greet();
+}
+function greet(){
+  const who=document.getElementById('whoami'), nw=document.getElementById('namewrap');
+  if(volunteer){
+    const first=volunteer.name.split(' ')[0];
+    const m={fi:`Hei <b>${first}</b>! Kiitos, että vastasit tehtävälomakkeeseen.`,sv:`Hej <b>${first}</b>! Tack för att du fyllde i uppgiftsformuläret.`,en:`Hi <b>${first}</b>! Thanks for filling in the role form.`};
+    who.innerHTML=m[lang]||m.fi;who.style.display='block';nw.style.display='none';
+  } else { who.style.display='none';nw.style.display='block'; }
+}
+buttons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+var _s=(function(){try{return localStorage.getItem('ss-lang')}catch(e){return null}})();
+setLang((_s==='sv'||_s==='en'||_s==='fi')?_s:'fi');
+
+const form=document.getElementById('meetform');
+const statusBox=document.getElementById('status');
+const submitBtn=document.getElementById('submitbtn');
+function showStatus(k){statusBox.className='status '+k;}
+form.addEventListener('submit',async(ev)=>{
+  ev.preventDefault();
+  if(form.website.value){showStatus('ok');return;}
+  const name=volunteer?volunteer.name:(document.getElementById('nameinput').value||'').trim();
+  if(!name){document.getElementById('nameinput').focus();return;}
+  const day=[...form.querySelectorAll('input[name=day]:checked')].map(c=>c.value);
+  const time=[...form.querySelectorAll('input[name=time]:checked')].map(c=>c.value);
+  const data={volunteer:vToken,name,day,time,notes:(form.notes.value||'').trim(),lang,source:'meeting',website:''};
+  submitBtn.disabled=true;
+  try{
+    const res=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    if(res.ok){showStatus('ok');form.querySelectorAll('input:checked').forEach(c=>c.checked=false);form.notes.value='';statusBox.scrollIntoView({behavior:'smooth',block:'center'});}
+    else{showStatus('err');submitBtn.disabled=false;}
+  }catch(e){showStatus('err');submitBtn.disabled=false;}
+});
+</script>
+</body>
+</html>
