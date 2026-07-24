@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<!-- Siili-Saari Care Center · Siilinpoikasen hoito-opas / Skötselguide / Hoglet care guide -->
+<!-- Standalone info page for volunteers. Not linked from nav or sitemap. -->
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siilin hoito-opas — Siili-Saari Care Center</title>
+<meta name="description" content="Vapaaehtoisten opas orpojen ja avuttomien siilien hoitoon: milloin siili tarvitsee apua, ensiapu, ruokinta, poikasten käsinruokinta, hygienia ja Suomen lainsäädäntö.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Siilin hoito-opas — vapaaehtoisille">
+<meta property="og:description" content="Milloin siili tarvitsee apua, ensiapu, ruokinta, siilinpoikasten käsinruokinta, hygienia ja laki. Tehty Siili-Saaren vapaaehtoisille.">
+<meta property="og:image" content="https://siilisaari.fi/hoglet.jpg">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:site_name" content="Siili-Saari Care Center">
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:italic;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin-italic.woff2') format('woff2-variations')}
+
+:root{
+  --teal-deep:#1a5c52; --teal:#2d7a6d; --teal-light:#3d9b8a;
+  --sunset:#e8a84c; --sunset-warm:#d4863a;
+  --cream:#faf6f0; --cream-dark:#f0e8da;
+  --bark:#5c4a3a; --moss:#4a6d45;
+  --white:#fff; --text:#2c2418; --text-soft:#5a4d3e;
+  --border:#e7ddcc;
+  --danger:#b3392e; --danger-bg:#fbecea;
+  --warn:#9a6212; --warn-bg:#fcf3e2;
+  --shadow:0 18px 50px rgba(26,92,82,.10); --shadow-sm:0 6px 22px rgba(26,92,82,.07);
+  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --max:900px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--sans);color:var(--text);line-height:1.7;background:var(--cream);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--teal-deep)}
+
+nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  background:rgba(250,246,240,.9);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(26,92,82,.06)}
+.nav-brand{display:flex;align-items:center;text-decoration:none}
+.nav-brand-logo{height:38px;width:auto;display:block}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.back-home{font-size:.82rem;font-weight:600;color:var(--text-soft);text-decoration:none;border-bottom:1px solid transparent;transition:.2s;white-space:nowrap}
+.back-home:hover{color:var(--teal-deep);border-bottom-color:var(--teal-light)}
+.lang-switcher{display:inline-flex;gap:0;background:rgba(255,255,255,.6);border:1px solid rgba(26,92,82,.12);border-radius:999px;padding:3px}
+.lang-btn{background:none;border:none;cursor:pointer;padding:.35rem .75rem;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.05em;color:var(--text-soft);border-radius:999px;transition:background .25s,color .25s}
+.lang-btn:hover{color:var(--teal-deep)}
+.lang-btn.active{background:var(--teal-deep);color:var(--cream)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+section{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sunset-warm);margin-bottom:1rem}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--sunset);border-radius:2px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1.12;color:var(--teal-deep)}
+h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin-bottom:.8rem}
+h3{font-size:clamp(1.2rem,2.4vw,1.5rem);margin-bottom:.5rem}
+h4{font-size:1.02rem;margin-bottom:.3rem;color:var(--bark)}
+p{margin-bottom:1rem}
+.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--text-soft);max-width:64ch}
+
+/* hero */
+.hero{padding:clamp(2.4rem,7vw,4.5rem) 0 clamp(1.8rem,4vw,3rem);
+  background:radial-gradient(1100px 460px at 80% -10%,rgba(232,168,76,.16),transparent 60%),radial-gradient(900px 520px at -8% 20%,rgba(45,122,109,.12),transparent 60%)}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:1rem}
+.hero h1 em{font-style:italic;color:var(--sunset-warm)}
+
+/* content sections */
+.sec{padding:clamp(2rem,5vw,3.2rem) 0;border-top:1px solid var(--border)}
+.sec-num{font-family:var(--serif);font-size:.85rem;font-weight:600;color:var(--sunset-warm);letter-spacing:.1em}
+
+/* banners */
+.banner{border-radius:16px;padding:1.2rem 1.4rem;margin:1.2rem 0;border:1px solid;display:flex;gap:.9rem;align-items:flex-start}
+.banner .ic{flex:none;font-size:1.3rem;line-height:1.4}
+.banner p{margin:0}
+.banner p+p{margin-top:.5rem}
+.banner.danger{background:var(--danger-bg);border-color:#eabbb4;color:#7a241c}
+.banner.danger strong{color:var(--danger)}
+.banner.warn{background:var(--warn-bg);border-color:#eed3a6;color:#6f4a12}
+.banner.info{background:#eef5f2;border-color:#cfe4dd;color:#204a41}
+
+/* two-column help/leave */
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:1rem}
+@media(max-width:640px){.cols2{grid-template-columns:1fr}}
+.panel{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.4rem;box-shadow:var(--shadow-sm)}
+.panel.help{border-top:4px solid var(--danger)}
+.panel.leave{border-top:4px solid var(--moss)}
+.panel h4{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;margin-bottom:.8rem}
+.panel.help h4{color:var(--danger)}
+.panel.leave h4{color:var(--moss)}
+
+/* rule lists */
+ul.rules{list-style:none;margin:.4rem 0 1rem}
+ul.rules li{position:relative;padding:.35rem 0 .35rem 1.7rem;border-bottom:1px dashed var(--border)}
+ul.rules li:last-child{border-bottom:0}
+ul.rules li::before{content:"";position:absolute;left:2px;top:.95rem;width:7px;height:7px;border-radius:50%;background:var(--sunset)}
+ul.rules.check li::before{content:"✓";background:none;color:var(--moss);font-weight:800;top:.35rem;left:0;width:auto;height:auto}
+ul.rules.no li::before{content:"✕";background:none;color:var(--danger);font-weight:800;top:.35rem;left:0;width:auto;height:auto}
+ul.rules li b{color:var(--bark)}
+
+/* never box */
+.never{background:#fff;border:1.5px solid #eabbb4;border-radius:16px;padding:1.2rem 1.4rem;margin:1rem 0}
+.never h4{color:var(--danger);font-family:var(--sans);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:.82rem;margin-bottom:.6rem}
+
+/* cards grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:1rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;box-shadow:var(--shadow-sm)}
+.card .tag{font-size:1.4rem;line-height:1;margin-bottom:.5rem;display:block}
+.card p{font-size:.95rem;margin:0}
+
+/* table */
+.tbl{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.93rem;background:var(--white);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.tbl th,.tbl td{padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--border)}
+.tbl th{background:var(--teal-deep);color:var(--cream);font-family:var(--sans);font-weight:600;font-size:.82rem;letter-spacing:.03em}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td:first-child{font-weight:600;color:var(--bark);white-space:nowrap}
+.tblwrap{overflow-x:auto}
+
+/* legal cards */
+.legal{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:1rem 1.2rem;margin:.8rem 0}
+.legal h4{font-family:var(--sans);font-weight:700;font-size:.95rem;color:var(--teal-deep);margin-bottom:.3rem}
+.legal p{margin:0;font-size:.95rem}
+.legal .ref{display:inline-block;margin-top:.5rem;font-size:.78rem;color:var(--text-soft);font-style:italic}
+
+.callout{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.4vw,1.5rem);color:var(--teal-deep);text-align:center;padding:1.4rem 1rem;line-height:1.4}
+
+/* footer */
+footer{background:var(--teal-deep);color:var(--cream);padding:2.4rem 0;margin-top:1rem;text-align:center}
+footer p{margin:0 auto .5rem;max-width:60ch;font-size:.95rem;opacity:.92}
+footer .fine{font-size:.8rem;opacity:.6;margin-top:1rem}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+[data-lang]:not(.lang-btn){display:none}
+[data-lang]:not(.lang-btn).show{display:revert}
+</style>
+<noscript><style>[data-lang]:not(.lang-btn){display:none!important}[data-lang="fi"]:not(.lang-btn){display:revert!important}.lang-switcher{display:none!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html" aria-label="Siili-Saari"><img class="nav-brand-logo" src="logo-horizontal.png" alt="Siili-Saari"></a>
+  <div class="nav-right">
+    <a class="back-home" href="index.html">
+      <span data-lang="fi" class="show">← Etusivu</span><span data-lang="sv">← Hem</span><span data-lang="en">← Home</span>
+    </a>
+    <div class="lang-switcher" role="group" aria-label="Language">
+      <button type="button" data-lang="fi" class="lang-btn active">FI</button>
+      <button type="button" data-lang="sv" class="lang-btn">SV</button>
+      <button type="button" data-lang="en" class="lang-btn">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span data-lang="fi" class="show">Vapaaehtoisten opas</span><span data-lang="sv">Guide för frivilliga</span><span data-lang="en">Volunteer guide</span></span>
+    <h1 data-lang="fi" class="show">Siilin <em>hoito-opas</em></h1>
+    <h1 data-lang="sv">Guide till <em>igelkottsvård</em></h1>
+    <h1 data-lang="en">Hedgehog <em>care guide</em></h1>
+    <p class="lead show" data-lang="fi">Näin autat avutonta tai orpoa villisiiliä oikein – milloin siili tarvitsee apua, miten se vakautetaan, mitä se syö, miten poikasia ruokitaan käsin, sekä hygienia ja Suomen laki. Lue tämä ennen kuin otat siilin hoitoon.</p>
+    <p class="lead" data-lang="sv">Så här hjälper du en hjälplös eller föräldralös vild igelkott på rätt sätt – när den behöver hjälp, hur den stabiliseras, vad den äter, hur ungar matas för hand, samt hygien och finsk lag. Läs detta innan du tar en igelkott i vård.</p>
+    <p class="lead" data-lang="en">How to help a helpless or orphaned wild hedgehog properly – when it needs help, how to stabilise it, what it eats, how to hand-feed hoglets, plus hygiene and Finnish law. Read this before you take a hedgehog into care.</p>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- SAFETY BANNER -->
+  <div class="banner danger reveal">
+    <span class="ic">⚠️</span>
+    <div>
+      <p data-lang="fi" class="show"><strong>Siili on potilas, ei lemmikki.</strong> Se on luonnonvarainen eläin, jonka päämäärä on palata terveenä luontoon. Tämä opas ei korvaa eläinlääkäriä: sairas, loukkaantunut, kylmettynyt tai matojen vaivaama siili – ja jokainen käsin ruokittava poikanen – tarvitsee villieläimiin perehtyneen eläinlääkärin arvion. Kun olet epävarma, kysy aina ensin.</p>
+      <p data-lang="sv"><strong>En igelkott är en patient, inte ett husdjur.</strong> Den är ett vilt djur vars mål är att återvända friskt till naturen. Den här guiden ersätter inte en veterinär: en sjuk, skadad, nedkyld eller maskangripen igelkott – och varje unge som matas för hand – behöver bedömas av en veterinär med kunskap om vilda djur. När du är osäker, fråga alltid först.</p>
+      <p data-lang="en"><strong>A hedgehog is a patient, not a pet.</strong> It is a wild animal whose goal is to return healthy to the wild. This guide does not replace a vet: a sick, injured, chilled or worm-burdened hedgehog – and every hand-fed hoglet – needs assessment by a vet experienced with wildlife. When in doubt, always ask first.</p>
+    </div>
+  </div>
+
+  <!-- 1. WHEN IT NEEDS HELP -->
+  <section class="sec reveal">
+    <div class="sec-num show" data-lang="fi">01</div><div class="sec-num" data-lang="sv">01</div><div class="sec-num" data-lang="en">01</div>
+    <h2 data-lang="fi" class="show">Milloin siili tarvitsee apua?</h2>
+    <h2 data-lang="sv">När behöver en igelkott hjälp?</h2>
+    <h2 data-lang="en">When does a hedgehog need help?</h2>
+    <p data-lang="fi" class="show">Siili on yöeläin. Päivällä ulkona liikkuva siili on yleensä pulassa – mutta terve, öisin liikkuva aikuinen siili jätetään rauhaan. Suomen laki sallii villieläimen ottamisen haltuun vain, jos se on loukkaantunut, sairas tai muuten avuton.</p>
+    <p data-lang="sv">Igelkotten är ett nattdjur. En igelkott ute på dagen har oftast något fel – men en frisk, nattaktiv vuxen igelkott lämnas i fred. Finsk lag tillåter att man tar ett vilt djur i besittning endast om det är skadat, sjukt eller annars hjälplöst.</p>
+    <p data-lang="en">The hedgehog is nocturnal. One out in daylight usually has something wrong – but a healthy adult active at night is left alone. Finnish law allows taking a wild animal into possession only if it is injured, sick or otherwise helpless.</p>
+
+    <div class="cols2">
+      <div class="panel help">
+        <h4 data-lang="fi" class="show">Tarvitsee apua</h4><h4 data-lang="sv">Behöver hjälp</h4><h4 data-lang="en">Needs help</h4>
+        <ul class="rules no show" data-lang="fi">
+          <li>Liikkuu tai makaa ulkona <b>keskellä päivää</b></li>
+          <li>Makaa paikallaan tai ”ottaa aurinkoa” avoimella paikalla – siilit eivät ota aurinkoa; se on vakavan sairauden merkki</li>
+          <li><b>Hoipertelee, horjuu tai kävelee ympyrää</b> (ympyrä = silmä- tai korvavamma)</li>
+          <li>Kärpäsenmunia (pieniä riisinjyviä muistuttavia) tai toukkia – <b>hätätapaus</b>, toukat syövät elävää kudosta vuorokaudessa</li>
+          <li>Näkyvä haava, verta, tai jää kiinni verkkoon</li>
+          <li>Emotta jäänyt poikaspesä, tai useita poikasia yhdessä ilman emoa</li>
+          <li>Liikkuu talvella (pesä tuhoutunut tai kastunut)</li>
+          <li>Syyspoikanen on selvästi liian pieni talvehtimaan</li>
+        </ul>
+        <ul class="rules no" data-lang="sv">
+          <li>Rör sig eller ligger ute <b>mitt på dagen</b></li>
+          <li>Ligger stilla eller ”solar” på öppen plats – igelkottar solar inte; det är ett tecken på allvarlig sjukdom</li>
+          <li><b>Vinglar, raglar eller går i cirklar</b> (cirklar = ögon- eller öronskada)</li>
+          <li>Flugägg (små risliknande korn) eller larver – <b>nödfall</b>, larver äter levande vävnad inom ett dygn</li>
+          <li>Synligt sår, blod, eller fastnat i nät</li>
+          <li>Ett bo med ungar utan mamma, eller flera ungar ihop utan moder</li>
+          <li>Rör sig på vintern (boet förstört eller blött)</li>
+          <li>En höstunge är tydligt för liten för att gå i vinterdvala</li>
+        </ul>
+        <ul class="rules no" data-lang="en">
+          <li>Moving or lying out <b>in the middle of the day</b></li>
+          <li>Lying still or "sunbathing" in the open – hedgehogs don't sunbathe; it signals serious illness</li>
+          <li><b>Wobbling, staggering or walking in circles</b> (circling = eye or ear injury)</li>
+          <li>Fly eggs (tiny rice-like grains) or maggots – <b>an emergency</b>; larvae eat living tissue within a day</li>
+          <li>Visible wound, blood, or caught in netting</li>
+          <li>A nest of hoglets with no mother, or several hoglets together with no mother</li>
+          <li>Active in winter (nest destroyed or soaked)</li>
+          <li>An autumn juvenile clearly too small to hibernate</li>
+        </ul>
+      </div>
+      <div class="panel leave">
+        <h4 data-lang="fi" class="show">Jätä rauhaan</h4><h4 data-lang="sv">Lämna i fred</h4><h4 data-lang="en">Leave alone</h4>
+        <ul class="rules check show" data-lang="fi">
+          <li>Terve, reipas aikuinen, joka liikkuu <b>öisin</b></li>
+          <li>Puuhakkaasti ruokaa tai pesämateriaalia keräävä emo, joka piipahtaa päivällä hetken</li>
+          <li>Yksittäinen, hyväkuntoinen vieroitettu nuori, joka etsii ruokaa yksin</li>
+          <li>Ehjä pesä – emo palaa; älä häiritse</li>
+          <li>Öisin tavattu siili, joka sihisee ja käpertyy tiukaksi palloksi, on todennäköisesti elinvoimainen – mutta päiväsaikainen liikkuminen menee aina tämän edelle</li>
+        </ul>
+        <ul class="rules check" data-lang="sv">
+          <li>En frisk, pigg vuxen som rör sig <b>nattetid</b></li>
+          <li>En moder som målmedvetet samlar mat eller bomaterial och är ute en kort stund på dagen</li>
+          <li>En enskild, välmående avvand unge som söker mat ensam</li>
+          <li>Ett helt bo – modern återvänder; stör inte</li>
+          <li>En igelkott som påträffas nattetid och som väser och rullar ihop sig till en hård boll är sannolikt livskraftig – men aktivitet dagtid går alltid före detta</li>
+        </ul>
+        <ul class="rules check" data-lang="en">
+          <li>A healthy, brisk adult moving <b>at night</b></li>
+          <li>A mother purposefully gathering food or nest material, out only briefly by day</li>
+          <li>A single, healthy weaned juvenile foraging alone</li>
+          <li>An intact nest – the mother returns; do not disturb</li>
+          <li>A hedgehog found at night that hisses and curls into a tight ball is likely vigorous – but daytime activity always overrides this</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. FIRST AID / STABILISE -->
+  <section class="sec reveal">
+    <div class="sec-num">02</div>
+    <h2 data-lang="fi" class="show">Ensiapu ja vakauttaminen</h2>
+    <h2 data-lang="sv">Första hjälpen och stabilisering</h2>
+    <h2 data-lang="en">First aid & stabilising</h2>
+    <p data-lang="fi" class="show">Kaksi asiaa pelastaa siilin ennen kuin se pääsee hoitoon: <b>lämpö</b> ja <b>rauha</b>. Lämmitä ensin – älä koskaan syötä tai juota kylmettynyttä siiliä.</p>
+    <p data-lang="sv">Två saker räddar en igelkott innan den kommer till vård: <b>värme</b> och <b>lugn</b>. Värm först – mata eller vattna aldrig en nedkyld igelkott.</p>
+    <p data-lang="en">Two things save a hedgehog before it reaches care: <b>warmth</b> and <b>calm</b>. Warm it first – never feed or give water to a chilled hedgehog.</p>
+
+    <ul class="rules show" data-lang="fi">
+      <li><b>Nosta</b> pyyhkeellä tai paksuilla puutarhahanskoilla.</li>
+      <li><b>Laatikko:</b> korkeareunainen pahvilaatikko, pohjalle pyyhe tai fleece, ilmareiät. Sisälle, hämärään ja hiljaiseen.</li>
+      <li><b>Lämpö:</b> pyyhkeeseen kääritty lämminvesipullo laatikon alle tai viereen niin, että lämpö tulee lempeästi läpi. Jätä tilaa, jotta siili pääsee pois lämmöltä. Vaihda pullo lämpimäksi ennen kuin se jäähtyy – <b>kylmä pullo on vaarallinen.</b></li>
+      <li><b>Poikkeus:</b> jos siili vuotaa verta tai siinä on kärpäsenmunia/toukkia, <b>älä lämmitä</b> – vie suoraan hoitoon (lämpö kiihdyttää verenvuotoa ja kuoriuttaa munat).</li>
+      <li><b>Älä pakkosyötä.</b> Kylmä siili ei pysty sulattamaan. Lämmitä ensin; ruokinta- ja lääkintäpäätökset kuuluvat hoitajalle/eläinlääkärille.</li>
+      <li>Poista näkyvät kärpäsenmunat pinseteillä, jos mahdollista – mutta älä viivytä hoitoon toimittamista.</li>
+    </ul>
+    <ul class="rules" data-lang="sv">
+      <li><b>Lyft</b> med en handduk eller tjocka trädgårdshandskar.</li>
+      <li><b>Låda:</b> en kartong med höga kanter, handduk eller fleece i botten, lufthål. Inomhus, mörkt och tyst.</li>
+      <li><b>Värme:</b> en handduksinlindad varmvattenflaska under eller bredvid lådan så att värmen kommer igenom mjukt. Lämna plats så att igelkotten kan flytta bort från värmen. Byt till varm flaska innan den svalnar – <b>en kall flaska är farlig.</b></li>
+      <li><b>Undantag:</b> om igelkotten blöder eller har flugägg/larver, <b>värm inte</b> – för den direkt till vård (värme ökar blödning och kläcker äggen).</li>
+      <li><b>Tvångsmata inte.</b> En kall igelkott kan inte smälta maten. Värm först; beslut om mat och medicin hör till vårdaren/veterinären.</li>
+      <li>Ta bort synliga flugägg med pincett om möjligt – men fördröj inte transporten till vård.</li>
+    </ul>
+    <ul class="rules" data-lang="en">
+      <li><b>Lift</b> with a towel or thick gardening gloves.</li>
+      <li><b>Box:</b> a high-sided cardboard box, towel or fleece in the bottom, air holes. Indoors, dark and quiet.</li>
+      <li><b>Warmth:</b> a towel-wrapped hot-water bottle under or beside the box so gentle heat comes through. Leave room for the hedgehog to move off the heat. Refill the bottle before it cools – <b>a cold bottle is dangerous.</b></li>
+      <li><b>Exception:</b> if the hedgehog is bleeding or has fly eggs/maggots, <b>do not warm it</b> – take it straight to care (heat speeds bleeding and hatches the eggs).</li>
+      <li><b>Do not force-feed.</b> A cold hedgehog cannot digest. Warm it first; feeding and medication decisions belong to the carer/vet.</li>
+      <li>Remove visible fly eggs with tweezers if you can – but don't delay getting it to care.</li>
+    </ul>
+
+    <div class="callout show" data-lang="fi">Lämpö + hämärä, hiljainen laatikko + nopeasti hoitoon. Se on kultainen sääntö.</div>
+    <div class="callout" data-lang="sv">Värme + en mörk, tyst låda + snabbt till vård. Det är den gyllene regeln.</div>
+    <div class="callout" data-lang="en">Warmth + a dark, quiet box + fast to care. That is the golden rule.</div>
+  </section>
+
+  <!-- 3. HANDLING & DAILY -->
+  <section class="sec reveal">
+    <div class="sec-num">03</div>
+    <h2 data-lang="fi" class="show">Käsittely ja päivittäinen hoito</h2>
+    <h2 data-lang="sv">Hantering och daglig skötsel</h2>
+    <h2 data-lang="en">Handling & daily care</h2>
+    <div class="grid show" data-lang="fi">
+      <div class="card"><span class="tag">🧤</span><h4>Käytä hanskoja</h4><p>Käsittele aina hanskoin (siili voi kantaa salmonellaa ja silsaa). Nosta kahdella kämmenellä alta – älä näpi ylhäältä.</p></div>
+      <div class="card"><span class="tag">⚖️</span><h4>Punnitse päivittäin</h4><p>Kirjaa paino joka päivä. Painon kehitys on tärkein merkki siitä, meneekö toipuminen oikeaan suuntaan.</p></div>
+      <div class="card"><span class="tag">🤫</span><h4>Käsittele vähän</h4><p>Siili on yksinäinen, arka saaliseläin. Turha käsittely stressaa ja hidastaa toipumista.</p></div>
+      <div class="card"><span class="tag">🚪</span><h4>Karanteeni</h4><p>Uusi tulokas erilleen n. 48 tunniksi ja käsittele mahdollisesti tartuttavana.</p></div>
+      <div class="card"><span class="tag">🫧</span><h4>Vaahtoaminen on normaalia</h4><p>Itsevoitelu (siili kiertyy levittämään vaahtoista sylkeä piikeille maisteltuaan uutta hajua) on täysin normaalia – ei rabiesta. Suomi on rabiesvapaa.</p></div>
+      <div class="card"><span class="tag">💊</span><h4>Madotus = eläinlääkäri</h4><p>Keuhko- ja suolimadot todetaan ulostenäytteestä. Väärä tai liian nopea madotus voi pahentaa tilaa – päätös kuuluu eläinlääkärille.</p></div>
+    </div>
+    <div class="grid" data-lang="sv">
+      <div class="card"><span class="tag">🧤</span><h4>Använd handskar</h4><p>Hantera alltid med handskar (igelkotten kan bära salmonella och ringorm). Lyft med två kupade händer underifrån – peta inte ovanifrån.</p></div>
+      <div class="card"><span class="tag">⚖️</span><h4>Väg dagligen</h4><p>Anteckna vikten varje dag. Viktutvecklingen är det viktigaste tecknet på om tillfrisknandet går åt rätt håll.</p></div>
+      <div class="card"><span class="tag">🤫</span><h4>Hantera lite</h4><p>Igelkotten är ett ensamt, skyggt bytesdjur. Onödig hantering stressar och fördröjer tillfrisknandet.</p></div>
+      <div class="card"><span class="tag">🚪</span><h4>Karantän</h4><p>Håll en nykomling avskild i ca 48 timmar och hantera den som möjligt smittsam.</p></div>
+      <div class="card"><span class="tag">🫧</span><h4>Skumning är normalt</h4><p>Självsmörjning (igelkotten vrider sig och sprider skummig saliv på taggarna efter att ha smakat en ny lukt) är helt normalt – inte rabies. Finland är rabiesfritt.</p></div>
+      <div class="card"><span class="tag">💊</span><h4>Avmaskning = veterinär</h4><p>Lung- och tarmmask konstateras genom avföringsprov. Fel eller för snabb avmaskning kan förvärra tillståndet – beslutet hör till veterinären.</p></div>
+    </div>
+    <div class="grid" data-lang="en">
+      <div class="card"><span class="tag">🧤</span><h4>Wear gloves</h4><p>Always handle with gloves (a hedgehog can carry salmonella and ringworm). Lift with two cupped hands from underneath – don't grab from above.</p></div>
+      <div class="card"><span class="tag">⚖️</span><h4>Weigh daily</h4><p>Record the weight every day. The weight trend is the most important sign of whether recovery is on track.</p></div>
+      <div class="card"><span class="tag">🤫</span><h4>Handle little</h4><p>A hedgehog is a solitary, timid prey animal. Unnecessary handling stresses it and slows recovery.</p></div>
+      <div class="card"><span class="tag">🚪</span><h4>Quarantine</h4><p>Keep a new arrival separate for ~48 hours and treat it as potentially infectious.</p></div>
+      <div class="card"><span class="tag">🫧</span><h4>Foaming is normal</h4><p>Self-anointing (twisting to spread frothy saliva over the spines after tasting a new smell) is completely normal – not rabies. Finland is rabies-free.</p></div>
+      <div class="card"><span class="tag">💊</span><h4>Deworming = the vet</h4><p>Lung- and gut-worms are diagnosed from a faecal sample. The wrong or too-fast deworming can worsen things – the decision belongs to the vet.</p></div>
+    </div>
+  </section>
+
+  <!-- 4. ENCLOSURE -->
+  <section class="sec reveal">
+    <div class="sec-num">04</div>
+    <h2 data-lang="fi" class="show">Häkki ja hygienia</h2>
+    <h2 data-lang="sv">Bur och hygien</h2>
+    <h2 data-lang="en">Enclosure & hygiene</h2>
+    <ul class="rules show" data-lang="fi">
+      <li><b>Yksi siili per häkki.</b> Siilit ovat yksineläjiä – yhdessä ne tappelevat ja tartuttavat toisiaan. Vain saman pesueen poikaset saavat olla yhdessä (enintään 4/laatikko), ja ne erotellaan vieroituksessa (n. 250 g).</li>
+      <li><b>Umpipohja</b>, ei koskaan verkkopohjaa (raajat juuttuvat). Korkeat, umpinaiset reunat; karkaamisen esto – siilit kiipeävät.</li>
+      <li><b>Kuivikkeet:</b> sanomalehti + pyyhe (näet virtsan ja ulosteen ja saat ulostenäytteen). Haavaisilla pyyhe/vet-bed, ei silppua tai purua. Ei pölyävää tai setripurua. Heinä vain pesämateriaaliksi myöhemmin.</li>
+      <li><b>Pesäkoppi tai piilo</b> aina, jotta siili saa rauhoittua.</li>
+      <li><b>Lämpö:</b> sairaalle/heikolle peitetty lämpötyyny n. 30 °C – siilin on aina päästävä pois lämmöltä. Alasti syntyneet poikaset n. 35 °C:n lämpötyynylle (ei koko häkkiä 35 °C:seen). Huone n. 20–22 °C, jottei alipainoinen siili yritä vaipua horrokseen.</li>
+      <li><b>Pidä erossa</b> koirista, kissoista ja muista eläimistä (silsa tarttuu molempiin suuntiin).</li>
+      <li><b>Puhtaus:</b> siivoa päivittäin; desinfioi eläinten välillä (esim. F10/Trigene); kertakäyttöinen pahvilaatikko hävitetään käytön jälkeen.</li>
+      <li><b>Ei juoksupyörää</b> – se on lemmikkiafrikansiilien tapa; villisiilelle liikuntaa antaa lattiapinta-ala ja ruoan etsintä.</li>
+    </ul>
+    <ul class="rules" data-lang="sv">
+      <li><b>En igelkott per bur.</b> Igelkottar är ensamlevande – tillsammans slåss de och smittar varandra. Endast ungar från samma kull får vara ihop (högst 4/låda), och de skiljs åt vid avvänjning (ca 250 g).</li>
+      <li><b>Tät botten</b>, aldrig nätbotten (ben fastnar). Höga, täta kanter; rymningssäkert – igelkottar klättrar.</li>
+      <li><b>Strö:</b> tidningspapper + handduk (du ser urin och avföring och får ett avföringsprov). För sårade handduk/vet-bed, inte strimlat papper eller spån. Inget dammigt eller cederspån. Hö endast som bomaterial senare.</li>
+      <li><b>Bohus eller gömsle</b> alltid, så att igelkotten kan lugna sig.</li>
+      <li><b>Värme:</b> för sjuk/svag en täckt värmedyna ca 30 °C – igelkotten måste alltid kunna flytta bort från värmen. Nakenfödda ungar på en värmedyna ca 35 °C (inte hela buren till 35 °C). Rummet ca 20–22 °C så att en underviktig igelkott inte försöker gå i dvala.</li>
+      <li><b>Håll åtskild</b> från hundar, katter och andra djur (ringorm smittar åt båda hållen).</li>
+      <li><b>Renlighet:</b> städa dagligen; desinficera mellan djur (t.ex. F10/Trigene); en engångskartong kasseras efter användning.</li>
+      <li><b>Inget löphjul</b> – det hör till afrikanska tamigelkottar; för en vild igelkott ges motion av golvytan och födosök.</li>
+    </ul>
+    <ul class="rules" data-lang="en">
+      <li><b>One hedgehog per enclosure.</b> Hedgehogs are solitary – together they fight and infect each other. Only hoglets from the same litter may share (max 4/box), and they are separated at weaning (~250 g).</li>
+      <li><b>Solid floor</b>, never a wire floor (limbs get trapped). High solid sides; escape-proof – hedgehogs climb.</li>
+      <li><b>Bedding:</b> newspaper + towel (you can monitor urine and faeces and collect a sample). For wounds use towel/vet-bed, not shredded paper or shavings. No dusty or cedar shavings. Hay only as nest material later.</li>
+      <li><b>A nest box or hide</b> always, so the hedgehog can settle.</li>
+      <li><b>Heat:</b> for a sick/weak animal a covered heat pad ~30 °C – it must always be able to move off the heat. Naked hoglets on a heat pad ~35 °C (not the whole cage at 35 °C). Room ~20–22 °C so an underweight hedgehog doesn't attempt hibernation.</li>
+      <li><b>Keep away</b> from dogs, cats and other animals (ringworm passes both ways).</li>
+      <li><b>Cleaning:</b> clean daily; disinfect between animals (e.g. F10/Trigene); a single-use cardboard box is discarded after use.</li>
+      <li><b>No exercise wheel</b> – that's a pet African-pygmy practice; a wild hedgehog gets exercise from floor space and foraging.</li>
+    </ul>
+  </section>
+
+  <!-- 5. FEEDING -->
+  <section class="sec reveal">
+    <div class="sec-num">05</div>
+    <h2 data-lang="fi" class="show">Ruokinta (vieroitettu siili)</h2>
+    <h2 data-lang="sv">Utfodring (avvand igelkott)</h2>
+    <h2 data-lang="en">Feeding (weaned hedgehog)</h2>
+    <p data-lang="fi" class="show">Siili on hyönteissyöjä. Luonnossa vähintään 60–80 % ravinnosta on hyönteisiä. Hoidossa perusruoka on <b>lihapitoinen (ei kalapohjainen) märkä kissan- tai koiranruoka</b> sekä kissan- tai siilinnaksuja; kissanruoka on parempi korkean proteiinin vuoksi. Heikolle aloitetaan pehmeällä märkäruoka–vesiseoksella (mutta vasta kun siili on lämmin ja nesteytetty). Käytännön aloitusannos on n. 20 g. Raikasta vettä aina matalassa, kaatumattomassa kupissa – vesi on ainoa juoma, ei juomapulloja.</p>
+    <p data-lang="sv">Igelkotten är en insektsätare. I naturen är minst 60–80 % av födan insekter. I vård är basfödan <b>köttig (inte fiskbaserad) våt katt- eller hundmat</b> samt katt- eller igelkottsgodis; kattmat är bättre tack vare det höga proteinet. För en svag djur börjar man med en mjuk blandning av våtmat och vatten (men först när den är varm och återfuktad). En praktisk startportion är ca 20 g. Färskt vatten alltid i en låg, stabil skål – vatten är den enda drycken, inga vattenflaskor.</p>
+    <p data-lang="en">The hedgehog is an insectivore. In the wild at least 60–80 % of the diet is insects. In care the staple is <b>meaty (not fish-based) wet cat or dog food</b> plus cat or hedgehog biscuits; cat food is better for its higher protein. For a weak animal start with a soft wet-food-and-water mix (but only once it is warm and rehydrated). A practical starting portion is ~20 g. Fresh water always in a shallow, non-tip dish – water is the only drink, no drinking bottles.</p>
+
+    <div class="never">
+      <h4 data-lang="fi" class="show">Älä koskaan anna</h4><h4 data-lang="sv">Ge aldrig</h4><h4 data-lang="en">Never give</h4>
+      <ul class="rules no show" data-lang="fi">
+        <li><b>Lehmänmaitoa tai mitään laktoosia</b> – siilit ovat laktoosi-intolerantteja; maito aiheuttaa tappavan ripulin. (Vanha ”leipää ja maitoa” -ohje on väärä.)</li>
+        <li><b>Leipää, viljaa tai leivonnaisia</b> – ei ravintoarvoa, vaikea sulattaa.</li>
+        <li><b>Jauhomatoja pääruokana</b> – kalsium–fosfori-suhde on pahasti vinossa (n. 1:7–1:20) ja aiheuttaa aineenvaihdunnallista luustosairautta (MBD). Sama koskee <b>maapähkinöitä, auringonkukansydämiä ja muita pähkinöitä/siemeniä.</b></li>
+        <li><b>Raakaa kalaa, suolaa, mausteita, jalostettua lihaa tai sisäelimiä.</b></li>
+        <li><b>Luonnosta pyydettyjä hyönteisiä</b> (loisriski).</li>
+        <li>Hedelmiä tai kasviksia pääravintona – siili tarvitsee proteiinia ja mineraaleja, ei kasvia.</li>
+      </ul>
+      <ul class="rules no" data-lang="sv">
+        <li><b>Komjölk eller någon laktos</b> – igelkottar är laktosintoleranta; mjölk orsakar dödlig diarré. (Det gamla rådet ”bröd och mjölk” är fel.)</li>
+        <li><b>Bröd, spannmål eller bakverk</b> – inget näringsvärde, svårt att smälta.</li>
+        <li><b>Mjölmask som huvudföda</b> – kalcium–fosforförhållandet är kraftigt snedvridet (ca 1:7–1:20) och orsakar metabolisk bensjukdom (MBD). Detsamma gäller <b>jordnötter, solrosfrön och andra nötter/frön.</b></li>
+        <li><b>Rå fisk, salt, kryddor, processat kött eller inälvor.</b></li>
+        <li><b>Insekter fångade i naturen</b> (parasitrisk).</li>
+        <li>Frukt eller grönsaker som huvudföda – igelkotten behöver protein och mineraler, inte växter.</li>
+      </ul>
+      <ul class="rules no" data-lang="en">
+        <li><b>Cow's milk or any lactose</b> – hedgehogs are lactose-intolerant; milk causes fatal diarrhoea. (The old "bread and milk" advice is wrong.)</li>
+        <li><b>Bread, grain or baked goods</b> – no nutritional value, hard to digest.</li>
+        <li><b>Mealworms as a staple</b> – the calcium-to-phosphorus ratio is badly skewed (~1:7–1:20) and causes Metabolic Bone Disease (MBD). The same goes for <b>peanuts, sunflower hearts and other nuts/seeds.</b></li>
+        <li><b>Raw fish, salt, spices, processed meat or organs.</b></li>
+        <li><b>Insects caught in the wild</b> (parasite risk).</li>
+        <li>Fruit or vegetables as the main diet – a hedgehog needs protein and minerals, not plants.</li>
+      </ul>
+    </div>
+    <p data-lang="fi" class="show" style="font-size:.95rem;color:var(--text-soft)">Lisäproteiiniksi käy kypsennetty, suolaton ja maustamaton vähärasvainen liha (kana, kalkkuna, naudan jauheliha) tai kypsä (ei raaka) kala.</p>
+    <p data-lang="sv" style="font-size:.95rem;color:var(--text-soft)">Som extra protein passar tillagat, osaltat och okryddat magert kött (kyckling, kalkon, nötfärs) eller tillagad (inte rå) fisk.</p>
+    <p data-lang="en" style="font-size:.95rem;color:var(--text-soft)">For extra protein use cooked, unsalted, unseasoned lean meat (chicken, turkey, minced beef) or cooked (not raw) fish.</p>
+  </section>
+
+  <!-- 6. ORPHAN HOGLETS -->
+  <section class="sec reveal">
+    <div class="sec-num">06</div>
+    <span class="eyebrow"><span data-lang="fi" class="show">Tärkein osa</span><span data-lang="sv">Den viktigaste delen</span><span data-lang="en">The most important part</span></span>
+    <h2 data-lang="fi" class="show">Orpojen poikasten käsinruokinta</h2>
+    <h2 data-lang="sv">Handmatning av föräldralösa ungar</h2>
+    <h2 data-lang="en">Hand-rearing orphaned hoglets</h2>
+
+    <div class="banner danger">
+      <span class="ic">🔴</span>
+      <div>
+        <p data-lang="fi" class="show"><strong>Älä koskaan ruoki kylmää poikasta.</strong> Lämmitä ensin varovasti normaaliin ruumiinlämpöön. Kylmän vastasyntyneen ruoansulatus pysähtyy – maito käy suolistossa tai joutuu keuhkoihin ja tappaa. Lämmin ensin, sitten nesteytys, vasta sitten maito.</p>
+        <p data-lang="sv"><strong>Mata aldrig en kall unge.</strong> Värm den först försiktigt till normal kroppstemperatur. En kall nyföddens matsmältning stannar – mjölken jäser i tarmen eller hamnar i lungorna och dödar. Varm först, sedan återfuktning, först därefter mjölk.</p>
+        <p data-lang="en"><strong>Never feed a cold hoglet.</strong> Warm it gently to normal body temperature first. A cold newborn's digestion shuts down – the milk ferments in the gut or enters the lungs and kills. Warm first, then rehydrate, only then milk.</p>
+      </div>
+    </div>
+
+    <ul class="rules show" data-lang="fi">
+      <li><b>Lämpö:</b> alasti syntyneet poikaset eivät säätele lämpöään – pidä n. 35 °C ensimmäiset ~2 viikkoa, laske vähitellen turkin kasvaessa.</li>
+      <li><b>Nesteytys ennen maitoa:</b> anna ensin lämmitettyä elektrolyyttinestettä (esim. Lectade). Heikko suolisto ei siedä vielä maitoa.</li>
+      <li><b>Maidonkorvike:</b> pentujen maidonkorvike – <b>Esbilac</b> tai <b>Royal Canin Babydog Milk</b> (helpoin saada Suomessa). Vuohenmaito on vain hätävara. <b>Ei koskaan lehmänmaitoa.</b></li>
+      <li><b>Ruokintatapa:</b> lämmitä maito ruumiinlämpöiseksi, syötä steriilillä 1 ml:n ruiskulla ja pehmeällä ohuella kärjellä/tutilla. Syötä <b>hitaasti</b> (maito voi mennä keuhkoihin). Testaa lämpö ranteeseen. Ei koskaan kylmänä.</li>
+      <li><b>Määrä:</b> enintään n. 20–25 % painosta vuorokaudessa, jaettuna useaan pieneen ateriaan (yläraja, ei tavoite). Älä anna täyttä annosta heti – jos vatsa pullistuu, lopeta ja anna nestettä.</li>
+      <li><b>Vessahätä:</b> stimuloi poikanen virtsaamaan ja ulostamaan <b>joka ruokinnan yhteydessä</b>, kunnes se toimii itse (n. 3,5 viikkoon asti) – muuten rakko/suoli voi venyä ja revetä. Sively hellästi vanupuikolla, jossa hiukan manteliöljyä.</li>
+      <li><b>Painot:</b> vastasyntynyt n. 8–25 g; ~80–130 g 3–4 viikossa; vieroitus n. 5–6 viikossa. Kiinteä ruoka (soseutettu pennun-/kissanruoka + korvike) n. 4 viikosta.</li>
+    </ul>
+    <ul class="rules" data-lang="sv">
+      <li><b>Värme:</b> nakenfödda ungar reglerar inte sin värme – håll ca 35 °C de första ~2 veckorna, sänk gradvis när pälsen växer.</li>
+      <li><b>Återfuktning före mjölk:</b> ge först uppvärmd elektrolytvätska (t.ex. Lectade). En svag tarm tål ännu inte mjölk.</li>
+      <li><b>Mjölkersättning:</b> valpmjölksersättning – <b>Esbilac</b> eller <b>Royal Canin Babydog Milk</b> (lättast att få i Finland). Getmjölk är endast en nödlösning. <b>Aldrig komjölk.</b></li>
+      <li><b>Matningssätt:</b> värm mjölken till kroppstemperatur, mata med en steril 1 ml-spruta och en mjuk tunn spets/napp. Mata <b>långsamt</b> (mjölk kan hamna i lungorna). Testa värmen mot handleden. Aldrig kall.</li>
+      <li><b>Mängd:</b> högst ca 20–25 % av vikten per dygn, uppdelat på många små måltider (övre gräns, inte mål). Ge inte full portion genast – om magen sväller, sluta och ge vätska.</li>
+      <li><b>Toalett:</b> stimulera ungen att kissa och bajsa <b>vid varje matning</b> tills den klarar det själv (till ca 3,5 veckor) – annars kan blåsan/tarmen tänjas och brista. Stryk mjukt med en bomullspinne med lite mandelolja.</li>
+      <li><b>Vikter:</b> nyfödd ca 8–25 g; ~80–130 g vid 3–4 veckor; avvänjning ca 5–6 veckor. Fast föda (mosad valp-/kattmat + ersättning) från ca 4 veckor.</li>
+    </ul>
+    <ul class="rules" data-lang="en">
+      <li><b>Warmth:</b> naked hoglets can't regulate their temperature – keep ~35 °C for the first ~2 weeks, lowering gradually as fur grows.</li>
+      <li><b>Rehydrate before milk:</b> first give warmed electrolyte fluid (e.g. Lectade). A weak gut can't handle milk yet.</li>
+      <li><b>Milk replacer:</b> a puppy milk replacer – <b>Esbilac</b> or <b>Royal Canin Babydog Milk</b> (easiest to get in Finland). Goat's milk is only an emergency stand-in. <b>Never cow's milk.</b></li>
+      <li><b>How to feed:</b> warm the milk to body temperature, feed with a sterile 1 ml syringe and a soft fine tip/teat. Feed <b>slowly</b> (milk can enter the lungs). Test the temperature on your wrist. Never cold.</li>
+      <li><b>Amount:</b> up to ~20–25 % of body weight per day, split across many small feeds (an upper limit, not a target). Don't give a full portion at once – if the tummy swells, stop and give fluid.</li>
+      <li><b>Toileting:</b> stimulate the hoglet to pass urine and faeces <b>at every feed</b> until it does so on its own (to ~3.5 weeks) – otherwise the bladder/bowel can stretch and rupture. Stroke gently with a cotton bud with a little almond oil.</li>
+      <li><b>Weights:</b> newborn ~8–25 g; ~80–130 g at 3–4 weeks; weaning ~5–6 weeks. Solid food (mashed puppy/cat food + replacer) from ~4 weeks.</li>
+    </ul>
+
+    <h3 data-lang="fi" class="show" style="margin-top:1.4rem">Ruokintaväli iän mukaan</h3>
+    <h3 data-lang="sv" style="margin-top:1.4rem">Matningsintervall enligt ålder</h3>
+    <h3 data-lang="en" style="margin-top:1.4rem">Feeding interval by age</h3>
+    <div class="tblwrap">
+    <table class="tbl show" data-lang="fi">
+      <thead><tr><th>Ikä</th><th>Paino (viitteellinen)</th><th>Ruokintaväli</th></tr></thead>
+      <tbody>
+        <tr><td>0–3 vrk</td><td>8–25 g</td><td>n. 2 tunnin välein, myös yöllä</td></tr>
+        <tr><td>3 vrk–2 vk</td><td>kasvaa →</td><td>n. 3 tunnin välein</td></tr>
+        <tr><td>2–4 vk</td><td>~80–130 g</td><td>n. 3–4 tunnin välein</td></tr>
+        <tr><td>~4 vk →</td><td>kiinteä alkaa</td><td>harvenee kiinteän myötä</td></tr>
+      </tbody>
+    </table>
+    <table class="tbl" data-lang="sv">
+      <thead><tr><th>Ålder</th><th>Vikt (riktgivande)</th><th>Matningsintervall</th></tr></thead>
+      <tbody>
+        <tr><td>0–3 dygn</td><td>8–25 g</td><td>ca var 2:a timme, även nattetid</td></tr>
+        <tr><td>3 dygn–2 v</td><td>växer →</td><td>ca var 3:e timme</td></tr>
+        <tr><td>2–4 v</td><td>~80–130 g</td><td>ca var 3:e–4:e timme</td></tr>
+        <tr><td>~4 v →</td><td>fast föda börjar</td><td>glesnar när fast föda införs</td></tr>
+      </tbody>
+    </table>
+    <table class="tbl" data-lang="en">
+      <thead><tr><th>Age</th><th>Weight (indicative)</th><th>Feeding interval</th></tr></thead>
+      <tbody>
+        <tr><td>0–3 days</td><td>8–25 g</td><td>~every 2 hours, night too</td></tr>
+        <tr><td>3 days–2 wk</td><td>growing →</td><td>~every 3 hours</td></tr>
+        <tr><td>2–4 wk</td><td>~80–130 g</td><td>~every 3–4 hours</td></tr>
+        <tr><td>~4 wk →</td><td>solids begin</td><td>tapers as solids come in</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="banner info">
+      <span class="ic">❄️</span>
+      <div>
+        <p data-lang="fi" class="show"><strong>Vähimmäispaino ennen talvea.</strong> Suomessa loppukesän–syksyn poikanen tarvitsee riittävät rasvavarastot talvehtiakseen. Tutkimuksen mukaan alaraja on n. 450 g, mutta turvallisena rajana pidetään yleensä <b>n. 600 g</b> (lähteet vaihtelevat; osa mainitsee jopa 800 g). Liian pieni syyspoikanen <b>ei vapauteta</b> vaan talvehditaan sisällä lämpimässä (n. 18–20 °C), jottei se yritä vaipua horrokseen. Vapautus vain leudolla säällä ja riittävän painavana.</p>
+        <p data-lang="sv"><strong>Minimivikt före vintern.</strong> I Finland behöver en unge på sensommaren–hösten tillräckliga fettreserver för att övervintra. Enligt forskning är nedre gränsen ca 450 g, men som säker gräns anses vanligen <b>ca 600 g</b> (källorna varierar; vissa nämner till och med 800 g). En för liten höstunge <b>släpps inte ut</b> utan övervintras inomhus i värme (ca 18–20 °C) så att den inte försöker gå i dvala. Utsläpp endast i milt väder och tillräckligt tung.</p>
+        <p data-lang="en"><strong>Minimum weight before winter.</strong> In Finland a late-summer–autumn hoglet needs enough fat reserves to overwinter. Research puts the floor at ~450 g, but the commonly used safe threshold is <b>~600 g</b> (sources vary; some cite as high as 800 g). A too-small autumn hoglet is <b>not released</b> but overwintered indoors in the warm (~18–20 °C) so it doesn't attempt hibernation. Release only in mild weather and at adequate weight.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ZOONOSES -->
+  <section class="sec reveal">
+    <div class="sec-num">07</div>
+    <h2 data-lang="fi" class="show">Hygienia ja oma terveytesi</h2>
+    <h2 data-lang="sv">Hygien och din egen hälsa</h2>
+    <h2 data-lang="en">Hygiene & your own health</h2>
+    <p data-lang="fi" class="show">Riski on hallittavissa yksinkertaisin toimin – ei syytä pelkoon, mutta hyvä hygienia on pakollinen. Tärkein yksittäinen suoja on <b>käsienpesu saippualla</b> heti käsittelyn, ruokakuppien tai häkin puhdistuksen jälkeen.</p>
+    <p data-lang="sv">Risken är hanterbar med enkla åtgärder – ingen anledning till rädsla, men god hygien är ett måste. Det viktigaste enskilda skyddet är <b>handtvätt med tvål</b> genast efter hantering, matskålar eller rengöring av buren.</p>
+    <p data-lang="en">The risk is manageable with simple steps – no cause for fear, but good hygiene is a must. The single most important protection is <b>washing hands with soap</b> immediately after handling, food dishes, or cleaning the enclosure.</p>
+    <ul class="rules show" data-lang="fi">
+      <li><b>Salmonella:</b> siilit voivat kantaa salmonellaa oireettomasti – terveenkin näköinen siili voi tartuttaa. Käsienpesu on tärkein suoja.</li>
+      <li><b>Silsa (Trichophyton erinacei):</b> yleinen sieni, joka tarttuu ihmiseen ja aiheuttaa kutisevia ihomuutoksia. Hanskat ja pintojen desinfiointi vähentävät riskiä.</li>
+      <li><b>Punkit</b> siilin mukana voivat levittää borrelioosia/puutiaisaivotulehdusta – poista ja hävitä punkit.</li>
+      <li><b>mecC-MRSA:</b> eurooppalaiset siilit kantavat sitä luontaisesti (Pohjoismaissa yleistä, Helsingissä todettu vähäisempänä). Suora tartunta ihmiseen on harvinaista, mutta puhdista purema-/piikkihaavat.</li>
+      <li>Käytä kertakäyttöhanskoja eläinkohtaisesti, omat välineet kullekin, ja pidä siilit erossa lemmikeistä.</li>
+      <li>Lapset alle 5 v, yli 65-vuotiaat, raskaana olevat ja vastustuskyvyltään heikentyneet välttäkööt kosketusta – älä koskaan pidä siiliä kasvojen lähellä.</li>
+    </ul>
+    <ul class="rules" data-lang="sv">
+      <li><b>Salmonella:</b> igelkottar kan bära salmonella utan symptom – även en frisk-utseende igelkott kan smitta. Handtvätt är det viktigaste skyddet.</li>
+      <li><b>Ringorm (Trichophyton erinacei):</b> en vanlig svamp som smittar människan och ger kliande hudförändringar. Handskar och desinfektion av ytor minskar risken.</li>
+      <li><b>Fästingar</b> som följer med igelkotten kan sprida borrelia/TBE – ta bort och kassera fästingarna.</li>
+      <li><b>mecC-MRSA:</b> europeiska igelkottar bär det naturligt (vanligt i Norden, påvisat i mindre grad i Helsingfors). Direkt smitta till människa är sällsynt, men rengör bett-/taggsår.</li>
+      <li>Använd engångshandskar per djur, egna redskap till var och en, och håll igelkottar åtskilda från husdjur.</li>
+      <li>Barn under 5 år, personer över 65, gravida och personer med nedsatt immunförsvar bör undvika kontakt – håll aldrig igelkotten nära ansiktet.</li>
+    </ul>
+    <ul class="rules" data-lang="en">
+      <li><b>Salmonella:</b> hedgehogs can carry it without symptoms – even a healthy-looking one can infect you. Handwashing is the key protection.</li>
+      <li><b>Ringworm (Trichophyton erinacei):</b> a common fungus that infects humans, causing itchy skin lesions. Gloves and surface disinfection cut the risk.</li>
+      <li><b>Ticks</b> arriving on the hedgehog can spread Lyme/TBE – remove and dispose of ticks.</li>
+      <li><b>mecC-MRSA:</b> European hedgehogs carry it naturally (common in the Nordics, found at lower levels in Helsinki). Direct human infection is rare, but clean any bite/spine puncture.</li>
+      <li>Use disposable gloves per animal, dedicated equipment for each, and keep hedgehogs away from pets.</li>
+      <li>Children under 5, people over 65, pregnant people and the immunocompromised should avoid contact – never hold a hedgehog near your face.</li>
+    </ul>
+  </section>
+
+  <!-- 8. LAW -->
+  <section class="sec reveal">
+    <div class="sec-num">08</div>
+    <h2 data-lang="fi" class="show">Laki Suomessa</h2>
+    <h2 data-lang="sv">Lagen i Finland</h2>
+    <h2 data-lang="en">The law in Finland</h2>
+    <p data-lang="fi" class="show">Lyhyesti: <b>avuttoman villisiilin auttaminen ja lyhytaikainen hoitoon toimittaminen on jokaisen oikeus ja jopa velvollisuus – ilman lupaa ja ilman maksua.</b> Pysyvä pitäminen ei ole sallittua, ja pitkäaikainen tai järjestelmällinen hoitotoiminta on erikseen säädeltyä. Tarkista aina epäselvissä tilanteissa viranomaiselta tai villieläimiin perehtyneeltä eläinlääkäriltä.</p>
+    <p data-lang="sv">Kort: <b>att hjälpa en hjälplös vild igelkott och kortvarigt föra den till vård är var och ens rätt och till och med skyldighet – utan tillstånd och utan avgift.</b> Att behålla den permanent är inte tillåtet, och långvarig eller systematisk vårdverksamhet är särskilt reglerad. Kontrollera alltid vid oklarheter med myndigheten eller en veterinär med kunskap om vilda djur.</p>
+    <p data-lang="en">In short: <b>helping a helpless wild hedgehog and briefly getting it to care is everyone's right and even duty – with no permit and no fee.</b> Keeping one permanently is not allowed, and long-term or systematic rehab activity is separately regulated. When unsure, always check with the authority or a vet experienced with wildlife.</p>
+
+    <div class="legal">
+      <h4 data-lang="fi" class="show">Siili on rauhoitettu</h4><h4 data-lang="sv">Igelkotten är fridlyst</h4><h4 data-lang="en">The hedgehog is protected</h4>
+      <p data-lang="fi" class="show">Siili on luonnonsuojelulain mukaan rauhoitettu laji. Sitä ei saa tahallaan tappaa, pyydystää tai häiritä – mutta sairaan, vahingoittuneen tai avuttoman yksilön auttamiseen sovelletaan eläinten hyvinvointilakia.</p>
+      <p data-lang="sv">Igelkotten är en fridlyst art enligt naturvårdslagen. Den får inte avsiktligt dödas, fångas eller störas – men hjälp till en sjuk, skadad eller hjälplös individ regleras av lagen om djurvälfärd.</p>
+      <p data-lang="en">The hedgehog is a protected species under the Nature Conservation Act. It may not be intentionally killed, captured or disturbed – but helping a sick, injured or helpless individual is governed by the Animal Welfare Act.</p>
+      <span class="ref">Luonnonsuojelulaki 9/2023 §69–§71</span>
+    </div>
+
+    <div class="legal">
+      <h4 data-lang="fi" class="show">Velvollisuus auttaa – ilman lupaa, ilman maksua</h4><h4 data-lang="sv">Skyldighet att hjälpa – utan tillstånd, utan avgift</h4><h4 data-lang="en">Duty to help – no permit, no fee</h4>
+      <p data-lang="fi" class="show">Jokaisella on velvollisuus auttaa sairasta, vahingoittunutta tai avutonta luonnonvaraista eläintä. Kuka tahansa saa ottaa siilin <b>lyhytaikaisesti</b> haltuun ensiapua tai hoitoon toimittamista varten – tähän ei tarvita lupaa eikä siitä peritä maksua. Ensiavun jälkeen eläin joko vapautetaan sen tilan salliessa, toimitetaan hoitopaikkaan tai lopetetaan.</p>
+      <p data-lang="sv">Var och en är skyldig att hjälpa ett sjukt, skadat eller hjälplöst vilt djur. Vem som helst får ta en igelkott i <b>kortvarig</b> besittning för första hjälpen eller för att föra den till vård – detta kräver inget tillstånd och ingen avgift tas ut. Efter första hjälpen släpps djuret antingen ut när tillståndet tillåter, förs till en vårdplats eller avlivas.</p>
+      <p data-lang="en">Everyone has a duty to help a sick, injured or helpless wild animal. Anyone may take a hedgehog into <b>short-term</b> possession for first aid or to bring it to care – no permit is needed and no fee is charged. After first aid the animal is either released when its condition allows, taken to a care facility, or euthanised.</p>
+      <span class="ref">Eläinten hyvinvointilaki 693/2023 §7, §29</span>
+    </div>
+
+    <div class="legal">
+      <h4 data-lang="fi" class="show">Ei lemmikiksi – vain hoitoa varten</h4><h4 data-lang="sv">Inte som husdjur – endast för vård</h4><h4 data-lang="en">Not as a pet – only for care</h4>
+      <p data-lang="fi" class="show">Villieläintä ei saa ottaa lemmikiksi. Siiliä saa pitää vain hoidon ajan, ei pysyvästi. Toipunut siili vapautetaan luontoon heti kun sen kunto sallii; jos sitä ei voida vapauttaa eikä sijoittaa eläintarhaan, se on lopetettava.</p>
+      <p data-lang="sv">Ett vilt djur får inte tas som husdjur. En igelkott får hållas endast under vårdtiden, inte permanent. En återhämtad igelkott släpps ut i naturen så snart tillståndet tillåter; om den inte kan släppas ut eller placeras på djurpark ska den avlivas.</p>
+      <p data-lang="en">A wild animal may not be kept as a pet. A hedgehog may be held only for the duration of care, not permanently. A recovered hedgehog is released as soon as its condition allows; if it cannot be released or placed in a zoo, it must be euthanised.</p>
+      <span class="ref">Eläinten hyvinvointilaki 693/2023 §28, §61</span>
+    </div>
+
+    <div class="legal">
+      <h4 data-lang="fi" class="show">Pitkäaikainen hoitotoiminta = ilmoitus Ruokavirastolle</h4><h4 data-lang="sv">Långvarig vårdverksamhet = anmälan till Livsmedelsverket</h4><h4 data-lang="en">Ongoing rehab activity = notify Ruokavirasto</h4>
+      <p data-lang="fi" class="show">Jatkuva, järjestelmällinen villieläinten hoitotoiminta (hoitola) edellyttää <b>kirjallista ilmoitusta</b> viimeistään 30 vrk ennen aloittamista. Vuoden 2026 alusta ilmoitus tehdään Ruokavirastolle, joka voi periä käsittelymaksun hinnastonsa mukaan. <b>Yksittäisen siilin lyhytaikainen auttaminen ei vaadi ilmoitusta eikä maksua.</b> (Tarkat maksut kannattaa varmistaa Ruokavirastolta.)</p>
+      <p data-lang="sv">Kontinuerlig, systematisk vårdverksamhet för vilda djur kräver en <b>skriftlig anmälan</b> senast 30 dygn före start. Från början av 2026 görs anmälan till Livsmedelsverket, som kan ta ut en behandlingsavgift enligt sin prislista. <b>Att kortvarigt hjälpa en enskild igelkott kräver varken anmälan eller avgift.</b> (Exakta avgifter bör kontrolleras hos Livsmedelsverket.)</p>
+      <p data-lang="en">Continuous, systematic wildlife rehab activity (a care facility) requires a <b>written notification</b> at least 30 days before starting. From the start of 2026 the notification goes to Ruokavirasto (the Finnish Food Authority), which may charge a processing fee per its price list. <b>Briefly helping a single hedgehog requires no notification and no fee.</b> (Confirm exact fees with Ruokavirasto.)</p>
+      <span class="ref">Eläinten hyvinvointilaki 693/2023 §61</span>
+    </div>
+
+    <div class="legal">
+      <h4 data-lang="fi" class="show">Pitkäaikainen hallussapito = poikkeuslupa (LVV)</h4><h4 data-lang="sv">Långvarigt innehav = undantagstillstånd (LVV)</h4><h4 data-lang="en">Long-term possession = derogation permit (LVV)</h4>
+      <p data-lang="fi" class="show">Rauhoitetun lajin pidempiaikaiseen hallussapitoon voidaan tarvita luonnonsuojelulain poikkeuslupa. Vuoden 2026 alusta luvan myöntää uusi Lupa- ja valvontavirasto (LVV); entiset ELY-keskukset lakkautettiin 1.1.2026, eikä niihin enää viitata.</p>
+      <p data-lang="sv">För långvarigt innehav av en fridlyst art kan ett undantagstillstånd enligt naturvårdslagen behövas. Från början av 2026 beviljas tillståndet av det nya Tillstånds- och tillsynsverket (LVV); de tidigare NTM-centralerna avskaffades 1.1.2026 och hänvisas inte längre till.</p>
+      <p data-lang="en">Long-term possession of a protected species may require a Nature Conservation Act derogation permit. From the start of 2026 this is granted by the new Licensing and Supervisory Authority (LVV / Lupa- ja valvontavirasto); the former ELY Centres were abolished on 1 Jan 2026 and are no longer cited.</p>
+      <span class="ref">Luonnonsuojelulaki 9/2023; LVV / Tillstånds- och tillsynsverket</span>
+    </div>
+
+    <div class="legal">
+      <h4 data-lang="fi" class="show">Eläinlääkäri, kunta ja kuollut siili</h4><h4 data-lang="sv">Veterinär, kommun och död igelkott</h4><h4 data-lang="en">Vet, municipality & a dead hedgehog</h4>
+      <p data-lang="fi" class="show">Eläinlääkäriä ei vaadita joka tilanteessa, mutta hoitoa tarvitseva siili on vietävä eläinlääkäriin. Kunnan on huolehdittava sen vastaanotolle tuotujen sairaiden tai vahingoittuneiden luonnonvaraisten eläinten lopettamisesta – toivottoman tapauksen voi aina viedä kunnaneläinlääkärille. Kuollutta rauhoitettua eläintä ei saa ottaa haltuun; sen voi toimittaa valtion tutkimuslaitokselle kuolinsyyn selvittämiseksi.</p>
+      <p data-lang="sv">En veterinär krävs inte i varje situation, men en igelkott som behöver vård ska föras till veterinär. Kommunen ska sörja för avlivning av sjuka eller skadade vilda djur som förts till dess mottagning – ett hopplöst fall kan alltid föras till kommunalveterinären. En död fridlyst djurindivid får inte tas i besittning; den kan lämnas till ett statligt forskningsinstitut för att fastställa dödsorsaken.</p>
+      <p data-lang="en">A vet is not required in every situation, but a hedgehog needing treatment must be taken to one. The municipality must arrange euthanasia of sick or injured wild animals brought to its clinic – a hopeless case can always be taken to the municipal vet. A dead protected animal may not be taken into possession; it may be delivered to a state research institute to determine the cause of death.</p>
+      <span class="ref">Eläinten hyvinvointilaki 693/2023 §7, §23; Luonnonsuojelulaki 9/2023 §72</span>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p data-lang="fi" class="show">Tämä opas on tehty Siili-Saaren vapaaehtoisille. Se ei korvaa villieläimiin perehtyneen eläinlääkärin arviota – kun olet epävarma, kysy aina ensin.</p>
+    <p data-lang="sv">Den här guiden är gjord för Siili-Saaris frivilliga. Den ersätter inte bedömningen av en veterinär med kunskap om vilda djur – när du är osäker, fråga alltid först.</p>
+    <p data-lang="en">This guide is for Siili-Saari's volunteers. It does not replace assessment by a vet experienced with wildlife – when in doubt, always ask first.</p>
+    <p class="fine">Siili-Saari Care Center · siilisaari.fi</p>
+  </div>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.lang-btn');
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    try{localStorage.setItem('ss-lang',lang)}catch(e){}
+    document.querySelectorAll('[data-lang]:not(.lang-btn)').forEach(el=>{
+      el.classList.toggle('show', el.getAttribute('data-lang')===lang);
+    });
+    buttons.forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  }
+  buttons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  var _s=(function(){try{return localStorage.getItem('ss-lang')}catch(e){return null}})();
+  setLang((_s==='sv'||_s==='en'||_s==='fi')?_s:'fi');
+
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
