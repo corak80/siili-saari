@@ -90,7 +90,7 @@ footer{background:var(--teal-deep);color:var(--cream);padding:1.8rem 0;text-alig
     <p data-lang="en" class="intro">One volunteer per weekday. Come during opening hours (from 7:45, leave before 17:00). The work takes about 1–1.5 hours: cleaning and feeding. Pick a day and your arrival time. Once a day is booked it locks.</p>
     <p id="greet" class="greet"></p>
   </header>
-  <div id="status" class="status"></div>
+  <div id="status" class="status" aria-live="polite"></div>
   <div id="weeks"></div>
 </main>
 
@@ -105,7 +105,7 @@ footer{background:var(--teal-deep);color:var(--cream);padding:1.8rem 0;text-alig
   var API = 'https://dashboard.saarivet.fi/tv/api/roster';
   var token = (new URLSearchParams(location.search).get('v') || '').toLowerCase().trim();
   var NAMES = { anneli:'Anneli', elina:'Elina', marika:'Marika', henna:'Henna', nea:'Nea', olga:'Olga' };
-  var myName = NAMES[token] || '';
+  var myName = Object.prototype.hasOwnProperty.call(NAMES, token) ? NAMES[token] : '';
   var lang = 'fi';
   var LOCALE = { fi:'fi-FI', sv:'sv-SE', en:'en-GB' };
   var T = {
