@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- Siili-Saari Care Center · Siilivuorot / Igelkottsturer / Hedgehog shifts -->
+<!-- Standalone volunteer shift-booking page. Personalized via ?v=<token>. Not in nav/sitemap. -->
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siilivuorot — Siili-Saari Care Center</title>
+<meta name="description" content="Varaa siilihoitolan vapaaehtoisvuoro.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Siilivuorot — Siili-Saari">
+<meta property="og:image" content="https://siilisaari.fi/hoglet.jpg">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:site_name" content="Siili-Saari Care Center">
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin.woff2') format('woff2-variations')}
+:root{
+  --teal-deep:#1a5c52; --teal:#2d7a6d; --teal-light:#3d9b8a;
+  --sunset:#e8a84c; --sunset-warm:#d4863a;
+  --cream:#faf6f0; --white:#fff; --text:#2c2418; --text-soft:#5a4d3e;
+  --border:#e7ddcc; --ok:#2e7d4f; --ok-bg:#eaf5ee; --danger:#b3392e; --danger-bg:#fbecea;
+  --shadow-sm:0 6px 22px rgba(26,92,82,.07);
+  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --max:640px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--text);line-height:1.65;background:var(--cream)}
+a{color:var(--teal-deep)}
+nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(250,246,240,.9);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(26,92,82,.06)}
+.nav-brand-logo{height:38px;width:auto;display:block}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.back-home{font-size:.82rem;font-weight:600;color:var(--text-soft);text-decoration:none;border-bottom:1px solid transparent}
+.back-home:hover{color:var(--teal-deep);border-bottom-color:var(--teal-light)}
+.lang-switcher{display:inline-flex;background:rgba(255,255,255,.6);border:1px solid rgba(26,92,82,.12);border-radius:999px;padding:3px}
+.lang-btn{background:none;border:none;cursor:pointer;padding:.35rem .75rem;font:600 .78rem var(--sans);letter-spacing:.05em;color:var(--text-soft);border-radius:999px;transition:.25s}
+.lang-btn:hover{color:var(--teal-deep)}
+.lang-btn.active{background:var(--teal-deep);color:var(--cream)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+.hero{padding:clamp(2.2rem,6vw,3.4rem) 0 1rem;background:radial-gradient(1000px 420px at 85% -10%,rgba(232,168,76,.16),transparent 60%),radial-gradient(800px 480px at -8% 20%,rgba(45,122,109,.12),transparent 60%)}
+h1{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1.1;color:var(--teal-deep);font-size:clamp(1.8rem,5vw,2.7rem);margin-bottom:.7rem}
+.intro{font-size:1.05rem;color:var(--text-soft);margin-top:.3rem}
+.greet{margin-top:1rem;padding:.8rem 1.1rem;border-radius:12px;font-size:1rem;background:var(--ok-bg);border:1px solid #bfe0cb;color:#1e5a38;display:inline-block}
+.greet.readonly{background:var(--danger-bg);border-color:#eabbb4;color:#7a241c}
+footer{background:var(--teal-deep);color:var(--cream);padding:1.8rem 0;text-align:center;font-size:.9rem;opacity:.95}
+[data-lang]:not(.lang-btn){display:none}
+[data-lang]:not(.lang-btn).show{display:revert}
+.week{margin:18px 0;border:1px solid #eadfd2;border-radius:12px;padding:14px 16px;background:var(--white)}
+.week h2{font-family:var(--serif);font-size:1.1rem;color:var(--teal-deep);margin-bottom:.4rem}
+.day{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f2ece3}
+.day:last-child{border-bottom:0}
+.day.booked .date{color:#8a8178}
+.act{display:flex;gap:8px;align-items:center}
+.btn{border:0;border-radius:8px;padding:7px 14px;background:#e0795b;color:#fff;font:inherit;cursor:pointer}
+.btn.ghost{background:transparent;color:#b1382f;border:1px solid #e6c9c2}
+.time{padding:6px 8px;border:1px solid #dcd2c4;border-radius:8px;font:inherit}
+.openlbl{color:#7aa06a;font-size:14px}
+.who{font-size:14px}
+.status{min-height:20px;color:#8a8178;font-size:14px;margin:6px 0}
+</style>
+<noscript><style>[data-lang]:not(.lang-btn){display:none!important}[data-lang="fi"]:not(.lang-btn){display:revert!important}.lang-switcher{display:none!important}</style></noscript>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="index.html" aria-label="Siili-Saari"><img class="nav-brand-logo" src="logo-horizontal.png" alt="Siili-Saari"></a>
+  <div class="nav-right">
+    <a class="back-home" href="siilinhoito.html">
+      <span data-lang="fi" class="show">← Hoito-opas</span><span data-lang="sv">← Skötselguide</span><span data-lang="en">← Care guide</span>
+    </a>
+    <div class="lang-switcher" role="group" aria-label="Language">
+      <button type="button" data-lang="fi" class="lang-btn active">FI</button>
+      <button type="button" data-lang="sv" class="lang-btn">SV</button>
+      <button type="button" data-lang="en" class="lang-btn">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header class="hero">
+    <h1 data-lang="fi" class="show">Siilivuorot</h1>
+    <h1 data-lang="sv">Igelkottsturer</h1>
+    <h1 data-lang="en">Hedgehog shifts</h1>
+    <p data-lang="fi" class="show intro">Yksi vapaaehtoinen per arkipäivä. Tule aukioloaikaan (klo 7.45 alkaen, lähde ennen klo 17). Työ kestää noin 1–1,5 tuntia: siivous ja ruokinta. Valitse päivä ja saapumisaikasi. Kun päivä on varattu, se lukittuu.</p>
+    <p data-lang="sv" class="intro">En volontär per vardag. Kom under öppettiderna (från kl. 7.45, gå före kl. 17). Arbetet tar ca 1–1,5 timme: städning och matning. Välj dag och ankomsttid. När en dag är bokad låses den.</p>
+    <p data-lang="en" class="intro">One volunteer per weekday. Come during opening hours (from 7:45, leave before 17:00). The work takes about 1–1.5 hours: cleaning and feeding. Pick a day and your arrival time. Once a day is booked it locks.</p>
+    <p id="greet" class="greet"></p>
+  </header>
+  <div id="status" class="status"></div>
+  <div id="weeks"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-lang="fi" class="show">Kiitos avustasi! 🦔</span><span data-lang="sv">Tack för din hjälp! 🦔</span><span data-lang="en">Thanks for your help! 🦔</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var API = 'https://dashboard.saarivet.fi/tv/api/roster';
+  var token = (new URLSearchParams(location.search).get('v') || '').toLowerCase().trim();
+  var NAMES = { anneli:'Anneli', elina:'Elina', marika:'Marika', henna:'Henna', nea:'Nea', olga:'Olga' };
+  var myName = NAMES[token] || '';
+  var lang = 'fi';
+  var LOCALE = { fi:'fi-FI', sv:'sv-SE', en:'en-GB' };
+  var T = {
+    book:   { fi:'Varaa', sv:'Boka', en:'Book' },
+    cancel: { fi:'Peru', sv:'Avboka', en:'Cancel' },
+    open:   { fi:'vapaa', sv:'ledig', en:'open' },
+    pick:   { fi:'Saapumisaika', sv:'Ankomsttid', en:'Arrival time' },
+    taken:  { fi:'Tämä päivä varattiin juuri. Päivitetään…', sv:'Dagen bokades nyss. Uppdaterar…', en:'That day was just taken. Refreshing…' },
+    err:    { fi:'Virhe. Yritä uudelleen.', sv:'Fel. Försök igen.', en:'Error. Please try again.' },
+    readonly:{ fi:'Avaa oma henkilökohtainen linkkisi varataksesi.', sv:'Öppna din personliga länk för att boka.', en:'Open your personal link to book.' },
+    weekOf: { fi:'Viikko', sv:'Vecka', en:'Week of' },
+    loading:{ fi:'Ladataan…', sv:'Laddar…', en:'Loading…' },
+  };
+  function t(k){ return (T[k]||{})[lang] || (T[k]||{}).en || ''; }
+  var $ = function (s, r) { return (r||document).querySelector(s); };
+  var sending = false;
+
+  function greet() {
+    var g = $('#greet');
+    if (myName) { g.textContent = { fi:'Hei '+myName+'!', sv:'Hej '+myName+'!', en:'Hi '+myName+'!' }[lang]; g.className = 'greet'; }
+    else { g.textContent = t('readonly'); g.className = 'greet readonly'; }
+  }
+
+  function fmtDay(date) {
+    var d = new Date(date + 'T00:00:00');
+    return d.toLocaleDateString(LOCALE[lang] || 'en-GB', { weekday:'long', day:'numeric', month:'long' });
+  }
+  function weekKey(date) {
+    var d = new Date(date + 'T00:00:00');
+    var day = (d.getDay() + 6) % 7; // Mon=0
+    d.setDate(d.getDate() - day);
+    return d.toISOString().slice(0, 10);
+  }
+
+  function api(pathSuffix, body) {
+    return fetch(API + pathSuffix, {
+      method: body ? 'POST' : 'GET',
+      headers: body ? { 'Content-Type': 'application/json' } : undefined,
+      body: body ? JSON.stringify(body) : undefined,
+    }).then(function (r) { return r.json().then(function (j) { return { status: r.status, j: j }; }); });
+  }
+
+  var lastData = null;
+
+  function load() {
+    $('#status').textContent = t('loading');
+    if (window.__ROSTER_STUB__) { lastData = window.__ROSTER_STUB__; $('#status').textContent = ''; render(lastData); return; }
+    api('').then(function (r) { $('#status').textContent = ''; lastData = r.j; render(lastData); })
+      .catch(function () { $('#status').textContent = t('err'); });
+  }
+
+  function render(data) {
+    if (!data) return;
+    var weeksEl = $('#weeks'); weeksEl.innerHTML = '';
+    var slots = data.slots || [];
+    var bookings = data.bookings || {};
+    var byWeek = {};
+    (data.window || []).forEach(function (date) {
+      var k = weekKey(date); (byWeek[k] = byWeek[k] || []).push(date);
+    });
+    Object.keys(byWeek).sort().forEach(function (wk) {
+      var card = document.createElement('section'); card.className = 'week';
+      var h = document.createElement('h2');
+      h.textContent = t('weekOf') + ' ' + new Date(wk + 'T00:00:00').toLocaleDateString(LOCALE[lang] || 'en-GB', { day:'numeric', month:'long' });
+      card.appendChild(h);
+      byWeek[wk].forEach(function (date) {
+        card.appendChild(dayRow(date, bookings[date], slots));
+      });
+      weeksEl.appendChild(card);
+    });
+  }
+
+  function dayRow(date, booking, slots) {
+    var row = document.createElement('div'); row.className = 'day';
+    var label = document.createElement('span'); label.className = 'date'; label.textContent = fmtDay(date);
+    row.appendChild(label);
+    var right = document.createElement('span'); right.className = 'act';
+    if (booking) {
+      row.classList.add('booked');
+      var who = document.createElement('span'); who.className = 'who';
+      who.textContent = booking.name + ' · ' + booking.time;
+      right.appendChild(who);
+      if (myName && booking.name === myName) {
+        var cx = document.createElement('button'); cx.className = 'btn ghost'; cx.textContent = t('cancel');
+        cx.onclick = function () { doCancel(date); };
+        right.appendChild(cx);
+      }
+    } else {
+      var open = document.createElement('span'); open.className = 'openlbl'; open.textContent = t('open');
+      right.appendChild(open);
+      if (myName) {
+        var sel = document.createElement('select'); sel.className = 'time';
+        var ph = document.createElement('option'); ph.value = ''; ph.textContent = t('pick'); sel.appendChild(ph);
+        slots.forEach(function (s) { var o = document.createElement('option'); o.value = s; o.textContent = s; sel.appendChild(o); });
+        var bk = document.createElement('button'); bk.className = 'btn'; bk.textContent = t('book');
+        bk.onclick = function () { if (!sel.value) { sel.focus(); return; } doBook(date, sel.value); };
+        right.appendChild(sel); right.appendChild(bk);
+      }
+    }
+    row.appendChild(right);
+    return row;
+  }
+
+  function doBook(date, time) {
+    if (sending || !myName) return; sending = true;
+    api('/book', { token: token, date: date, time: time }).then(function (r) {
+      sending = false;
+      if (r.status === 409) { $('#status').textContent = t('taken'); load(); return; }
+      if (r.status !== 200 || !r.j.ok) { $('#status').textContent = t('err'); return; }
+      $('#status').textContent = ''; load();
+    }).catch(function () { sending = false; $('#status').textContent = t('err'); });
+  }
+
+  function doCancel(date) {
+    if (sending || !myName) return; sending = true;
+    api('/cancel', { token: token, date: date }).then(function (r) {
+      sending = false;
+      if (r.status !== 200 || !r.j.ok) { $('#status').textContent = t('err'); return; }
+      $('#status').textContent = ''; load();
+    }).catch(function () { sending = false; $('#status').textContent = t('err'); });
+  }
+
+  // Language toggle: same mechanism as siilinhoito-tapaaminen.html — .lang-btn
+  // buttons with data-lang, click -> setLang() -> writes localStorage.ss-lang,
+  // toggles .show on [data-lang]:not(.lang-btn), marks the active button.
+  // Here we additionally re-render the roster (greet + load) on each switch.
+  var buttons = document.querySelectorAll('.lang-btn');
+  function setLang(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    try { localStorage.setItem('ss-lang', l); } catch (e) {}
+    document.querySelectorAll('[data-lang]:not(.lang-btn)').forEach(function (el) {
+      el.classList.toggle('show', el.getAttribute('data-lang') === l);
+    });
+    buttons.forEach(function (b) { b.classList.toggle('active', b.dataset.lang === l); });
+    greet();
+    if (lastData) { render(lastData); } else { load(); }
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
+
+  var _s = (function () { try { return localStorage.getItem('ss-lang'); } catch (e) { return null; } })();
+  lang = (_s === 'sv' || _s === 'en' || _s === 'fi') ? _s : 'fi';
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-lang]:not(.lang-btn)').forEach(function (el) {
+    el.classList.toggle('show', el.getAttribute('data-lang') === lang);
+  });
+  buttons.forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+
+  greet();
+  load();
+})();
+</script>
+</body>
+</html>
