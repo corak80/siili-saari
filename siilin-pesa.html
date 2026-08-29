@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<!-- Siili-Saari · Siilin pesän rakennusohje / Bygg ett bo åt igelkotten / Hedgehog nest box guide -->
+<!-- Public info page. Linked from the homepage help section and listed in sitemap.xml. -->
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rakenna siilille pesä — Siili-Saari</title>
+<meta name="description" content="Näin rakennat siilille turvallisen pesän tai talvipesän puutarhaan: mitat, materiaalit, kuvitetut ohjeet, sijoitus ja hoitokalenteri. Lähteet: WWF Suomi, SLL, British Hedgehog Preservation Society, Naturskyddsföreningen.">
+<link rel="canonical" href="https://siilisaari.fi/siilin-pesa.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://siilisaari.fi/siilin-pesa.html">
+<meta property="og:title" content="Rakenna siilille pesä — Siili-Saari">
+<meta property="og:description" content="Mitat, materiaalit, kuvitetut ohjeet, sijoitus ja hoitokalenteri siilin pesän rakentamiseen.">
+<meta property="og:image" content="https://siilisaari.fi/hoglet.jpg">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:site_name" content="Siili-Saari Care Center">
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:italic;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin-italic.woff2') format('woff2-variations')}
+
+:root{
+  --teal-deep:#1a5c52; --teal:#2d7a6d; --teal-light:#3d9b8a;
+  --sunset:#e8a84c; --sunset-warm:#d4863a;
+  --cream:#faf6f0; --cream-dark:#f0e8da;
+  --bark:#5c4a3a; --moss:#4a6d45;
+  --white:#fff; --text:#2c2418; --text-soft:#5a4d3e;
+  --border:#e7ddcc;
+  --danger:#b3392e; --danger-bg:#fbecea;
+  --warn:#9a6212; --warn-bg:#fcf3e2;
+  --shadow:0 18px 50px rgba(26,92,82,.10); --shadow-sm:0 6px 22px rgba(26,92,82,.07);
+  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --max:900px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--sans);color:var(--text);line-height:1.7;background:var(--cream);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--teal-deep)}
+
+nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  background:rgba(250,246,240,.9);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(26,92,82,.06)}
+.nav-brand{display:flex;align-items:center;text-decoration:none}
+.nav-brand-logo{height:38px;width:auto;display:block}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.back-home{font-size:.82rem;font-weight:600;color:var(--text-soft);text-decoration:none;border-bottom:1px solid transparent;transition:.2s;white-space:nowrap}
+.back-home:hover{color:var(--teal-deep);border-bottom-color:var(--teal-light)}
+.lang-switcher{display:inline-flex;gap:0;background:rgba(255,255,255,.6);border:1px solid rgba(26,92,82,.12);border-radius:999px;padding:3px}
+.lang-btn{background:none;border:none;cursor:pointer;padding:.35rem .75rem;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.05em;color:var(--text-soft);border-radius:999px;transition:background .25s,color .25s}
+.lang-btn:hover{color:var(--teal-deep)}
+.lang-btn.active{background:var(--teal-deep);color:var(--cream)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+section{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sunset-warm);margin-bottom:1rem}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--sunset);border-radius:2px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1.12;color:var(--teal-deep)}
+h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin-bottom:.8rem}
+h3{font-size:clamp(1.2rem,2.4vw,1.5rem);margin-bottom:.5rem}
+h4{font-size:1.02rem;margin-bottom:.3rem;color:var(--bark)}
+p{margin-bottom:1rem}
+.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--text-soft);max-width:64ch}
+
+.hero{padding:clamp(2.4rem,7vw,4.5rem) 0 clamp(1.8rem,4vw,3rem);
+  background:radial-gradient(1100px 460px at 80% -10%,rgba(232,168,76,.16),transparent 60%),radial-gradient(900px 520px at -8% 20%,rgba(45,122,109,.12),transparent 60%)}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:1rem}
+.hero h1 em{font-style:italic;color:var(--sunset-warm)}
+
+.sec{padding:clamp(2rem,5vw,3.2rem) 0;border-top:1px solid var(--border)}
+.sec-num{font-family:var(--serif);font-size:.85rem;font-weight:600;color:var(--sunset-warm);letter-spacing:.1em}
+
+.banner{border-radius:16px;padding:1.2rem 1.4rem;margin:1.2rem 0;border:1px solid;display:flex;gap:.9rem;align-items:flex-start}
+.banner .ic{flex:none;font-size:1.3rem;line-height:1.4}
+.banner p{margin:0}
+.banner p+p{margin-top:.5rem}
+.banner.danger{background:var(--danger-bg);border-color:#eabbb4;color:#7a241c}
+.banner.danger strong{color:var(--danger)}
+.banner.warn{background:var(--warn-bg);border-color:#eed3a6;color:#6f4a12}
+.banner.info{background:#eef5f2;border-color:#cfe4dd;color:#204a41}
+
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:1rem}
+@media(max-width:640px){.cols2{grid-template-columns:1fr}}
+.panel{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.4rem;box-shadow:var(--shadow-sm)}
+.panel.help{border-top:4px solid var(--moss)}
+.panel.leave{border-top:4px solid var(--danger)}
+.panel h4{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;margin-bottom:.8rem}
+.panel.help h4{color:var(--moss)}
+.panel.leave h4{color:var(--danger)}
+
+ul.rules{list-style:none;margin:.4rem 0 1rem}
+ul.rules li{position:relative;padding:.35rem 0 .35rem 1.7rem;border-bottom:1px dashed var(--border)}
+ul.rules li:last-child{border-bottom:0}
+ul.rules li::before{content:"";position:absolute;left:2px;top:.95rem;width:7px;height:7px;border-radius:50%;background:var(--sunset)}
+ul.rules.check li::before{content:"✓";background:none;color:var(--moss);font-weight:800;top:.35rem;left:0;width:auto;height:auto}
+ul.rules.no li::before{content:"✕";background:none;color:var(--danger);font-weight:800;top:.35rem;left:0;width:auto;height:auto}
+ul.rules li b{color:var(--bark)}
+
+.never{background:#fff;border:1.5px solid #eabbb4;border-radius:16px;padding:1.2rem 1.4rem;margin:1rem 0}
+.never h4{color:var(--danger);font-family:var(--sans);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:.82rem;margin-bottom:.6rem}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:1rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;box-shadow:var(--shadow-sm)}
+.card .tag{font-size:1.4rem;line-height:1;margin-bottom:.5rem;display:block}
+.card p{font-size:.95rem;margin:0}
+
+.tbl{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.93rem;background:var(--white);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.tbl th,.tbl td{padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--border)}
+.tbl th{background:var(--teal-deep);color:var(--cream);font-family:var(--sans);font-weight:600;font-size:.82rem;letter-spacing:.03em}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td:first-child{font-weight:600;color:var(--bark);white-space:nowrap}
+.tblwrap{overflow-x:auto}
+
+.legal{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:1rem 1.2rem;margin:.8rem 0}
+.legal h4{font-family:var(--sans);font-weight:700;font-size:.95rem;color:var(--teal-deep);margin-bottom:.3rem}
+.legal p{margin:0;font-size:.95rem}
+.legal .ref{display:inline-block;margin-top:.5rem;font-size:.78rem;color:var(--text-soft);font-style:italic}
+
+.callout{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.4vw,1.5rem);color:var(--teal-deep);text-align:center;padding:1.4rem 1rem;line-height:1.4}
+
+/* diagrams */
+.diagram{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.2rem 1.2rem .6rem;box-shadow:var(--shadow-sm);margin:1.2rem 0}
+.diagram svg{width:100%;height:auto;display:block}
+.diagram .cap{font-size:.82rem;color:var(--text-soft);text-align:center;padding:.6rem 0 .3rem;font-style:italic}
+.diagwrap{overflow-x:auto}
+
+/* materials list */
+.matlist{list-style:none;margin:.6rem 0 0}
+.matlist li{display:flex;gap:.6rem;padding:.4rem 0;border-bottom:1px dashed var(--border);font-size:.95rem}
+.matlist li:last-child{border-bottom:0}
+.matlist li .qty{flex:none;font-weight:700;color:var(--teal-deep);min-width:5.5rem}
+
+/* sources */
+.srclist{list-style:none;margin:.6rem 0 0}
+.srclist li{padding:.55rem 0;border-bottom:1px dashed var(--border);font-size:.92rem}
+.srclist li:last-child{border-bottom:0}
+.srclist a{font-weight:600}
+.srclist .org{color:var(--text-soft);font-size:.85rem}
+
+footer{background:var(--teal-deep);color:var(--cream);padding:2.4rem 0;margin-top:1rem;text-align:center}
+footer p{margin:0 auto .5rem;max-width:60ch;font-size:.95rem;opacity:.92}
+footer .fine{font-size:.8rem;opacity:.6;margin-top:1rem}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+[data-lang]:not(.lang-btn){display:none}
+[data-lang]:not(.lang-btn).show{display:revert}
+</style>
+<noscript><style>[data-lang]:not(.lang-btn){display:none!important}[data-lang="fi"]:not(.lang-btn){display:revert!important}.lang-switcher{display:none!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html" aria-label="Siili-Saari"><img class="nav-brand-logo" src="logo-horizontal.png" alt="Siili-Saari"></a>
+  <div class="nav-right">
+    <a class="back-home" href="index.html">
+      <span data-lang="fi" class="show">← Etusivu</span><span data-lang="sv">← Hem</span><span data-lang="en">← Home</span>
+    </a>
+    <div class="lang-switcher" role="group" aria-label="Language">
+      <button type="button" data-lang="fi" class="lang-btn active">FI</button>
+      <button type="button" data-lang="sv" class="lang-btn">SV</button>
+      <button type="button" data-lang="en" class="lang-btn">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span data-lang="fi" class="show">Auta villisiiliä</span><span data-lang="sv">Hjälp den vilda igelkotten</span><span data-lang="en">Help a wild hedgehog</span></span>
+    <h1 data-lang="fi" class="show">Rakenna siilille <em>pesä</em></h1>
+    <h1 data-lang="sv">Bygg ett <em>bo</em> åt igelkotten</h1>
+    <h1 data-lang="en">Build a hedgehog <em>nest box</em></h1>
+    <p class="lead show" data-lang="fi">Yksi puulaatikko puutarhan nurkassa voi ratkaista siilin talven yli selviämisen. Tässä on mitat, materiaalit, kuvitetut ohjeet ja hoitokalenteri – koottu WWF Suomen, Suomen luonnonsuojeluliiton, brittiläisen British Hedgehog Preservation Societyn ja Naturskyddsföreningenin ohjeista.</p>
+    <p class="lead" data-lang="sv">En enda trälåda i trädgårdens hörn kan avgöra om igelkotten klarar vintern. Här är mått, material, illustrerade instruktioner och en skötselkalender – sammanställt från WWF Finland, Finlands naturskyddsförbund, brittiska British Hedgehog Preservation Society och Naturskyddsföreningen.</p>
+    <p class="lead" data-lang="en">One wooden box in a quiet corner of the garden can decide whether a hedgehog survives the winter. Here are the dimensions, materials, illustrated instructions and a maintenance calendar – compiled from WWF Finland, the Finnish Association for Nature Conservation, the British Hedgehog Preservation Society and Naturskyddsföreningen.</p>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- 01 WHY -->
+  <section class="sec reveal">
+    <div class="sec-num show" data-lang="fi">01</div><div class="sec-num" data-lang="sv">01</div><div class="sec-num" data-lang="en">01</div>
+    <h2 data-lang="fi" class="show">Miksi tällä on väliä</h2>
+    <h2 data-lang="sv">Varför det här spelar roll</h2>
+    <h2 data-lang="en">Why this matters</h2>
+    <p data-lang="fi" class="show">Siili on Suomessa <b>rauhoitettu laji</b>. Kanta on silti taantunut voimakkaasti koko Euroopassa – arviolta 16–33 % viimeisen vuosikymmenen aikana – ja Kansainvälinen luonnonsuojeluliitto IUCN siirsi siilin vuonna 2024 luokasta "elinvoimainen" luokkaan "silmälläpidettävä". Suurin yksittäinen syy on elinympäristöjen katoaminen ja pirstoutuminen kaupunkipihoilla: siisti, "putsattu" puutarha ei tarjoa siilille yhtään paikkaa talvehtia. Ilmastonmuutoksen tuoma epävakaa talvisää – suojasäät ja äkilliset pakkaset vuorotellen – nostaa horrostavan siilin kuolleisuutta merkittävästi, jos pesä ei ole riittävän eristetty. Yksi hyvin rakennettu ja oikein sijoitettu pesä puutarhassasi voi olla ratkaiseva.</p>
+    <p data-lang="sv">Igelkotten är <b>fridlyst i Finland</b>. Ändå har beståndet minskat kraftigt i hela Europa – uppskattningsvis 16–33 % under det senaste decenniet – och Internationella naturvårdsunionen IUCN flyttade 2024 igelkotten från kategorin "livskraftig" till "nära hotad". Den enskilt största orsaken är att livsmiljöer försvinner och splittras i villaträdgårdar: en prydlig, "städad" trädgård erbjuder ingen plats alls att övervintra på. Klimatförändringens instabila vinterväder – töväder och plötslig frost om vartannat – ökar dödligheten hos en igelkott i dvala betydligt om boet inte är tillräckligt isolerat. Ett enda välbyggt och rätt placerat bo i din trädgård kan vara avgörande.</p>
+    <p data-lang="en">The hedgehog is a <b>protected species in Finland</b>. Even so, populations have fallen sharply across Europe – an estimated 16–33% over the last decade – and in 2024 the International Union for Conservation of Nature (IUCN) moved the hedgehog from "Least Concern" to "Near Threatened". The single biggest cause is the loss and fragmentation of habitat in gardens: a tidy, "cleaned up" garden offers nowhere at all to overwinter. Climate change's unstable winter weather – thaws and sudden hard frosts by turns – significantly raises mortality in a hibernating hedgehog if its nest isn't well enough insulated. One well-built, well-placed nest in your garden can be the deciding factor.</p>
+  </section>
+
+  <!-- 02 TWO WAYS -->
+  <section class="sec reveal">
+    <div class="sec-num show" data-lang="fi">02</div><div class="sec-num" data-lang="sv">02</div><div class="sec-num" data-lang="en">02</div>
+    <h2 data-lang="fi" class="show">Kaksi tapaa auttaa</h2>
+    <h2 data-lang="sv">Två sätt att hjälpa</h2>
+    <h2 data-lang="en">Two ways to help</h2>
+    <p data-lang="fi" class="show">Molemmat toimivat. Nopea versio saa suojan pystyyn tänään; kunnollinen puulaatikko kestää vuosia ja eristää paremmin pitkän, kylmän talven yli.</p>
+    <p data-lang="sv">Båda fungerar. Snabbversionen ger skydd redan idag; en ordentlig trälåda håller i flera år och isolerar bättre under en lång, kall vinter.</p>
+    <p data-lang="en">Both work. The quick version gets shelter up today; a proper wooden box lasts for years and insulates better through a long, cold winter.</p>
+
+    <div class="grid show" data-lang="fi">
+      <div class="card"><span class="tag">📦</span><h4>Pikaversio: 10 minuutissa</h4><p>Käännä ylösalaisin tukeva muovilaatikko tai kukkaruukku (n. 40 × 40 cm tai isompi). Leikkaa 13 × 13 cm ovi reunaan, täytä kuivilla lehdillä, peitä laatikko pressulla ja sen päälle mullalla/lehdillä. Ei täydellinen, mutta parempi kuin ei mitään – ja siili kiittää jo tänä syksynä.</p></div>
+      <div class="card"><span class="tag">🪵</span><h4>Kunnon rakennelma: puusta</h4><p>Käsittelemättömästä laudasta tehty, pohjaton pesälaatikko tunnelilla ja irrotettavalla katolla. Katso mitat ja vaiheittainen ohje alta. Kestää vuosia ja eristää parhaiten.</p></div>
+    </div>
+    <div class="grid" data-lang="sv">
+      <div class="card"><span class="tag">📦</span><h4>Snabbversion: på 10 minuter</h4><p>Vänd upp och ner på en stadig plastlåda eller kruka (ca 40 × 40 cm eller större). Skär en 13 × 13 cm dörr i kanten, fyll med torra löv, täck lådan med presenning och sedan jord/löv. Inte perfekt, men bättre än inget – och igelkotten tackar redan i höst.</p></div>
+      <div class="card"><span class="tag">🪵</span><h4>Den riktiga byggnaden: i trä</h4><p>En bottenlös bo-låda av obehandlat virke med tunnel och löstagbart tak. Se mått och steg-för-steg-guide nedan. Håller i flera år och isolerar bäst.</p></div>
+    </div>
+    <div class="grid" data-lang="en">
+      <div class="card"><span class="tag">📦</span><h4>The quick version: 10 minutes</h4><p>Flip a sturdy plastic storage box or planter (about 40 × 40 cm or bigger) upside down. Cut a 13 × 13 cm door in the edge, fill with dry leaves, cover the box with sheeting and then soil/leaves. Not perfect, but far better than nothing – and a hedgehog will thank you this autumn.</p></div>
+      <div class="card"><span class="tag">🪵</span><h4>The proper build: in wood</h4><p>A bottomless nest box of untreated timber, with a tunnel and a removable roof. See the dimensions and step-by-step guide below. Lasts for years and insulates best.</p></div>
+    </div>
+  </section>
+
+  <!-- 03 DIMENSIONS + BUILD -->
+  <section class="sec reveal">
+    <div class="sec-num show" data-lang="fi">03</div><div class="sec-num" data-lang="sv">03</div><div class="sec-num" data-lang="en">03</div>
+    <h2 data-lang="fi" class="show">Mitat ja rakennusohje</h2>
+    <h2 data-lang="sv">Mått och bygginstruktion</h2>
+    <h2 data-lang="en">Dimensions & build instructions</h2>
+    <p data-lang="fi" class="show">Suomalaiset ja ruotsalaiset luontojärjestöt suosittelevat isompaa laatikkoa kuin Etelä-Euroopassa, koska pitkä, kylmä talvi vaatii paksumman eristekerroksen kuivia lehtiä. Britannian British Hedgehog Preservation Society käyttää pienempää n. 40 × 30 × 26 cm mallia, joka toimii hyvin myös kesäisenä päiväpesänä – se sopii, jos tila tai materiaali on rajallinen, mutta talveksi isompi on parempi.</p>
+    <p data-lang="sv">Finländska och svenska naturorganisationer rekommenderar en större låda än i södra Europa, eftersom en lång, kall vinter kräver ett tjockare isolerande lager av torra löv. Brittiska British Hedgehog Preservation Society använder en mindre modell på ca 40 × 30 × 26 cm, som också fungerar bra som dagbo på sommaren – den passar om utrymme eller material är begränsat, men för vintern är större bättre.</p>
+    <p data-lang="en">Finnish and Swedish nature organisations recommend a bigger box than in southern Europe, because a long, cold winter needs a thicker insulating layer of dry leaves. The British Hedgehog Preservation Society uses a smaller design of about 40 × 30 × 26 cm, which also works well as a summer day-nest – fine if space or materials are limited, but bigger is better for winter.</p>
+
+    <div class="diagram">
+      <div class="diagwrap">
+      <svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Siilin pesälaatikon mitat: 40x40x40 cm, katto viistoon, 13x13 cm ovi, tunneli">
+        <!-- FRONT VIEW -->
+        <g font-family="DM Sans, sans-serif">
+          <!-- roof -->
+          <polygon points="30,90 130,50 230,90" fill="#e8a84c" stroke="#5c4a3a" stroke-width="2"/>
+          <!-- box -->
+          <rect x="45" y="90" width="170" height="170" fill="#faf6f0" stroke="#5c4a3a" stroke-width="2.5"/>
+          <!-- board lines -->
+          <line x1="45" y1="140" x2="215" y2="140" stroke="#e7ddcc" stroke-width="1"/>
+          <!-- entrance -->
+          <rect x="70" y="205" width="55" height="55" fill="#1a5c52" opacity=".85"/>
+          <!-- ground -->
+          <line x1="20" y1="262" x2="240" y2="262" stroke="#5c4a3a" stroke-width="2"/>
+          <rect x="60" y="260" width="10" height="6" fill="#5c4a3a"/>
+          <rect x="190" y="260" width="10" height="6" fill="#5c4a3a"/>
+          <!-- width dim -->
+          <line x1="45" y1="35" x2="215" y2="35" stroke="#2d7a6d" stroke-width="1.5"/>
+          <line x1="45" y1="30" x2="45" y2="40" stroke="#2d7a6d" stroke-width="1.5"/>
+          <line x1="215" y1="30" x2="215" y2="40" stroke="#2d7a6d" stroke-width="1.5"/>
+          <text x="130" y="26" text-anchor="middle" font-size="13" fill="#1a5c52" font-weight="700">40 cm</text>
+          <!-- height dim -->
+          <line x1="255" y1="90" x2="255" y2="260" stroke="#2d7a6d" stroke-width="1.5"/>
+          <line x1="250" y1="90" x2="260" y2="90" stroke="#2d7a6d" stroke-width="1.5"/>
+          <line x1="250" y1="260" x2="260" y2="260" stroke="#2d7a6d" stroke-width="1.5"/>
+          <text x="278" y="180" text-anchor="middle" font-size="13" fill="#1a5c52" font-weight="700" transform="rotate(90 278 180)">40 cm</text>
+          <!-- entrance label -->
+          <line x1="97" y1="205" x2="97" y2="170" stroke="#5a4d3e" stroke-width="1" stroke-dasharray="2,2"/>
+          <text x="97" y="163" text-anchor="middle" font-size="11.5" fill="#5a4d3e">ovi n. 13×13 cm</text>
+          <text x="130" y="300" text-anchor="middle" font-size="12" fill="#5a4d3e" font-style="italic">Edestä</text>
+        </g>
+
+        <!-- CROSS SECTION -->
+        <g font-family="DM Sans, sans-serif">
+          <!-- ground -->
+          <line x1="330" y1="262" x2="700" y2="262" stroke="#5c4a3a" stroke-width="2"/>
+          <!-- battens -->
+          <rect x="390" y="252" width="14" height="10" fill="#5c4a3a"/>
+          <rect x="560" y="252" width="14" height="10" fill="#5c4a3a"/>
+          <!-- box outline (no floor) -->
+          <rect x="380" y="90" width="200" height="162" fill="none" stroke="#5c4a3a" stroke-width="2.5"/>
+          <!-- roof, overhanging, removable -->
+          <polygon points="365,90 480,45 595,90" fill="#e8a84c" stroke="#5c4a3a" stroke-width="2"/>
+          <!-- ventilation gap at eaves -->
+          <line x1="380" y1="90" x2="365" y2="90" stroke="#b3392e" stroke-width="3"/>
+          <line x1="580" y1="90" x2="595" y2="90" stroke="#b3392e" stroke-width="3"/>
+          <text x="360" y="75" text-anchor="end" font-size="11" fill="#b3392e">tuuletusrako</text>
+          <!-- gravel/soil base layer -->
+          <rect x="380" y="238" width="200" height="14" fill="#c9b79c"/>
+          <text x="480" y="248" text-anchor="middle" font-size="10.5" fill="#5c4a3a">sora + multa (ei pohjaa)</text>
+          <!-- dry leaf fill -->
+          <path d="M390,230 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0"
+            fill="none" stroke="#4a6d45" stroke-width="2.5" opacity=".8" transform="translate(0,-30)"/>
+          <path d="M390,230 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0"
+            fill="none" stroke="#4a6d45" stroke-width="2.5" opacity=".55" transform="translate(0,-55)"/>
+          <path d="M390,230 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0"
+            fill="none" stroke="#4a6d45" stroke-width="2.5" opacity=".35" transform="translate(0,-80)"/>
+          <text x="480" y="150" text-anchor="middle" font-size="10.5" fill="#4a6d45">kuivat lehdet + olki katonrajaan asti</text>
+          <!-- tunnel -->
+          <rect x="330" y="220" width="50" height="32" fill="#faf6f0" stroke="#5c4a3a" stroke-width="2"/>
+          <rect x="300" y="220" width="34" height="60" fill="#faf6f0" stroke="#5c4a3a" stroke-width="2"/>
+          <text x="300" y="295" text-anchor="start" font-size="10.5" fill="#5a4d3e">tunneli, ≥ 20 cm,</text>
+          <text x="300" y="308" text-anchor="start" font-size="10.5" fill="#5a4d3e">mutka + Ø n. 12 cm</text>
+          <text x="480" y="300" text-anchor="middle" font-size="12" fill="#5a4d3e" font-style="italic">Läpileikkaus</text>
+        </g>
+      </svg>
+      </div>
+      <p class="cap show" data-lang="fi">Alkuperäinen kaavio, Siili-Saari — koottu WWF Suomen, SLL:n ja British Hedgehog Preservation Societyn ohjeista. Ei mittakaavapiirustus.</p>
+      <p class="cap" data-lang="sv">Original illustration, Siili-Saari — sammanställd från WWF Finlands, Finlands naturskyddsförbunds och British Hedgehog Preservation Societys instruktioner. Inte en skalenlig ritning.</p>
+      <p class="cap" data-lang="en">Original diagram, Siili-Saari — compiled from WWF Finland, the Finnish Association for Nature Conservation and the British Hedgehog Preservation Society. Not to exact scale.</p>
+    </div>
+
+    <h3 data-lang="fi" class="show" style="margin-top:1.6rem">Tarvikkeet</h3>
+    <h3 data-lang="sv" style="margin-top:1.6rem">Material</h3>
+    <h3 data-lang="en" style="margin-top:1.6rem">Materials</h3>
+    <ul class="matlist show" data-lang="fi">
+      <li><span class="qty">Runko</span> Käsittelemätöntä, höyläämätöntä lautaa, n. 2 cm paksu (esim. kuusi tai mänty). Ei vaneria seiniin – ei hengitä, kerää kosteutta.</li>
+      <li><span class="qty">Katto</span> Yksi irrotettava lauta/levy (voi olla vedenpitävä), kattohuopaa tai kumikatetta päälle.</li>
+      <li><span class="qty">Tunneli</span> Kolme laudanpätkää tunneliksi, tai n. 10–12 cm sisähalkaisijaltaan oleva muoviputki.</li>
+      <li><span class="qty">Pohjalle</span> Sorakerros + mullan kerros (ei kiinteää pohjalautaa).</li>
+      <li><span class="qty">Täyte</span> Runsaasti kuivia lehtiä ja olkea (ei heinää – tarttuu piikkeihin).</li>
+      <li><span class="qty">Kiinnitys</span> Ruostumattomia ruuveja tai nauloja, ei liimaa katon kiinnitykseen.</li>
+      <li><span class="qty">Vältä</span> Kyllästettyä puuta, kreosoottia, maalia sisäpinnoille.</li>
+    </ul>
+    <ul class="matlist" data-lang="sv">
+      <li><span class="qty">Stomme</span> Obehandlat, ohyvlat virke, ca 2 cm tjockt (t.ex. gran eller tall). Ingen plywood i väggarna – andas inte, samlar fukt.</li>
+      <li><span class="qty">Tak</span> En löstagbar bräda/skiva (får vara vattentät), takpapp eller gummiduk ovanpå.</li>
+      <li><span class="qty">Tunnel</span> Tre brädbitar som tunnel, eller ett plaströr med ca 10–12 cm inre diameter.</li>
+      <li><span class="qty">Botten</span> Ett lager grus + ett lager jord (ingen fast bottenbräda).</li>
+      <li><span class="qty">Fyllning</span> Rikligt med torra löv och halm (inte hö – fastnar i taggarna).</li>
+      <li><span class="qty">Montering</span> Rostfria skruvar eller spik, inget lim för takets fastsättning.</li>
+      <li><span class="qty">Undvik</span> Tryckimpregnerat virke, kreosot, färg på insidan.</li>
+    </ul>
+    <ul class="matlist" data-lang="en">
+      <li><span class="qty">Frame</span> Untreated, unplaned board, about 2 cm thick (e.g. spruce or pine). No plywood on the walls – it doesn't breathe and traps moisture.</li>
+      <li><span class="qty">Roof</span> One removable board/panel (may be waterproof board), with roofing felt or a rubber membrane on top.</li>
+      <li><span class="qty">Tunnel</span> Three lengths of board forming a tunnel, or a plastic pipe about 10–12 cm internal diameter.</li>
+      <li><span class="qty">Base</span> A layer of gravel plus a layer of soil (no solid floor board).</li>
+      <li><span class="qty">Filling</span> Plenty of dry leaves and straw (not hay – it snags on the spines).</li>
+      <li><span class="qty">Fixings</span> Stainless screws or nails; no glue for attaching the roof.</li>
+      <li><span class="qty">Avoid</span> Pressure-treated wood, creosote, paint on interior surfaces.</li>
+    </ul>
+
+    <h3 data-lang="fi" class="show" style="margin-top:1.6rem">Vaiheet</h3>
+    <h3 data-lang="sv" style="margin-top:1.6rem">Steg för steg</h3>
+    <h3 data-lang="en" style="margin-top:1.6rem">Step by step</h3>
+    <ul class="rules show" data-lang="fi">
+      <li><b>1. Runko:</b> sahaa neljä seinää ja kokoa laatikko, jonka sisämitat ovat vähintään 40 × 40 × 40 cm. Jätä pohja kokonaan auki.</li>
+      <li><b>2. Ovi:</b> leikkaa etuseinään alaosaan n. 13 × 13 cm (tai n. 15 × 10 cm) aukko.</li>
+      <li><b>3. Tunneli:</b> kiinnitä oven eteen vähintään n. 20 cm pitkä tunneli, jossa on mutka – näköyhteys ulos estää suoraan sisäänmenon kettu tai kissa.</li>
+      <li><b>4. Tuuletus:</b> jätä 1–2 cm rako katon ja seinän väliin, tai poraa muutama reikä ylös seinän yläreunaan. Ilman tuuletusta pesä homehtuu.</li>
+      <li><b>5. Katto:</b> tee viistoksi, jotta vesi valuu pois, ja jätä irrotettavaksi (haka tai paino, ei nauloja) – näin pääset puhdistamaan pesän keväällä.</li>
+      <li><b>6. Korokeet:</b> nosta laatikko muutaman sentin irti maasta laudanpätkillä, ettei pohja lahoa ja sulamisvesi valu sisään.</li>
+      <li><b>7. Pohja:</b> levitä sorakerros ja sen päälle ohut multakerros suoraan maahan laatikon alle.</li>
+    </ul>
+    <ul class="rules" data-lang="sv">
+      <li><b>1. Stomme:</b> såga fyra väggar och sätt ihop en låda med innermått på minst 40 × 40 × 40 cm. Lämna botten helt öppen.</li>
+      <li><b>2. Dörr:</b> skär en öppning på ca 13 × 13 cm (eller ca 15 × 10 cm) längst ner i framväggen.</li>
+      <li><b>3. Tunnel:</b> fäst en minst ca 20 cm lång tunnel med en böj framför dörren – ingen fri sikt in hindrar en räv eller katt från att gå rakt in.</li>
+      <li><b>4. Ventilation:</b> lämna en 1–2 cm springa mellan tak och vägg, eller borra några hål högt upp i väggen. Utan ventilation möglar boet.</li>
+      <li><b>5. Tak:</b> gör det sluttande så att vatten rinner av, och lämna det löstagbart (en hake eller tyngd, inga spikar) – så kommer du åt att rengöra boet på våren.</li>
+      <li><b>6. Upphöjning:</b> lyft lådan några centimeter från marken på brädbitar, så att botten inte ruttnar och smältvatten inte rinner in.</li>
+      <li><b>7. Botten:</b> lägg ut ett lager grus och sedan ett tunt lager jord direkt på marken under lådan.</li>
+    </ul>
+    <ul class="rules" data-lang="en">
+      <li><b>1. Frame:</b> cut four walls and assemble a box with internal dimensions at least 40 × 40 × 40 cm. Leave the base completely open.</li>
+      <li><b>2. Door:</b> cut an opening about 13 × 13 cm (or about 15 × 10 cm) low in the front wall.</li>
+      <li><b>3. Tunnel:</b> attach a tunnel at least ~20 cm long with a bend in front of the door – no clear sightline in stops a fox or cat walking straight through.</li>
+      <li><b>4. Ventilation:</b> leave a 1–2 cm gap between roof and wall, or drill a few holes high up in the wall. Without ventilation the nest goes mouldy.</li>
+      <li><b>5. Roof:</b> slope it so water runs off, and leave it removable (a hook or weight, not nails) – so you can clean the nest out in spring.</li>
+      <li><b>6. Feet:</b> raise the box a few centimetres off the ground on strips of wood, so the base doesn't rot and meltwater doesn't run in.</li>
+      <li><b>7. Base:</b> spread a layer of gravel and then a thin layer of soil directly on the ground under the box.</li>
+    </ul>
+  </section>
+
+  <!-- 04 BEDDING -->
+  <section class="sec reveal">
+    <div class="sec-num show" data-lang="fi">04</div><div class="sec-num" data-lang="sv">04</div><div class="sec-num" data-lang="en">04</div>
+    <h2 data-lang="fi" class="show">Täytä ja naamioi</h2>
+    <h2 data-lang="sv">Fyll och kamouflera</h2>
+    <h2 data-lang="en">Fill it & camouflage it</h2>
+    <p data-lang="fi" class="show">Täytä laatikko lähes kattoon asti kuivilla lehdillä ja oljella – siili järjestelee pesän itse sopivaksi ja voi vielä täydentää sitä sisäänkäynnin lähelle jätetyllä lisämateriaalilla. Kasaa lopuksi maata, turvetta, ruohonleikkuujätettä tai risuja laatikon päälle ja ympärille (ei oven eteen) – tämä "eristetakki" on talvella tärkeämpi kuin itse laatikon rakenne. Anna lumen kertyä katolle: se eristää lisää, älä luo sitä pois.</p>
+    <p data-lang="sv">Fyll lådan nästan ända upp till taket med torra löv och halm – igelkotten ordnar själv boet lagom och kan fylla på med extra material som lämnats nära ingången. Bygg till sist upp jord, torv, gräsklipp eller ris på och runt lådan (inte framför dörren) – den här "isoleringsrocken" är viktigare på vintern än själva lådans konstruktion. Låt snön lägga sig på taket: den isolerar ytterligare, skotta inte bort den.</p>
+    <p data-lang="en">Fill the box almost to the roof with dry leaves and straw – the hedgehog will arrange the nest to suit itself and may top it up further with extra material left near the entrance. Finally bank soil, turf, grass clippings or brash up and around the box (not in front of the door) – this "insulating jacket" matters more over winter than the box itself. Let snow settle on the roof: it adds insulation, so don't clear it off.</p>
+  </section>
+
+  <!-- 05 PLACEMENT -->
+  <section class="sec reveal">
+    <div class="sec-num show" data-lang="fi">05</div><div class="sec-num" data-lang="sv">05</div><div class="sec-num" data-lang="en">05</div>
+    <h2 data-lang="fi" class="show">Mihin sijoitat sen</h2>
+    <h2 data-lang="sv">Var du placerar det</h2>
+    <h2 data-lang="en">Where to place it</h2>
+    <div class="cols2">
+      <div class="panel help">
+        <h4 data-lang="fi" class="show">Hyvä paikka</h4><h4 data-lang="sv">Bra plats</h4><h4 data-lang="en">Good spot</h4>
+        <ul class="rules check show" data-lang="fi">
+          <li>Rauhallinen, varjoisa nurkka, kaukana kulkuväylistä ja lasten/koirien leikkialueista</li>
+          <li>Pensasaidan, kompostikasan, halkopinon tai risukasan kupeessa – lisäsuoja ja naamiointi</li>
+          <li>Suojassa vallitsevalta tuulelta ja viistosateelta</li>
+          <li>Aitauksen tai piha-alueen reunalla, mielellään n. 5 m sisällä talosta</li>
+          <li>Paikassa, jossa maa ei tulvi tai jonne sulamisvesi ei valu</li>
+        </ul>
+        <ul class="rules check" data-lang="sv">
+          <li>En lugn, skuggig vrå, långt från gångstråk och lek-/hundområden</li>
+          <li>Intill en häck, komposthög, vedstapel eller rishög – extra skydd och kamouflage</li>
+          <li>Skyddat från förhärskande vind och slagregn</li>
+          <li>Vid kanten av tomten eller gården, gärna inom ca 5 m från huset</li>
+          <li>På en plats där marken inte svämmar över eller smältvatten rinner ner</li>
+        </ul>
+        <ul class="rules check" data-lang="en">
+          <li>A quiet, shaded corner, well away from paths and play/dog areas</li>
+          <li>Tucked against a hedge, compost heap, log pile or brash pile – extra cover and camouflage</li>
+          <li>Sheltered from the prevailing wind and driving rain</li>
+          <li>Along a boundary or edge of the plot, ideally within ~5 m of the house</li>
+          <li>Somewhere the ground doesn't flood or collect meltwater</li>
+        </ul>
+      </div>
+      <div class="panel leave">
+        <h4 data-lang="fi" class="show">Vältä</h4><h4 data-lang="sv">Undvik</h4><h4 data-lang="en">Avoid</h4>
+        <ul class="rules no show" data-lang="fi">
+          <li>Suoraan täydessä auringossa tai avoimella nurmella</li>
+          <li>Katon räystään alla, jonne vesi valuu suoraan</li>
+          <li>Aivan trampoliinin, grillin tai vilkkaan kulkureitin vieressä</li>
+          <li>Paikkaa, jonka voi vahingossa niittää, kaivaa tai tallata talven jälkeen huomaamatta</li>
+          <li>Aiemmin käytettyä pesää siirretty tyhjänä säilytyksestä – rakenna tai sijoita pesä paikalleen jo elo–syyskuussa, ei myöhemmin</li>
+        </ul>
+        <ul class="rules no" data-lang="sv">
+          <li>I fullt solljus eller på öppen gräsmatta</li>
+          <li>Under takdroppet där vatten rinner rakt ner</li>
+          <li>Alldeles intill studsmattan, grillen eller ett livligt gångstråk</li>
+          <li>En plats som av misstag kan slås med trimmer, grävas i eller trampas på utan att märkas efter vintern</li>
+          <li>Att flytta ett redan använt bo från förvaring senare – bygg eller placera boet på plats redan i augusti–september, inte senare</li>
+        </ul>
+        <ul class="rules no" data-lang="en">
+          <li>Full sun or open lawn</li>
+          <li>Right under a roof's drip line where rainwater pours straight down</li>
+          <li>Next to a trampoline, barbecue, or a busy path</li>
+          <li>A spot that could get strimmed, dug up or trodden on by accident after winter without anyone noticing</li>
+          <li>Moving a nest from storage later – build or place it in position by August–September, not later</li>
+        </ul>
+      </div>
+    </div>
+    <p data-lang="fi" class="show" style="margin-top:1rem"><b>Älä laita ruokaa tai vettä pesän sisään</b> – se häiritsee siiliä. Aseta matala ruoka-/vesikuppi (kissan- tai koiranruokaa, ei maitoa) muutaman metrin päähän pesästä.</p>
+    <p data-lang="sv" style="margin-top:1rem"><b>Lägg inte mat eller vatten inne i boet</b> – det stör igelkotten. Ställ en låg mat-/vattenskål (katt- eller hundmat, ingen mjölk) några meter från boet.</p>
+    <p data-lang="en" style="margin-top:1rem"><b>Don't put food or water inside the nest</b> – it disturbs the hedgehog. Place a shallow food/water dish (cat or dog food, no milk) a few metres away from the nest instead.</p>
+  </section>
+
+  <!-- 06 TIMING -->
+  <section class="sec reveal">
+    <div class="sec-num show" data-lang="fi">06</div><div class="sec-num" data-lang="sv">06</div><div class="sec-num" data-lang="en">06</div>
+    <h2 data-lang="fi" class="show">Ajoitus ja hoitokalenteri</h2>
+    <h2 data-lang="sv">Tidpunkt och skötselkalender</h2>
+    <h2 data-lang="en">Timing & maintenance calendar</h2>
+    <div class="tblwrap">
+    <table class="tbl show" data-lang="fi">
+      <thead><tr><th>Ajankohta</th><th>Tehtävä</th></tr></thead>
+      <tbody>
+        <tr><td>Elo–syyskuu</td><td>Rakenna ja sijoita pesä paikalleen viimeistään syyskuun lopussa, jotta siili ehtii löytää sen ennen pakkasia.</td></tr>
+        <tr><td>Loka–maalis</td><td>Jätä pesä täysin rauhaan. Ei siivousta, ei siirtämistä, ei kurkistelua sisään – rauhoitetun lajin talvipesän häirintä on myös lain vastaista.</td></tr>
+        <tr><td>Huhti–toukokuu</td><td>Ensimmäinen siivous horroksen päätyttyä, mutta ennen lisääntymiskautta. Käytä hanskoja (ja mielellään hengityssuojainta) – vanha pesämateriaali voi sisältää loisia.</td></tr>
+        <tr><td>Heinä–elokuu</td><td>Kevyt tarkistus/siivous ja täytön uusiminen ennen kuin pesä otetaan taas käyttöön syksyn talvehtimiseen.</td></tr>
+      </tbody>
+    </table>
+    <table class="tbl" data-lang="sv">
+      <thead><tr><th>Tidpunkt</th><th>Uppgift</th></tr></thead>
+      <tbody>
+        <tr><td>Aug–sep</td><td>Bygg och placera boet senast i slutet av september, så att igelkotten hinner hitta det innan frosten kommer.</td></tr>
+        <tr><td>Okt–mars</td><td>Lämna boet helt i fred. Ingen städning, ingen flytt, ingen titt inuti – att störa ett fridlyst djurs vinterbo strider dessutom mot lagen.</td></tr>
+        <tr><td>Apr–maj</td><td>Första städningen efter avslutad dvala, men före parningssäsongen. Använd handskar (och gärna andningsskydd) – gammalt bomaterial kan innehålla parasiter.</td></tr>
+        <tr><td>Jul–aug</td><td>Lätt kontroll/städning och ny fyllning innan boet tas i bruk igen för höstens dvala.</td></tr>
+      </tbody>
+    </table>
+    <table class="tbl" data-lang="en">
+      <thead><tr><th>When</th><th>Task</th></tr></thead>
+      <tbody>
+        <tr><td>Aug–Sep</td><td>Build and place the nest by the end of September at the latest, so a hedgehog has time to find it before frost sets in.</td></tr>
+        <tr><td>Oct–Mar</td><td>Leave the nest completely alone. No cleaning, no moving it, no peeking inside – disturbing a protected species' winter nest is also against the law.</td></tr>
+        <tr><td>Apr–May</td><td>First clean-out once hibernation has ended, but before the breeding season. Wear gloves (and ideally a mask) – old nest material can carry parasites.</td></tr>
+        <tr><td>Jul–Aug</td><td>A light check/clean and fresh filling before the nest is used again for autumn hibernation.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- NEVER -->
+  <div class="never">
+    <h4 data-lang="fi" class="show">Älä koskaan</h4><h4 data-lang="sv">Gör aldrig</h4><h4 data-lang="en">Never</h4>
+    <ul class="rules no show" data-lang="fi">
+      <li>Naulaa kattoa kiinni – sen täytyy aueta puhdistusta varten</li>
+      <li>Käytä vaneria, kyllästettyä puuta, kreosoottia tai maalia pesän sisäpinnoilla</li>
+      <li>Häiritse tai avaa pesää talvella, jos epäilet sen olevan asuttu</li>
+      <li>Käytä heinää täytteenä – se tarttuu piikkeihin; käytä kuivia lehtiä ja olkea</li>
+      <li>Laita ruokaa tai vettä pesän sisään</li>
+    </ul>
+    <ul class="rules no" data-lang="sv">
+      <li>Spika fast taket – det måste kunna öppnas för rengöring</li>
+      <li>Använda plywood, tryckimpregnerat virke, kreosot eller färg på insidan</li>
+      <li>Störa eller öppna boet på vintern om du misstänker att det är bebott</li>
+      <li>Använda hö som fyllning – det fastnar i taggarna; använd torra löv och halm</li>
+      <li>Lägga mat eller vatten inne i boet</li>
+    </ul>
+    <ul class="rules no" data-lang="en">
+      <li>Nail the roof shut – it must open for cleaning</li>
+      <li>Use plywood, pressure-treated wood, creosote or paint on interior surfaces</li>
+      <li>Disturb or open the nest in winter if you suspect it's occupied</li>
+      <li>Use hay as filling – it snags on the spines; use dry leaves and straw</li>
+      <li>Put food or water inside the nest</li>
+    </ul>
+  </div>
+
+  <div class="callout show" data-lang="fi">Rakenna elokuussa, täytä lehdillä, sijoita hiljaiseen nurkkaan – ja jätä sitten täysin rauhaan.</div>
+  <div class="callout" data-lang="sv">Bygg i augusti, fyll med löv, placera i en tyst vrå – och lämna sedan helt i fred.</div>
+  <div class="callout" data-lang="en">Build it in August, fill it with leaves, place it in a quiet corner – then leave it completely alone.</div>
+
+  <!-- 07 SOURCES -->
+  <section class="sec reveal">
+    <div class="sec-num show" data-lang="fi">07</div><div class="sec-num" data-lang="sv">07</div><div class="sec-num" data-lang="en">07</div>
+    <h2 data-lang="fi" class="show">Lähteet ja lisätietoa</h2>
+    <h2 data-lang="sv">Källor och mer information</h2>
+    <h2 data-lang="en">Sources & further reading</h2>
+    <p data-lang="fi" class="show">Tämä ohje on koottu seuraavista järjestöjen julkaisuista. Kaavio yllä on Siili-Saaren oma, näiden lähteiden mittojen pohjalta piirretty.</p>
+    <p data-lang="sv">Den här guiden är sammanställd från följande organisationers publikationer. Illustrationen ovan är Siili-Saaris egen, ritad utifrån dessa källors mått.</p>
+    <p data-lang="en">This guide is compiled from the following organisations' published guidance. The diagram above is Siili-Saari's own, drawn from these sources' dimensions.</p>
+    <ul class="srclist">
+      <li><a href="https://www.sll.fi/ajankohtaista/nikkaroi-siilille-pesa/" target="_blank" rel="noopener">Nikkaroi siilille pesä</a> — <span class="org">Suomen luonnonsuojeluliitto (SLL)</span></li>
+      <li><a href="https://wwf.fi/ala-villiksi/tee-siilille-pesa/" target="_blank" rel="noopener">Tee siilille pesä</a> — <span class="org">WWF Suomi</span></li>
+      <li><a href="https://wwf.fi/uutiset/2021/05/kotipihoilla-juoksee-tulevaisuudessa-yha-vahemman-siileja-nailla-vinkeilla-voit-auttaa-siileja/" target="_blank" rel="noopener">Kotipihoilla juoksee tulevaisuudessa yhä vähemmän siilejä</a> — <span class="org">WWF Suomi</span></li>
+      <li><a href="https://www.mtvuutiset.fi/artikkeli/siilista-uhkaa-tulla-uhanalainen/9038096" target="_blank" rel="noopener">Siilistä uhkaa tulla uhanalainen (IUCN-luokitus 2024)</a> — <span class="org">MTV Uutiset</span></li>
+      <li><a href="https://www.hedgehogstreet.org/help-hedgehogs/hedgehog-homes/" target="_blank" rel="noopener">Hedgehog homes</a> — <span class="org">Hedgehog Street / British Hedgehog Preservation Society &amp; PTES</span></li>
+      <li><a href="https://ptes.org/my-garden/how-to-build-a-hedgehog-house/" target="_blank" rel="noopener">How to build a hedgehog house</a> — <span class="org">People's Trust for Endangered Species (PTES)</span></li>
+      <li><a href="https://finlandsnatur.fi/natur/bygg-bo-at-taggig-van/" target="_blank" rel="noopener">Bygg bo åt taggig vän</a> — <span class="org">Finlands Natur</span></li>
+      <li><a href="https://www.naturskyddsforeningen.se/skola/snickra-ett-igelkottsbo/" target="_blank" rel="noopener">Snickra ett igelkottsbo</a> — <span class="org">Naturskyddsföreningen</span></li>
+    </ul>
+    <p data-lang="fi" class="show" style="margin-top:1rem;font-size:.9rem;color:var(--text-soft)">Huom: rakennuskuvat (valokuvat) puuttuvat vielä tästä sivusta. Lisätään, kun Siili-Saari rakentaa oman malliesimerkin, tai omista kuvista – muiden järjestöjen valokuvia ei julkaista tällä sivustolla ilman lupaa.</p>
+    <p data-lang="sv" style="margin-top:1rem;font-size:.9rem;color:var(--text-soft)">Obs: byggfoton saknas ännu på den här sidan. Läggs till när Siili-Saari bygger ett eget exempel, eller med egna bilder – andra organisationers foton publiceras inte på den här webbplatsen utan tillstånd.</p>
+    <p data-lang="en" style="margin-top:1rem;font-size:.9rem;color:var(--text-soft)">Note: build photos are still missing from this page. To be added once Siili-Saari builds its own example, or with our own photos – other organisations' photos are not published on this site without permission.</p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p data-lang="fi" class="show">Tämä ohje on tehty Siili-Saarelle. Jos löydät liikkuvan, avuttoman siilin, katso ensin hoito-oppaamme.</p>
+    <p data-lang="sv">Den här guiden är gjord för Siili-Saari. Om du hittar en igelkott som är hjälplös, se först vår vårdguide.</p>
+    <p data-lang="en">This guide is made for Siili-Saari. If you find a helpless hedgehog, see our care guide first.</p>
+    <p class="fine">Siili-Saari Care Center · siilisaari.fi</p>
+  </div>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.lang-btn');
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    try{localStorage.setItem('ss-lang',lang)}catch(e){}
+    document.querySelectorAll('[data-lang]:not(.lang-btn)').forEach(el=>{
+      el.classList.toggle('show', el.getAttribute('data-lang')===lang);
+    });
+    buttons.forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  }
+  buttons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  var _s=(function(){try{return localStorage.getItem('ss-lang')}catch(e){return null}})();
+  setLang((_s==='sv'||_s==='en'||_s==='fi')?_s:'fi');
+
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

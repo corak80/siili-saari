@@ -1,0 +1,9 @@
+# siilisaari.fi — Siili-Saari Care Center
+# The volunteer-pipeline pages (siilinhoito-testi / -tehtavat / -tapaaminen / -vuorot)
+# carry <meta name="robots" content="noindex"> in the page itself. They are left
+# crawlable on purpose — a Disallow here would stop Google reading that directive.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://siilisaari.fi/sitemap.xml

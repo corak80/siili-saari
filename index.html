@@ -6,8 +6,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="meta.title">Siili-Saari Care Center — Siilien hoitokeskus Vaasassa</title>
 <meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="Siili-Saari Care Center pelastaa, hoitaa ja kuntouttaa loukkaantuneita ja orpoja siilejä Vaasassa.">
+<link rel="canonical" href="https://siilisaari.fi/">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["NGO", "AnimalShelter"],
+  "@id": "https://siilisaari.fi/#organization",
+  "name": "Siili-Saari Care Center",
+  "alternateName": "Siilisaari",
+  "url": "https://siilisaari.fi/",
+  "logo": "https://siilisaari.fi/logo-icon.png",
+  "image": "https://siilisaari.fi/hoglet.jpg",
+  "description": "Siili-Saari Care Center pelastaa, hoitaa ja kuntouttaa loukkaantuneita ja orpoja siilejä (Erinaceus europaeus) Vaasassa ennen niiden vapauttamista luontoon.",
+  "email": "info@saarivet.fi",
+  "telephone": "+358 6 321 7300",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Gerbyntie 20",
+    "postalCode": "65230",
+    "addressLocality": "Vaasa",
+    "addressRegion": "Pohjanmaa",
+    "addressCountry": "FI"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Pohjanmaa, Suomi"
+  },
+  "knowsLanguage": ["fi", "sv", "en"],
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61592115400519"
+  ]
+}
+</script>
 <style>
 /* Self-hosted variable fonts (GDPR-friendly — no third-party CDN) */
 @font-face {
@@ -652,6 +684,24 @@ section {
 
 .help-emergency a:hover { border-color: var(--sunset); }
 
+.help-guides {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--cream);
+  opacity: 0.85;
+  text-align: center;
+}
+
+.help-guides a {
+  color: var(--sunset);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(232, 168, 76, 0.4);
+  transition: border-color 0.3s;
+}
+
+.help-guides a:hover { border-color: var(--sunset); }
+
 /* ===== CONTACT ===== */
 .contact {
   background: var(--cream);
@@ -995,6 +1045,7 @@ footer a:hover { color: var(--sunset); }
         <small style="opacity: 0.7;" data-i18n="help.emergency.hours">Klinikan aukioloaikoina — iltaisin ja viikonloppuisin jätä viesti vastaajaan, soitamme takaisin</small>
       </p>
     </div>
+    <p class="help-guides reveal" style="transition-delay: 0.3s;" data-i18n="help.guides" data-i18n-html="true">Lue myös: <a href="siilinhoito.html">Siilin hoito-opas</a> — milloin siili tarvitsee apua, ensiapu ja poikasten ruokinta.<br><a href="siilin-pesa.html">Rakenna siilille pesä</a> — mitat, materiaalit, sijoitus ja hoitokalenteri.</p>
   </div>
 </section>
 
