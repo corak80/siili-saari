@@ -1,5 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { parse } from 'node-html-parser';
 import { switcherHtml, stripRuntime } from '../build/strip.js';
 
@@ -131,4 +132,47 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   const scripts = root.querySelectorAll('script');
   assert.equal(scripts.length, 1);
   assert.equal(scripts[0].text, before);
+});
+
+// Fix round 1, Finding 1: the task-6 brief required generated pages to have
+// "no [data-lang] CSS". Ruling B only overrode the noscript part of that
+// sentence; these two rules still sit in the guides' main <style> block and
+// must be stripped by stripRuntime, matched by content (not line number),
+// leaving every other rule in the same <style> block byte-identical.
+test('stripRuntime removes the dead [data-lang] CSS rules but leaves unrelated CSS untouched', () => {
+  const root = parse(`<head><style>
+body{margin:0}
+.reveal{opacity:0;transform:translateY(18px)}
+.reveal.in{opacity:1;transform:none}
+
+[data-lang]:not(.lang-btn){display:none}
+[data-lang]:not(.lang-btn).show{display:revert}
+</style></head>`);
+  stripRuntime(root, 'siilinhoito.html', 'sv');
+  const styleText = root.querySelector('style').text;
+  assert.doesNotMatch(styleText, /\[data-lang\]/);
+  assert.match(styleText, /body\{margin:0\}/);
+  assert.match(styleText, /\.reveal\{opacity:0;transform:translateY\(18px\)\}/);
+  assert.match(styleText, /\.reveal\.in\{opacity:1;transform:none\}/);
+});
+
+test('stripRuntime is a no-op on a <style> block with no [data-lang] rules', () => {
+  const root = parse('<head><style>body{margin:0}.reveal{opacity:0}</style></head>');
+  const before = root.querySelector('style').text;
+  stripRuntime(root, 'index.html', 'en');
+  assert.equal(root.querySelector('style').text, before);
+});
+
+// Fix round 1, Finding 2 — drift guard: OBSERVER_ONLY in build/strip.js is a
+// hardcoded literal, verified byte-identical against the real guides at the
+// time this was written. If someone later edits the observer in the source
+// guides without updating build/strip.js, the build would silently keep
+// emitting stale JavaScript. Reading the real files here makes that drift
+// fail loudly instead.
+// drift guard
+test('the real siilinhoito.html and siilin-pesa.html still contain the observer body verbatim', () => {
+  const siilinhoito = readFileSync(new URL('../siilinhoito.html', import.meta.url), 'utf8');
+  const siilinPesa = readFileSync(new URL('../siilin-pesa.html', import.meta.url), 'utf8');
+  assert.ok(siilinhoito.includes(OBSERVER_ONLY), 'siilinhoito.html no longer contains OBSERVER_ONLY verbatim');
+  assert.ok(siilinPesa.includes(OBSERVER_ONLY), 'siilin-pesa.html no longer contains OBSERVER_ONLY verbatim');
 });
