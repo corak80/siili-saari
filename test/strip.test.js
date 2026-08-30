@@ -9,7 +9,8 @@ import { switcherHtml, stripRuntime } from '../build/strip.js';
 // siilin-pesa.html) must be reduced to. Byte-identical per Ruling B.
 const OBSERVER_ONLY =
   `  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});\n` +
-  `  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));`;
+  `  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));\n` +
+  `  document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{try{localStorage.setItem('ss-lang',b.getAttribute('hreflang'))}catch(e){}}));`;
 
 test('switcher links to the same page in each language and marks the active one', () => {
   const html = switcherHtml('siilinhoito.html', 'sv');

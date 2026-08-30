@@ -7,6 +7,10 @@
 <title>Siili-Saari Care Center — Igelkottsrehabilitering i Vasa</title>
 <meta name="description" content="Siili-Saari Care Center räddar, behandlar och rehabiliterar skadade och föräldralösa igelkottar i Vasa, Finland.">
 <link rel="canonical" href="https://siilisaari.fi/sv/">
+
+
+
+
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">{
@@ -56,28 +60,28 @@
   font-style: normal;
   font-weight: 300 900;
   font-display: swap;
-  src: url('fonts/fraunces-latin.woff2') format('woff2-variations');
+  src: url('/fonts/fraunces-latin.woff2') format('woff2-variations');
 }
 @font-face {
   font-family: 'Fraunces';
   font-style: italic;
   font-weight: 300 900;
   font-display: swap;
-  src: url('fonts/fraunces-latin-italic.woff2') format('woff2-variations');
+  src: url('/fonts/fraunces-latin-italic.woff2') format('woff2-variations');
 }
 @font-face {
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 100 1000;
   font-display: swap;
-  src: url('fonts/dmsans-latin.woff2') format('woff2-variations');
+  src: url('/fonts/dmsans-latin.woff2') format('woff2-variations');
 }
 @font-face {
   font-family: 'DM Sans';
   font-style: italic;
   font-weight: 100 1000;
   font-display: swap;
-  src: url('fonts/dmsans-latin-italic.woff2') format('woff2-variations');
+  src: url('/fonts/dmsans-latin-italic.woff2') format('woff2-variations');
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1128,6 +1132,9 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Remember chosen language for pages not yet converted to this switcher
+document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{try{localStorage.setItem('ss-lang',b.getAttribute('hreflang'))}catch(e){}}));
 </script>
 </body>
 </html>

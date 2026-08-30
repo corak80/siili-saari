@@ -21,7 +21,8 @@ const HAS_OBSERVER = /IntersectionObserver/;
 // byte-identical to what both guides already ship.
 const OBSERVER_ONLY =
   `  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});\n` +
-  `  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));`;
+  `  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));\n` +
+  `  document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{try{localStorage.setItem('ss-lang',b.getAttribute('hreflang'))}catch(e){}}));`;
 
 // Fix round 1, Finding 1: after renderGuide + the script pruning above, no
 // element in the generated page ever carries [data-lang] again, so these two

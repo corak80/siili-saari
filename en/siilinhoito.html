@@ -8,6 +8,10 @@
 <title>Found a hedgehog? Hedgehog care guide</title>
 <meta name="description" content="How to help a helpless or orphaned wild hedgehog: when it needs help, first aid, what it eats, hand-feeding hoglets, hygiene and Finnish law.">
 <link rel="canonical" href="https://siilisaari.fi/en/siilinhoito.html">
+
+
+
+
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="article">
@@ -18,10 +22,10 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Siili-Saari Care Center">
 <style>
-@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin.woff2') format('woff2-variations')}
-@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
-@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin.woff2') format('woff2-variations')}
-@font-face{font-family:'DM Sans';font-style:italic;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin-italic.woff2') format('woff2-variations')}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('/fonts/fraunces-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('/fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('/fonts/dmsans-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:italic;font-weight:100 1000;font-display:swap;src:url('/fonts/dmsans-latin-italic.woff2') format('woff2-variations')}
 
 :root{
   --teal-deep:#1a5c52; --teal:#2d7a6d; --teal-light:#3d9b8a;
@@ -470,6 +474,7 @@ footer .fine{font-size:.8rem;opacity:.6;margin-top:1rem}
 <script>
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{try{localStorage.setItem('ss-lang',b.getAttribute('hreflang'))}catch(e){}}));
 </script>
 </body>
 </html>
