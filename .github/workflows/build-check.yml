@@ -13,8 +13,8 @@ jobs:
       - name: Generated pages must be up to date
         run: |
           node build.js
-          if ! git diff --quiet -- sv en; then
+          if [ -n "$(git status --porcelain -- sv en)" ]; then
             echo "sv/ or en/ is stale — run 'node build.js' and commit the result."
-            git diff --stat -- sv en
+            git status --porcelain -- sv en
             exit 1
           fi
