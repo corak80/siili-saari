@@ -33,7 +33,7 @@ export function applyHead(root, { lang, page, title, description, og }) {
   if (locale) locale.setAttribute('content', OG_LOCALE[lang]);
 
   const ogUrl = root.querySelector('meta[property="og:url"]');
-  if (ogUrl) ogUrl.setAttribute('href', urlFor(page, lang));
+  if (ogUrl) ogUrl.setAttribute('content', urlFor(page, lang));
 
   for (const [prop, value] of Object.entries(og || {})) {
     const el = root.querySelector(`meta[property="${prop}"]`);

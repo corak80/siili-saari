@@ -52,3 +52,17 @@ test('applyHead translates og tags when given them', () => {
   assert.equal(root.querySelector('meta[property="og:title"]').getAttribute('content'), 'Hoglet care guide');
   assert.equal(root.querySelector('meta[property="og:locale"]').getAttribute('content'), 'en_GB');
 });
+
+test('applyHead sets og:url content, not a bogus href attribute', () => {
+  const root = parse(`<html lang="fi"><head>
+    <title>t</title><meta name="description" content="d">
+    <link rel="canonical" href="x">
+    <meta property="og:url" content="https://siilisaari.fi/siilinhoito.html">
+  </head><body></body></html>`);
+  applyHead(root, {
+    lang: 'sv', page: 'siilinhoito.html', title: 't2', description: 'd2'
+  });
+  const ogUrl = root.querySelector('meta[property="og:url"]');
+  assert.equal(ogUrl.getAttribute('content'), 'https://siilisaari.fi/sv/siilinhoito.html');
+  assert.equal(ogUrl.getAttribute('href'), undefined);
+});
