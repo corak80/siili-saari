@@ -1,0 +1,30 @@
+{
+  "siilinhoito.html": {
+    "sv": {
+      "title": "Hittat en igelkott? Guide till igelkottsvård",
+      "description": "Så hjälper du en hjälplös eller föräldralös vild igelkott: när den behöver hjälp, första hjälpen, mat, handmatning av ungar, hygien och finsk lag.",
+      "og:title": "Guide till igelkottsvård",
+      "og:description": "Så hjälper du en hjälplös eller föräldralös vild igelkott på rätt sätt. Läs detta innan du tar en igelkott i vård."
+    },
+    "en": {
+      "title": "Found a hedgehog? Hedgehog care guide",
+      "description": "How to help a helpless or orphaned wild hedgehog: when it needs help, first aid, what it eats, hand-feeding hoglets, hygiene and Finnish law.",
+      "og:title": "Hedgehog care guide",
+      "og:description": "How to help a helpless or orphaned wild hedgehog properly. Read this before taking a hedgehog into care."
+    }
+  },
+  "siilin-pesa.html": {
+    "sv": {
+      "title": "Bygg ett igelkottsbo: mått, material, skötsel",
+      "description": "Ritning och mått för ett igelkotthus i trä, material, placering i trädgården och en skötselkalender – enligt WWF och naturskyddsföreningarnas råd.",
+      "og:title": "Bygg ett bo åt igelkotten",
+      "og:description": "En enda trälåda i trädgårdens hörn kan avgöra om igelkotten klarar vintern. Mått, material och skötselkalender."
+    },
+    "en": {
+      "title": "Build a hedgehog nest box: plans and care",
+      "description": "Wooden hedgehog house plans: dimensions, materials, where to place it in the garden, and a year-round maintenance calendar from conservation guidance.",
+      "og:title": "Build a hedgehog nest box",
+      "og:description": "One wooden box in a quiet corner can decide whether a hedgehog survives the winter. Dimensions, materials and a care calendar."
+    }
+  }
+}
