@@ -161,9 +161,9 @@ footer .fine{font-size:.8rem;opacity:.6;margin-top:1rem}
       <span data-lang="fi" class="show">← Etusivu</span><span data-lang="sv">← Hem</span><span data-lang="en">← Home</span>
     </a>
     <div class="lang-switcher" role="group" aria-label="Language">
-      <button type="button" data-lang="fi" class="lang-btn active">FI</button>
-      <button type="button" data-lang="sv" class="lang-btn">SV</button>
-      <button type="button" data-lang="en" class="lang-btn">EN</button>
+      <a href="/siilin-pesa.html" hreflang="fi" class="lang-btn active">FI</a>
+      <a href="/sv/siilin-pesa.html" hreflang="sv" class="lang-btn">SV</a>
+      <a href="/en/siilin-pesa.html" hreflang="en" class="lang-btn">EN</a>
     </div>
   </div>
 </nav>
@@ -539,19 +539,6 @@ footer .fine{font-size:.8rem;opacity:.6;margin-top:1rem}
 </footer>
 
 <script>
-  const buttons = document.querySelectorAll('.lang-btn');
-  function setLang(lang){
-    document.documentElement.lang = lang;
-    try{localStorage.setItem('ss-lang',lang)}catch(e){}
-    document.querySelectorAll('[data-lang]:not(.lang-btn)').forEach(el=>{
-      el.classList.toggle('show', el.getAttribute('data-lang')===lang);
-    });
-    buttons.forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
-  }
-  buttons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
-  var _s=(function(){try{return localStorage.getItem('ss-lang')}catch(e){return null}})();
-  setLang((_s==='sv'||_s==='en'||_s==='fi')?_s:'fi');
-
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
