@@ -1,0 +1,20 @@
+name: build-check
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm ci
+      - run: npm test
+      - name: Generated pages must be up to date
+        run: |
+          node build.js
+          if ! git diff --quiet -- sv en; then
+            echo "sv/ or en/ is stale — run 'node build.js' and commit the result."
+            git diff --stat -- sv en
+            exit 1
+          fi

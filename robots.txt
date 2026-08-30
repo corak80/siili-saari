@@ -6,4 +6,7 @@
 User-agent: *
 Allow: /
 
+# Design and planning documents — not site content.
+Disallow: /docs/
+
 Sitemap: https://siilisaari.fi/sitemap.xml
