@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build a hedgehog nest box: plans and care</title>
+<meta name="description" content="Wooden hedgehog house plans: dimensions, materials, where to place it in the garden, and a year-round maintenance calendar from conservation guidance.">
+<link rel="canonical" href="https://siilisaari.fi/en/siilin-pesa.html">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://siilisaari.fi/en/siilin-pesa.html">
+<meta property="og:title" content="Build a hedgehog nest box">
+<meta property="og:description" content="One wooden box in a quiet corner can decide whether a hedgehog survives the winter. Dimensions, materials and a care calendar.">
+<meta property="og:image" content="https://siilisaari.fi/hoglet.jpg">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Siili-Saari Care Center">
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:italic;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin-italic.woff2') format('woff2-variations')}
+
+:root{
+  --teal-deep:#1a5c52; --teal:#2d7a6d; --teal-light:#3d9b8a;
+  --sunset:#e8a84c; --sunset-warm:#d4863a;
+  --cream:#faf6f0; --cream-dark:#f0e8da;
+  --bark:#5c4a3a; --moss:#4a6d45;
+  --white:#fff; --text:#2c2418; --text-soft:#5a4d3e;
+  --border:#e7ddcc;
+  --danger:#b3392e; --danger-bg:#fbecea;
+  --warn:#9a6212; --warn-bg:#fcf3e2;
+  --shadow:0 18px 50px rgba(26,92,82,.10); --shadow-sm:0 6px 22px rgba(26,92,82,.07);
+  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --max:900px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--sans);color:var(--text);line-height:1.7;background:var(--cream);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--teal-deep)}
+
+nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  background:rgba(250,246,240,.9);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(26,92,82,.06)}
+.nav-brand{display:flex;align-items:center;text-decoration:none}
+.nav-brand-logo{height:38px;width:auto;display:block}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.back-home{font-size:.82rem;font-weight:600;color:var(--text-soft);text-decoration:none;border-bottom:1px solid transparent;transition:.2s;white-space:nowrap}
+.back-home:hover{color:var(--teal-deep);border-bottom-color:var(--teal-light)}
+.lang-switcher{display:inline-flex;gap:0;background:rgba(255,255,255,.6);border:1px solid rgba(26,92,82,.12);border-radius:999px;padding:3px}
+.lang-btn{background:none;border:none;cursor:pointer;padding:.35rem .75rem;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.05em;color:var(--text-soft);border-radius:999px;transition:background .25s,color .25s}
+.lang-btn:hover{color:var(--teal-deep)}
+.lang-btn.active{background:var(--teal-deep);color:var(--cream)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+section{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sunset-warm);margin-bottom:1rem}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--sunset);border-radius:2px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1.12;color:var(--teal-deep)}
+h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin-bottom:.8rem}
+h3{font-size:clamp(1.2rem,2.4vw,1.5rem);margin-bottom:.5rem}
+h4{font-size:1.02rem;margin-bottom:.3rem;color:var(--bark)}
+p{margin-bottom:1rem}
+.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--text-soft);max-width:64ch}
+
+.hero{padding:clamp(2.4rem,7vw,4.5rem) 0 clamp(1.8rem,4vw,3rem);
+  background:radial-gradient(1100px 460px at 80% -10%,rgba(232,168,76,.16),transparent 60%),radial-gradient(900px 520px at -8% 20%,rgba(45,122,109,.12),transparent 60%)}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:1rem}
+.hero h1 em{font-style:italic;color:var(--sunset-warm)}
+
+.sec{padding:clamp(2rem,5vw,3.2rem) 0;border-top:1px solid var(--border)}
+.sec-num{font-family:var(--serif);font-size:.85rem;font-weight:600;color:var(--sunset-warm);letter-spacing:.1em}
+
+.banner{border-radius:16px;padding:1.2rem 1.4rem;margin:1.2rem 0;border:1px solid;display:flex;gap:.9rem;align-items:flex-start}
+.banner .ic{flex:none;font-size:1.3rem;line-height:1.4}
+.banner p{margin:0}
+.banner p+p{margin-top:.5rem}
+.banner.danger{background:var(--danger-bg);border-color:#eabbb4;color:#7a241c}
+.banner.danger strong{color:var(--danger)}
+.banner.warn{background:var(--warn-bg);border-color:#eed3a6;color:#6f4a12}
+.banner.info{background:#eef5f2;border-color:#cfe4dd;color:#204a41}
+
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:1rem}
+@media(max-width:640px){.cols2{grid-template-columns:1fr}}
+.panel{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.4rem;box-shadow:var(--shadow-sm)}
+.panel.help{border-top:4px solid var(--moss)}
+.panel.leave{border-top:4px solid var(--danger)}
+.panel h4{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;margin-bottom:.8rem}
+.panel.help h4{color:var(--moss)}
+.panel.leave h4{color:var(--danger)}
+
+ul.rules{list-style:none;margin:.4rem 0 1rem}
+ul.rules li{position:relative;padding:.35rem 0 .35rem 1.7rem;border-bottom:1px dashed var(--border)}
+ul.rules li:last-child{border-bottom:0}
+ul.rules li::before{content:"";position:absolute;left:2px;top:.95rem;width:7px;height:7px;border-radius:50%;background:var(--sunset)}
+ul.rules.check li::before{content:"✓";background:none;color:var(--moss);font-weight:800;top:.35rem;left:0;width:auto;height:auto}
+ul.rules.no li::before{content:"✕";background:none;color:var(--danger);font-weight:800;top:.35rem;left:0;width:auto;height:auto}
+ul.rules li b{color:var(--bark)}
+
+.never{background:#fff;border:1.5px solid #eabbb4;border-radius:16px;padding:1.2rem 1.4rem;margin:1rem 0}
+.never h4{color:var(--danger);font-family:var(--sans);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:.82rem;margin-bottom:.6rem}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:1rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;box-shadow:var(--shadow-sm)}
+.card .tag{font-size:1.4rem;line-height:1;margin-bottom:.5rem;display:block}
+.card p{font-size:.95rem;margin:0}
+
+.tbl{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.93rem;background:var(--white);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.tbl th,.tbl td{padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--border)}
+.tbl th{background:var(--teal-deep);color:var(--cream);font-family:var(--sans);font-weight:600;font-size:.82rem;letter-spacing:.03em}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td:first-child{font-weight:600;color:var(--bark);white-space:nowrap}
+.tblwrap{overflow-x:auto}
+
+.legal{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:1rem 1.2rem;margin:.8rem 0}
+.legal h4{font-family:var(--sans);font-weight:700;font-size:.95rem;color:var(--teal-deep);margin-bottom:.3rem}
+.legal p{margin:0;font-size:.95rem}
+.legal .ref{display:inline-block;margin-top:.5rem;font-size:.78rem;color:var(--text-soft);font-style:italic}
+
+.callout{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.4vw,1.5rem);color:var(--teal-deep);text-align:center;padding:1.4rem 1rem;line-height:1.4}
+
+/* diagrams */
+.diagram{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.2rem 1.2rem .6rem;box-shadow:var(--shadow-sm);margin:1.2rem 0}
+.diagram svg{width:100%;height:auto;display:block}
+.diagram .cap{font-size:.82rem;color:var(--text-soft);text-align:center;padding:.6rem 0 .3rem;font-style:italic}
+.diagwrap{overflow-x:auto}
+
+/* materials list */
+.matlist{list-style:none;margin:.6rem 0 0}
+.matlist li{display:flex;gap:.6rem;padding:.4rem 0;border-bottom:1px dashed var(--border);font-size:.95rem}
+.matlist li:last-child{border-bottom:0}
+.matlist li .qty{flex:none;font-weight:700;color:var(--teal-deep);min-width:5.5rem}
+
+/* sources */
+.srclist{list-style:none;margin:.6rem 0 0}
+.srclist li{padding:.55rem 0;border-bottom:1px dashed var(--border);font-size:.92rem}
+.srclist li:last-child{border-bottom:0}
+.srclist a{font-weight:600}
+.srclist .org{color:var(--text-soft);font-size:.85rem}
+
+footer{background:var(--teal-deep);color:var(--cream);padding:2.4rem 0;margin-top:1rem;text-align:center}
+footer p{margin:0 auto .5rem;max-width:60ch;font-size:.95rem;opacity:.92}
+footer .fine{font-size:.8rem;opacity:.6;margin-top:1rem}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+
+<link rel="alternate" hreflang="fi" href="https://siilisaari.fi/siilin-pesa.html">
+<link rel="alternate" hreflang="sv" href="https://siilisaari.fi/sv/siilin-pesa.html">
+<link rel="alternate" hreflang="en" href="https://siilisaari.fi/en/siilin-pesa.html">
+<link rel="alternate" hreflang="x-default" href="https://siilisaari.fi/siilin-pesa.html">
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="/en/" aria-label="Siili-Saari"><img class="nav-brand-logo" src="/logo-horizontal.png" alt="Siili-Saari"></a>
+  <div class="nav-right">
+    <a class="back-home" href="/en/">
+      <span>← Home</span>
+    </a>
+    <div class="lang-switcher" role="group" aria-label="Language">
+    <a href="/siilin-pesa.html" hreflang="fi" class="lang-btn">FI</a>
+    <a href="/sv/siilin-pesa.html" hreflang="sv" class="lang-btn">SV</a>
+    <a href="/en/siilin-pesa.html" hreflang="en" class="lang-btn active">EN</a>
+  </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span>Help a wild hedgehog</span></span>
+    
+    
+    <h1>Build a hedgehog <em>nest box</em></h1>
+    
+    
+    <p class="lead">One wooden box in a quiet corner of the garden can decide whether a hedgehog survives the winter. Here are the dimensions, materials, illustrated instructions and a maintenance calendar – compiled from WWF Finland, the Finnish Association for Nature Conservation, the British Hedgehog Preservation Society and Naturskyddsföreningen.</p>
+  </div>
+</section>
+
+<div class="wrap">
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">01</div>
+    
+    
+    <h2>Why this matters</h2>
+    
+    
+    <p>The hedgehog is a <b>protected species in Finland</b>. Even so, populations have fallen sharply across Europe – an estimated 16–33% over the last decade – and in 2024 the International Union for Conservation of Nature (IUCN) moved the hedgehog from "Least Concern" to "Near Threatened". The single biggest cause is the loss and fragmentation of habitat in gardens: a tidy, "cleaned up" garden offers nowhere at all to overwinter. Climate change's unstable winter weather – thaws and sudden hard frosts by turns – significantly raises mortality in a hibernating hedgehog if its nest isn't well enough insulated. One well-built, well-placed nest in your garden can be the deciding factor.</p>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">02</div>
+    
+    
+    <h2>Two ways to help</h2>
+    
+    
+    <p>Both work. The quick version gets shelter up today; a proper wooden box lasts for years and insulates better through a long, cold winter.</p>
+
+    
+    
+    <div class="grid">
+      <div class="card"><span class="tag">📦</span><h4>The quick version: 10 minutes</h4><p>Flip a sturdy plastic storage box or planter (about 40 × 40 cm or bigger) upside down. Cut a 13 × 13 cm door in the edge, fill with dry leaves, cover the box with sheeting and then soil/leaves. Not perfect, but far better than nothing – and a hedgehog will thank you this autumn.</p></div>
+      <div class="card"><span class="tag">🪵</span><h4>The proper build: in wood</h4><p>A bottomless nest box of untreated timber, with a tunnel and a removable roof. See the dimensions and step-by-step guide below. Lasts for years and insulates best.</p></div>
+    </div>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">03</div>
+    
+    
+    <h2>Dimensions & build instructions</h2>
+    
+    
+    <p>Finnish and Swedish nature organisations recommend a bigger box than in southern Europe, because a long, cold winter needs a thicker insulating layer of dry leaves. The British Hedgehog Preservation Society uses a smaller design of about 40 × 30 × 26 cm, which also works well as a summer day-nest – fine if space or materials are limited, but bigger is better for winter.</p>
+
+    <div class="diagram">
+      <div class="diagwrap">
+      <svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Siilin pesälaatikon mitat: 40x40x40 cm, katto viistoon, 13x13 cm ovi, tunneli">
+        
+        <g font-family="DM Sans, sans-serif">
+          
+          <polygon points="30,90 130,50 230,90" fill="#e8a84c" stroke="#5c4a3a" stroke-width="2"></polygon>
+          
+          <rect x="45" y="90" width="170" height="170" fill="#faf6f0" stroke="#5c4a3a" stroke-width="2.5"></rect>
+          
+          <line x1="45" y1="140" x2="215" y2="140" stroke="#e7ddcc" stroke-width="1"></line>
+          
+          <rect x="70" y="205" width="55" height="55" fill="#1a5c52" opacity=".85"></rect>
+          
+          <line x1="20" y1="262" x2="240" y2="262" stroke="#5c4a3a" stroke-width="2"></line>
+          <rect x="60" y="260" width="10" height="6" fill="#5c4a3a"></rect>
+          <rect x="190" y="260" width="10" height="6" fill="#5c4a3a"></rect>
+          
+          <line x1="45" y1="35" x2="215" y2="35" stroke="#2d7a6d" stroke-width="1.5"></line>
+          <line x1="45" y1="30" x2="45" y2="40" stroke="#2d7a6d" stroke-width="1.5"></line>
+          <line x1="215" y1="30" x2="215" y2="40" stroke="#2d7a6d" stroke-width="1.5"></line>
+          <text x="130" y="26" text-anchor="middle" font-size="13" fill="#1a5c52" font-weight="700">40 cm</text>
+          
+          <line x1="255" y1="90" x2="255" y2="260" stroke="#2d7a6d" stroke-width="1.5"></line>
+          <line x1="250" y1="90" x2="260" y2="90" stroke="#2d7a6d" stroke-width="1.5"></line>
+          <line x1="250" y1="260" x2="260" y2="260" stroke="#2d7a6d" stroke-width="1.5"></line>
+          <text x="278" y="180" text-anchor="middle" font-size="13" fill="#1a5c52" font-weight="700" transform="rotate(90 278 180)">40 cm</text>
+          
+          <line x1="97" y1="205" x2="97" y2="170" stroke="#5a4d3e" stroke-width="1" stroke-dasharray="2,2"></line>
+          <text x="97" y="163" text-anchor="middle" font-size="11.5" fill="#5a4d3e">ovi n. 13×13 cm</text>
+          <text x="130" y="300" text-anchor="middle" font-size="12" fill="#5a4d3e" font-style="italic">Edestä</text>
+        </g>
+
+        
+        <g font-family="DM Sans, sans-serif">
+          
+          <line x1="330" y1="262" x2="700" y2="262" stroke="#5c4a3a" stroke-width="2"></line>
+          
+          <rect x="390" y="252" width="14" height="10" fill="#5c4a3a"></rect>
+          <rect x="560" y="252" width="14" height="10" fill="#5c4a3a"></rect>
+          
+          <rect x="380" y="90" width="200" height="162" fill="none" stroke="#5c4a3a" stroke-width="2.5"></rect>
+          
+          <polygon points="365,90 480,45 595,90" fill="#e8a84c" stroke="#5c4a3a" stroke-width="2"></polygon>
+          
+          <line x1="380" y1="90" x2="365" y2="90" stroke="#b3392e" stroke-width="3"></line>
+          <line x1="580" y1="90" x2="595" y2="90" stroke="#b3392e" stroke-width="3"></line>
+          <text x="360" y="75" text-anchor="end" font-size="11" fill="#b3392e">tuuletusrako</text>
+          
+          <rect x="380" y="238" width="200" height="14" fill="#c9b79c"></rect>
+          <text x="480" y="248" text-anchor="middle" font-size="10.5" fill="#5c4a3a">sora + multa (ei pohjaa)</text>
+          
+          <path d="M390,230 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0"
+            fill="none" stroke="#4a6d45" stroke-width="2.5" opacity=".8" transform="translate(0,-30)"></path>
+          <path d="M390,230 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0"
+            fill="none" stroke="#4a6d45" stroke-width="2.5" opacity=".55" transform="translate(0,-55)"></path>
+          <path d="M390,230 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0 q8,-10 16,0"
+            fill="none" stroke="#4a6d45" stroke-width="2.5" opacity=".35" transform="translate(0,-80)"></path>
+          <text x="480" y="150" text-anchor="middle" font-size="10.5" fill="#4a6d45">kuivat lehdet + olki katonrajaan asti</text>
+          
+          <rect x="330" y="220" width="50" height="32" fill="#faf6f0" stroke="#5c4a3a" stroke-width="2"></rect>
+          <rect x="300" y="220" width="34" height="60" fill="#faf6f0" stroke="#5c4a3a" stroke-width="2"></rect>
+          <text x="300" y="295" text-anchor="start" font-size="10.5" fill="#5a4d3e">tunneli, ≥ 20 cm,</text>
+          <text x="300" y="308" text-anchor="start" font-size="10.5" fill="#5a4d3e">mutka + Ø n. 12 cm</text>
+          <text x="480" y="300" text-anchor="middle" font-size="12" fill="#5a4d3e" font-style="italic">Läpileikkaus</text>
+        </g>
+      </svg>
+      </div>
+      
+      
+      <p class="cap">Original diagram, Siili-Saari — compiled from WWF Finland, the Finnish Association for Nature Conservation and the British Hedgehog Preservation Society. Not to exact scale.</p>
+    </div>
+
+    
+    
+    <h3 style="margin-top:1.6rem">Materials</h3>
+    
+    
+    <ul class="matlist">
+      <li><span class="qty">Frame</span> Untreated, unplaned board, about 2 cm thick (e.g. spruce or pine). No plywood on the walls – it doesn't breathe and traps moisture.</li>
+      <li><span class="qty">Roof</span> One removable board/panel (may be waterproof board), with roofing felt or a rubber membrane on top.</li>
+      <li><span class="qty">Tunnel</span> Three lengths of board forming a tunnel, or a plastic pipe about 10–12 cm internal diameter.</li>
+      <li><span class="qty">Base</span> A layer of gravel plus a layer of soil (no solid floor board).</li>
+      <li><span class="qty">Filling</span> Plenty of dry leaves and straw (not hay – it snags on the spines).</li>
+      <li><span class="qty">Fixings</span> Stainless screws or nails; no glue for attaching the roof.</li>
+      <li><span class="qty">Avoid</span> Pressure-treated wood, creosote, paint on interior surfaces.</li>
+    </ul>
+
+    
+    
+    <h3 style="margin-top:1.6rem">Step by step</h3>
+    
+    
+    <ul class="rules">
+      <li><b>1. Frame:</b> cut four walls and assemble a box with internal dimensions at least 40 × 40 × 40 cm. Leave the base completely open.</li>
+      <li><b>2. Door:</b> cut an opening about 13 × 13 cm (or about 15 × 10 cm) low in the front wall.</li>
+      <li><b>3. Tunnel:</b> attach a tunnel at least ~20 cm long with a bend in front of the door – no clear sightline in stops a fox or cat walking straight through.</li>
+      <li><b>4. Ventilation:</b> leave a 1–2 cm gap between roof and wall, or drill a few holes high up in the wall. Without ventilation the nest goes mouldy.</li>
+      <li><b>5. Roof:</b> slope it so water runs off, and leave it removable (a hook or weight, not nails) – so you can clean the nest out in spring.</li>
+      <li><b>6. Feet:</b> raise the box a few centimetres off the ground on strips of wood, so the base doesn't rot and meltwater doesn't run in.</li>
+      <li><b>7. Base:</b> spread a layer of gravel and then a thin layer of soil directly on the ground under the box.</li>
+    </ul>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">04</div>
+    
+    
+    <h2>Fill it & camouflage it</h2>
+    
+    
+    <p>Fill the box almost to the roof with dry leaves and straw – the hedgehog will arrange the nest to suit itself and may top it up further with extra material left near the entrance. Finally bank soil, turf, grass clippings or brash up and around the box (not in front of the door) – this "insulating jacket" matters more over winter than the box itself. Let snow settle on the roof: it adds insulation, so don't clear it off.</p>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">05</div>
+    
+    
+    <h2>Where to place it</h2>
+    <div class="cols2">
+      <div class="panel help">
+        <h4>Good spot</h4>
+        
+        
+        <ul class="rules check">
+          <li>A quiet, shaded corner, well away from paths and play/dog areas</li>
+          <li>Tucked against a hedge, compost heap, log pile or brash pile – extra cover and camouflage</li>
+          <li>Sheltered from the prevailing wind and driving rain</li>
+          <li>Along a boundary or edge of the plot, ideally within ~5 m of the house</li>
+          <li>Somewhere the ground doesn't flood or collect meltwater</li>
+        </ul>
+      </div>
+      <div class="panel leave">
+        <h4>Avoid</h4>
+        
+        
+        <ul class="rules no">
+          <li>Full sun or open lawn</li>
+          <li>Right under a roof's drip line where rainwater pours straight down</li>
+          <li>Next to a trampoline, barbecue, or a busy path</li>
+          <li>A spot that could get strimmed, dug up or trodden on by accident after winter without anyone noticing</li>
+          <li>Moving a nest from storage later – build or place it in position by August–September, not later</li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    <p style="margin-top:1rem"><b>Don't put food or water inside the nest</b> – it disturbs the hedgehog. Place a shallow food/water dish (cat or dog food, no milk) a few metres away from the nest instead.</p>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">06</div>
+    
+    
+    <h2>Timing & maintenance calendar</h2>
+    <div class="tblwrap">
+    
+    
+    <table class="tbl">
+      <thead><tr><th>When</th><th>Task</th></tr></thead>
+      <tbody>
+        <tr><td>Aug–Sep</td><td>Build and place the nest by the end of September at the latest, so a hedgehog has time to find it before frost sets in.</td></tr>
+        <tr><td>Oct–Mar</td><td>Leave the nest completely alone. No cleaning, no moving it, no peeking inside – disturbing a protected species' winter nest is also against the law.</td></tr>
+        <tr><td>Apr–May</td><td>First clean-out once hibernation has ended, but before the breeding season. Wear gloves (and ideally a mask) – old nest material can carry parasites.</td></tr>
+        <tr><td>Jul–Aug</td><td>A light check/clean and fresh filling before the nest is used again for autumn hibernation.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  
+  <div class="never">
+    <h4>Never</h4>
+    
+    
+    <ul class="rules no">
+      <li>Nail the roof shut – it must open for cleaning</li>
+      <li>Use plywood, pressure-treated wood, creosote or paint on interior surfaces</li>
+      <li>Disturb or open the nest in winter if you suspect it's occupied</li>
+      <li>Use hay as filling – it snags on the spines; use dry leaves and straw</li>
+      <li>Put food or water inside the nest</li>
+    </ul>
+  </div>
+
+  
+  
+  <div class="callout">Build it in August, fill it with leaves, place it in a quiet corner – then leave it completely alone.</div>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">07</div>
+    
+    
+    <h2>Sources & further reading</h2>
+    
+    
+    <p>This guide is compiled from the following organisations' published guidance. The diagram above is Siili-Saari's own, drawn from these sources' dimensions.</p>
+    <ul class="srclist">
+      <li><a href="https://www.sll.fi/ajankohtaista/nikkaroi-siilille-pesa/" target="_blank" rel="noopener">Nikkaroi siilille pesä</a> — <span class="org">Suomen luonnonsuojeluliitto (SLL)</span></li>
+      <li><a href="https://wwf.fi/ala-villiksi/tee-siilille-pesa/" target="_blank" rel="noopener">Tee siilille pesä</a> — <span class="org">WWF Suomi</span></li>
+      <li><a href="https://wwf.fi/uutiset/2021/05/kotipihoilla-juoksee-tulevaisuudessa-yha-vahemman-siileja-nailla-vinkeilla-voit-auttaa-siileja/" target="_blank" rel="noopener">Kotipihoilla juoksee tulevaisuudessa yhä vähemmän siilejä</a> — <span class="org">WWF Suomi</span></li>
+      <li><a href="https://www.mtvuutiset.fi/artikkeli/siilista-uhkaa-tulla-uhanalainen/9038096" target="_blank" rel="noopener">Siilistä uhkaa tulla uhanalainen (IUCN-luokitus 2024)</a> — <span class="org">MTV Uutiset</span></li>
+      <li><a href="https://www.hedgehogstreet.org/help-hedgehogs/hedgehog-homes/" target="_blank" rel="noopener">Hedgehog homes</a> — <span class="org">Hedgehog Street / British Hedgehog Preservation Society &amp; PTES</span></li>
+      <li><a href="https://ptes.org/my-garden/how-to-build-a-hedgehog-house/" target="_blank" rel="noopener">How to build a hedgehog house</a> — <span class="org">People's Trust for Endangered Species (PTES)</span></li>
+      <li><a href="https://finlandsnatur.fi/natur/bygg-bo-at-taggig-van/" target="_blank" rel="noopener">Bygg bo åt taggig vän</a> — <span class="org">Finlands Natur</span></li>
+      <li><a href="https://www.naturskyddsforeningen.se/skola/snickra-ett-igelkottsbo/" target="_blank" rel="noopener">Snickra ett igelkottsbo</a> — <span class="org">Naturskyddsföreningen</span></li>
+    </ul>
+    
+    
+    <p style="margin-top:1rem;font-size:.9rem;color:var(--text-soft)">Note: build photos are still missing from this page. To be added once Siili-Saari builds its own example, or with our own photos – other organisations' photos are not published on this site without permission.</p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    
+    
+    <p>This guide is made for Siili-Saari. If you find a helpless hedgehog, see our care guide first.</p>
+    <p class="fine">Siili-Saari Care Center · siilisaari.fi</p>
+  </div>
+</footer>
+
+<script>  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));</script>
+</body>
+</html>

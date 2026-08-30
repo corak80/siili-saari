@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Found a hedgehog? Hedgehog care guide</title>
+<meta name="description" content="How to help a helpless or orphaned wild hedgehog: when it needs help, first aid, what it eats, hand-feeding hoglets, hygiene and Finnish law.">
+<link rel="canonical" href="https://siilisaari.fi/en/siilinhoito.html">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://siilisaari.fi/en/siilinhoito.html">
+<meta property="og:title" content="Hedgehog care guide">
+<meta property="og:description" content="How to help a helpless or orphaned wild hedgehog properly. Read this before taking a hedgehog into care.">
+<meta property="og:image" content="https://siilisaari.fi/hoglet.jpg">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Siili-Saari Care Center">
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:italic;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin-italic.woff2') format('woff2-variations')}
+
+:root{
+  --teal-deep:#1a5c52; --teal:#2d7a6d; --teal-light:#3d9b8a;
+  --sunset:#e8a84c; --sunset-warm:#d4863a;
+  --cream:#faf6f0; --cream-dark:#f0e8da;
+  --bark:#5c4a3a; --moss:#4a6d45;
+  --white:#fff; --text:#2c2418; --text-soft:#5a4d3e;
+  --border:#e7ddcc;
+  --danger:#b3392e; --danger-bg:#fbecea;
+  --warn:#9a6212; --warn-bg:#fcf3e2;
+  --shadow:0 18px 50px rgba(26,92,82,.10); --shadow-sm:0 6px 22px rgba(26,92,82,.07);
+  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --max:900px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--sans);color:var(--text);line-height:1.7;background:var(--cream);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--teal-deep)}
+
+nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  background:rgba(250,246,240,.9);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(26,92,82,.06)}
+.nav-brand{display:flex;align-items:center;text-decoration:none}
+.nav-brand-logo{height:38px;width:auto;display:block}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.back-home{font-size:.82rem;font-weight:600;color:var(--text-soft);text-decoration:none;border-bottom:1px solid transparent;transition:.2s;white-space:nowrap}
+.back-home:hover{color:var(--teal-deep);border-bottom-color:var(--teal-light)}
+.lang-switcher{display:inline-flex;gap:0;background:rgba(255,255,255,.6);border:1px solid rgba(26,92,82,.12);border-radius:999px;padding:3px}
+.lang-btn{background:none;border:none;cursor:pointer;padding:.35rem .75rem;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.05em;color:var(--text-soft);border-radius:999px;transition:background .25s,color .25s}
+.lang-btn:hover{color:var(--teal-deep)}
+.lang-btn.active{background:var(--teal-deep);color:var(--cream)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+section{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sunset-warm);margin-bottom:1rem}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--sunset);border-radius:2px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1.12;color:var(--teal-deep)}
+h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin-bottom:.8rem}
+h3{font-size:clamp(1.2rem,2.4vw,1.5rem);margin-bottom:.5rem}
+h4{font-size:1.02rem;margin-bottom:.3rem;color:var(--bark)}
+p{margin-bottom:1rem}
+.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--text-soft);max-width:64ch}
+
+/* hero */
+.hero{padding:clamp(2.4rem,7vw,4.5rem) 0 clamp(1.8rem,4vw,3rem);
+  background:radial-gradient(1100px 460px at 80% -10%,rgba(232,168,76,.16),transparent 60%),radial-gradient(900px 520px at -8% 20%,rgba(45,122,109,.12),transparent 60%)}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:1rem}
+.hero h1 em{font-style:italic;color:var(--sunset-warm)}
+
+/* content sections */
+.sec{padding:clamp(2rem,5vw,3.2rem) 0;border-top:1px solid var(--border)}
+.sec-num{font-family:var(--serif);font-size:.85rem;font-weight:600;color:var(--sunset-warm);letter-spacing:.1em}
+
+/* banners */
+.banner{border-radius:16px;padding:1.2rem 1.4rem;margin:1.2rem 0;border:1px solid;display:flex;gap:.9rem;align-items:flex-start}
+.banner .ic{flex:none;font-size:1.3rem;line-height:1.4}
+.banner p{margin:0}
+.banner p+p{margin-top:.5rem}
+.banner.danger{background:var(--danger-bg);border-color:#eabbb4;color:#7a241c}
+.banner.danger strong{color:var(--danger)}
+.banner.warn{background:var(--warn-bg);border-color:#eed3a6;color:#6f4a12}
+.banner.info{background:#eef5f2;border-color:#cfe4dd;color:#204a41}
+
+/* two-column help/leave */
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:1rem}
+@media(max-width:640px){.cols2{grid-template-columns:1fr}}
+.panel{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.4rem;box-shadow:var(--shadow-sm)}
+.panel.help{border-top:4px solid var(--danger)}
+.panel.leave{border-top:4px solid var(--moss)}
+.panel h4{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;margin-bottom:.8rem}
+.panel.help h4{color:var(--danger)}
+.panel.leave h4{color:var(--moss)}
+
+/* rule lists */
+ul.rules{list-style:none;margin:.4rem 0 1rem}
+ul.rules li{position:relative;padding:.35rem 0 .35rem 1.7rem;border-bottom:1px dashed var(--border)}
+ul.rules li:last-child{border-bottom:0}
+ul.rules li::before{content:"";position:absolute;left:2px;top:.95rem;width:7px;height:7px;border-radius:50%;background:var(--sunset)}
+ul.rules.check li::before{content:"✓";background:none;color:var(--moss);font-weight:800;top:.35rem;left:0;width:auto;height:auto}
+ul.rules.no li::before{content:"✕";background:none;color:var(--danger);font-weight:800;top:.35rem;left:0;width:auto;height:auto}
+ul.rules li b{color:var(--bark)}
+
+/* never box */
+.never{background:#fff;border:1.5px solid #eabbb4;border-radius:16px;padding:1.2rem 1.4rem;margin:1rem 0}
+.never h4{color:var(--danger);font-family:var(--sans);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:.82rem;margin-bottom:.6rem}
+
+/* cards grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:1rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;box-shadow:var(--shadow-sm)}
+.card .tag{font-size:1.4rem;line-height:1;margin-bottom:.5rem;display:block}
+.card p{font-size:.95rem;margin:0}
+
+/* table */
+.tbl{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.93rem;background:var(--white);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.tbl th,.tbl td{padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--border)}
+.tbl th{background:var(--teal-deep);color:var(--cream);font-family:var(--sans);font-weight:600;font-size:.82rem;letter-spacing:.03em}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td:first-child{font-weight:600;color:var(--bark);white-space:nowrap}
+.tblwrap{overflow-x:auto}
+
+/* legal cards */
+.legal{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:1rem 1.2rem;margin:.8rem 0}
+.legal h4{font-family:var(--sans);font-weight:700;font-size:.95rem;color:var(--teal-deep);margin-bottom:.3rem}
+.legal p{margin:0;font-size:.95rem}
+.legal .ref{display:inline-block;margin-top:.5rem;font-size:.78rem;color:var(--text-soft);font-style:italic}
+
+.callout{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.4vw,1.5rem);color:var(--teal-deep);text-align:center;padding:1.4rem 1rem;line-height:1.4}
+
+/* footer */
+footer{background:var(--teal-deep);color:var(--cream);padding:2.4rem 0;margin-top:1rem;text-align:center}
+footer p{margin:0 auto .5rem;max-width:60ch;font-size:.95rem;opacity:.92}
+footer .fine{font-size:.8rem;opacity:.6;margin-top:1rem}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+
+<link rel="alternate" hreflang="fi" href="https://siilisaari.fi/siilinhoito.html">
+<link rel="alternate" hreflang="sv" href="https://siilisaari.fi/sv/siilinhoito.html">
+<link rel="alternate" hreflang="en" href="https://siilisaari.fi/en/siilinhoito.html">
+<link rel="alternate" hreflang="x-default" href="https://siilisaari.fi/siilinhoito.html">
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="/en/" aria-label="Siili-Saari"><img class="nav-brand-logo" src="/logo-horizontal.png" alt="Siili-Saari"></a>
+  <div class="nav-right">
+    <a class="back-home" href="/en/">
+      <span>← Home</span>
+    </a>
+    <div class="lang-switcher" role="group" aria-label="Language">
+    <a href="/siilinhoito.html" hreflang="fi" class="lang-btn">FI</a>
+    <a href="/sv/siilinhoito.html" hreflang="sv" class="lang-btn">SV</a>
+    <a href="/en/siilinhoito.html" hreflang="en" class="lang-btn active">EN</a>
+  </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span>Volunteer guide</span></span>
+    
+    
+    <h1>Hedgehog <em>care guide</em></h1>
+    
+    
+    <p class="lead">How to help a helpless or orphaned wild hedgehog properly – when it needs help, how to stabilise it, what it eats, how to hand-feed hoglets, plus hygiene and Finnish law. Read this before you take a hedgehog into care.</p>
+  </div>
+</section>
+
+<div class="wrap">
+
+  
+  <div class="banner danger reveal">
+    <span class="ic">⚠️</span>
+    <div>
+      
+      
+      <p><strong>A hedgehog is a patient, not a pet.</strong> It is a wild animal whose goal is to return healthy to the wild. This guide does not replace a vet: a sick, injured, chilled or worm-burdened hedgehog – and every hand-fed hoglet – needs assessment by a vet experienced with wildlife. When in doubt, always ask first.</p>
+    </div>
+  </div>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">01</div>
+    
+    
+    <h2>When does a hedgehog need help?</h2>
+    
+    
+    <p>The hedgehog is nocturnal. One out in daylight usually has something wrong – but a healthy adult active at night is left alone. Finnish law allows taking a wild animal into possession only if it is injured, sick or otherwise helpless.</p>
+
+    <div class="cols2">
+      <div class="panel help">
+        <h4>Needs help</h4>
+        
+        
+        <ul class="rules no">
+          <li>Moving or lying out <b>in the middle of the day</b></li>
+          <li>Lying still or "sunbathing" in the open – hedgehogs don't sunbathe; it signals serious illness</li>
+          <li><b>Wobbling, staggering or walking in circles</b> (circling = eye or ear injury)</li>
+          <li>Fly eggs (tiny rice-like grains) or maggots – <b>an emergency</b>; larvae eat living tissue within a day</li>
+          <li>Visible wound, blood, or caught in netting</li>
+          <li>A nest of hoglets with no mother, or several hoglets together with no mother</li>
+          <li>Active in winter (nest destroyed or soaked)</li>
+          <li>An autumn juvenile clearly too small to hibernate</li>
+        </ul>
+      </div>
+      <div class="panel leave">
+        <h4>Leave alone</h4>
+        
+        
+        <ul class="rules check">
+          <li>A healthy, brisk adult moving <b>at night</b></li>
+          <li>A mother purposefully gathering food or nest material, out only briefly by day</li>
+          <li>A single, healthy weaned juvenile foraging alone</li>
+          <li>An intact nest – the mother returns; do not disturb</li>
+          <li>A hedgehog found at night that hisses and curls into a tight ball is likely vigorous – but daytime activity always overrides this</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">02</div>
+    
+    
+    <h2>First aid & stabilising</h2>
+    
+    
+    <p>Two things save a hedgehog before it reaches care: <b>warmth</b> and <b>calm</b>. Warm it first – never feed or give water to a chilled hedgehog.</p>
+
+    
+    
+    <ul class="rules">
+      <li><b>Lift</b> with a towel or thick gardening gloves.</li>
+      <li><b>Box:</b> a high-sided cardboard box, towel or fleece in the bottom, air holes. Indoors, dark and quiet.</li>
+      <li><b>Warmth:</b> a towel-wrapped hot-water bottle under or beside the box so gentle heat comes through. Leave room for the hedgehog to move off the heat. Refill the bottle before it cools – <b>a cold bottle is dangerous.</b></li>
+      <li><b>Exception:</b> if the hedgehog is bleeding or has fly eggs/maggots, <b>do not warm it</b> – take it straight to care (heat speeds bleeding and hatches the eggs).</li>
+      <li><b>Do not force-feed.</b> A cold hedgehog cannot digest. Warm it first; feeding and medication decisions belong to the carer/vet.</li>
+      <li>Remove visible fly eggs with tweezers if you can – but don't delay getting it to care.</li>
+    </ul>
+
+    
+    
+    <div class="callout">Warmth + a dark, quiet box + fast to care. That is the golden rule.</div>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">03</div>
+    
+    
+    <h2>Handling & daily care</h2>
+    
+    
+    <div class="grid">
+      <div class="card"><span class="tag">🧤</span><h4>Wear gloves</h4><p>Always handle with gloves (a hedgehog can carry salmonella and ringworm). Lift with two cupped hands from underneath – don't grab from above.</p></div>
+      <div class="card"><span class="tag">⚖️</span><h4>Weigh daily</h4><p>Record the weight every day. The weight trend is the most important sign of whether recovery is on track.</p></div>
+      <div class="card"><span class="tag">🤫</span><h4>Handle little</h4><p>A hedgehog is a solitary, timid prey animal. Unnecessary handling stresses it and slows recovery.</p></div>
+      <div class="card"><span class="tag">🚪</span><h4>Quarantine</h4><p>Keep a new arrival separate for ~48 hours and treat it as potentially infectious.</p></div>
+      <div class="card"><span class="tag">🫧</span><h4>Foaming is normal</h4><p>Self-anointing (twisting to spread frothy saliva over the spines after tasting a new smell) is completely normal – not rabies. Finland is rabies-free.</p></div>
+      <div class="card"><span class="tag">💊</span><h4>Deworming = the vet</h4><p>Lung- and gut-worms are diagnosed from a faecal sample. The wrong or too-fast deworming can worsen things – the decision belongs to the vet.</p></div>
+    </div>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">04</div>
+    
+    
+    <h2>Enclosure & hygiene</h2>
+    
+    
+    <ul class="rules">
+      <li><b>One hedgehog per enclosure.</b> Hedgehogs are solitary – together they fight and infect each other. Only hoglets from the same litter may share (max 4/box), and they are separated at weaning (~250 g).</li>
+      <li><b>Solid floor</b>, never a wire floor (limbs get trapped). High solid sides; escape-proof – hedgehogs climb.</li>
+      <li><b>Bedding:</b> newspaper + towel (you can monitor urine and faeces and collect a sample). For wounds use towel/vet-bed, not shredded paper or shavings. No dusty or cedar shavings. Hay only as nest material later.</li>
+      <li><b>A nest box or hide</b> always, so the hedgehog can settle.</li>
+      <li><b>Heat:</b> for a sick/weak animal a covered heat pad ~30 °C – it must always be able to move off the heat. Naked hoglets on a heat pad ~35 °C (not the whole cage at 35 °C). Room ~20–22 °C so an underweight hedgehog doesn't attempt hibernation.</li>
+      <li><b>Keep away</b> from dogs, cats and other animals (ringworm passes both ways).</li>
+      <li><b>Cleaning:</b> clean daily; disinfect between animals (e.g. F10/Trigene); a single-use cardboard box is discarded after use.</li>
+      <li><b>No exercise wheel</b> – that's a pet African-pygmy practice; a wild hedgehog gets exercise from floor space and foraging.</li>
+    </ul>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">05</div>
+    
+    
+    <h2>Feeding (weaned hedgehog)</h2>
+    
+    
+    <p>The hedgehog is an insectivore. In the wild at least 60–80 % of the diet is insects. In care the staple is <b>meaty (not fish-based) wet cat or dog food</b> plus cat or hedgehog biscuits; cat food is better for its higher protein. For a weak animal start with a soft wet-food-and-water mix (but only once it is warm and rehydrated). A practical starting portion is ~20 g. Fresh water always in a shallow, non-tip dish – water is the only drink, no drinking bottles.</p>
+
+    <div class="never">
+      <h4>Never give</h4>
+      
+      
+      <ul class="rules no">
+        <li><b>Cow's milk or any lactose</b> – hedgehogs are lactose-intolerant; milk causes fatal diarrhoea. (The old "bread and milk" advice is wrong.)</li>
+        <li><b>Bread, grain or baked goods</b> – no nutritional value, hard to digest.</li>
+        <li><b>Mealworms as a staple</b> – the calcium-to-phosphorus ratio is badly skewed (~1:7–1:20) and causes Metabolic Bone Disease (MBD). The same goes for <b>peanuts, sunflower hearts and other nuts/seeds.</b></li>
+        <li><b>Raw fish, salt, spices, processed meat or organs.</b></li>
+        <li><b>Insects caught in the wild</b> (parasite risk).</li>
+        <li>Fruit or vegetables as the main diet – a hedgehog needs protein and minerals, not plants.</li>
+      </ul>
+    </div>
+    
+    
+    <p style="font-size:.95rem;color:var(--text-soft)">For extra protein use cooked, unsalted, unseasoned lean meat (chicken, turkey, minced beef) or cooked (not raw) fish.</p>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">06</div>
+    <span class="eyebrow"><span>The most important part</span></span>
+    
+    
+    <h2>Hand-rearing orphaned hoglets</h2>
+
+    <div class="banner danger">
+      <span class="ic">🔴</span>
+      <div>
+        
+        
+        <p><strong>Never feed a cold hoglet.</strong> Warm it gently to normal body temperature first. A cold newborn's digestion shuts down – the milk ferments in the gut or enters the lungs and kills. Warm first, then rehydrate, only then milk.</p>
+      </div>
+    </div>
+
+    
+    
+    <ul class="rules">
+      <li><b>Warmth:</b> naked hoglets can't regulate their temperature – keep ~35 °C for the first ~2 weeks, lowering gradually as fur grows.</li>
+      <li><b>Rehydrate before milk:</b> first give warmed electrolyte fluid (e.g. Lectade). A weak gut can't handle milk yet.</li>
+      <li><b>Milk replacer:</b> a puppy milk replacer – <b>Esbilac</b> or <b>Royal Canin Babydog Milk</b> (easiest to get in Finland). Goat's milk is only an emergency stand-in. <b>Never cow's milk.</b></li>
+      <li><b>How to feed:</b> warm the milk to body temperature, feed with a sterile 1 ml syringe and a soft fine tip/teat. Feed <b>slowly</b> (milk can enter the lungs). Test the temperature on your wrist. Never cold.</li>
+      <li><b>Amount:</b> up to ~20–25 % of body weight per day, split across many small feeds (an upper limit, not a target). Don't give a full portion at once – if the tummy swells, stop and give fluid.</li>
+      <li><b>Toileting:</b> stimulate the hoglet to pass urine and faeces <b>at every feed</b> until it does so on its own (to ~3.5 weeks) – otherwise the bladder/bowel can stretch and rupture. Stroke gently with a cotton bud with a little almond oil.</li>
+      <li><b>Weights:</b> newborn ~8–25 g; ~80–130 g at 3–4 weeks; weaning ~5–6 weeks. Solid food (mashed puppy/cat food + replacer) from ~4 weeks.</li>
+    </ul>
+
+    
+    
+    <h3 style="margin-top:1.4rem">Feeding interval by age</h3>
+    <div class="tblwrap">
+    
+    
+    <table class="tbl">
+      <thead><tr><th>Age</th><th>Weight (indicative)</th><th>Feeding interval</th></tr></thead>
+      <tbody>
+        <tr><td>0–3 days</td><td>8–25 g</td><td>~every 2 hours, night too</td></tr>
+        <tr><td>3 days–2 wk</td><td>growing →</td><td>~every 3 hours</td></tr>
+        <tr><td>2–4 wk</td><td>~80–130 g</td><td>~every 3–4 hours</td></tr>
+        <tr><td>~4 wk →</td><td>solids begin</td><td>tapers as solids come in</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="banner info">
+      <span class="ic">❄️</span>
+      <div>
+        
+        
+        <p><strong>Minimum weight before winter.</strong> In Finland a late-summer–autumn hoglet needs enough fat reserves to overwinter. Research puts the floor at ~450 g, but the commonly used safe threshold is <b>~600 g</b> (sources vary; some cite as high as 800 g). A too-small autumn hoglet is <b>not released</b> but overwintered indoors in the warm (~18–20 °C) so it doesn't attempt hibernation. Release only in mild weather and at adequate weight.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">07</div>
+    
+    
+    <h2>Hygiene & your own health</h2>
+    
+    
+    <p>The risk is manageable with simple steps – no cause for fear, but good hygiene is a must. The single most important protection is <b>washing hands with soap</b> immediately after handling, food dishes, or cleaning the enclosure.</p>
+    
+    
+    <ul class="rules">
+      <li><b>Salmonella:</b> hedgehogs can carry it without symptoms – even a healthy-looking one can infect you. Handwashing is the key protection.</li>
+      <li><b>Ringworm (Trichophyton erinacei):</b> a common fungus that infects humans, causing itchy skin lesions. Gloves and surface disinfection cut the risk.</li>
+      <li><b>Ticks</b> arriving on the hedgehog can spread Lyme/TBE – remove and dispose of ticks.</li>
+      <li><b>mecC-MRSA:</b> European hedgehogs carry it naturally (common in the Nordics, found at lower levels in Helsinki). Direct human infection is rare, but clean any bite/spine puncture.</li>
+      <li>Use disposable gloves per animal, dedicated equipment for each, and keep hedgehogs away from pets.</li>
+      <li>Children under 5, people over 65, pregnant people and the immunocompromised should avoid contact – never hold a hedgehog near your face.</li>
+    </ul>
+  </section>
+
+  
+  <section class="sec reveal">
+    <div class="sec-num">08</div>
+    
+    
+    <h2>The law in Finland</h2>
+    
+    
+    <p>In short: <b>helping a helpless wild hedgehog and briefly getting it to care is everyone's right and even duty – with no permit and no fee.</b> Keeping one permanently is not allowed, and long-term or systematic rehab activity is separately regulated. When unsure, always check with the authority or a vet experienced with wildlife.</p>
+
+    <div class="legal">
+      <h4>The hedgehog is protected</h4>
+      
+      
+      <p>The hedgehog is a protected species under the Nature Conservation Act. It may not be intentionally killed, captured or disturbed – but helping a sick, injured or helpless individual is governed by the Animal Welfare Act.</p>
+      <span class="ref">Luonnonsuojelulaki 9/2023 §69–§71</span>
+    </div>
+
+    <div class="legal">
+      <h4>Duty to help – no permit, no fee</h4>
+      
+      
+      <p>Everyone has a duty to help a sick, injured or helpless wild animal. Anyone may take a hedgehog into <b>short-term</b> possession for first aid or to bring it to care – no permit is needed and no fee is charged. After first aid the animal is either released when its condition allows, taken to a care facility, or euthanised.</p>
+      <span class="ref">Eläinten hyvinvointilaki 693/2023 §7, §29</span>
+    </div>
+
+    <div class="legal">
+      <h4>Not as a pet – only for care</h4>
+      
+      
+      <p>A wild animal may not be kept as a pet. A hedgehog may be held only for the duration of care, not permanently. A recovered hedgehog is released as soon as its condition allows; if it cannot be released or placed in a zoo, it must be euthanised.</p>
+      <span class="ref">Eläinten hyvinvointilaki 693/2023 §28, §61</span>
+    </div>
+
+    <div class="legal">
+      <h4>Ongoing rehab activity = notify Ruokavirasto</h4>
+      
+      
+      <p>Continuous, systematic wildlife rehab activity (a care facility) requires a <b>written notification</b> at least 30 days before starting. From the start of 2026 the notification goes to Ruokavirasto (the Finnish Food Authority), which may charge a processing fee per its price list. <b>Briefly helping a single hedgehog requires no notification and no fee.</b> (Confirm exact fees with Ruokavirasto.)</p>
+      <span class="ref">Eläinten hyvinvointilaki 693/2023 §61</span>
+    </div>
+
+    <div class="legal">
+      <h4>Long-term possession = derogation permit (LVV)</h4>
+      
+      
+      <p>Long-term possession of a protected species may require a Nature Conservation Act derogation permit. From the start of 2026 this is granted by the new Licensing and Supervisory Authority (LVV / Lupa- ja valvontavirasto); the former ELY Centres were abolished on 1 Jan 2026 and are no longer cited.</p>
+      <span class="ref">Luonnonsuojelulaki 9/2023; LVV / Tillstånds- och tillsynsverket</span>
+    </div>
+
+    <div class="legal">
+      <h4>Vet, municipality & a dead hedgehog</h4>
+      
+      
+      <p>A vet is not required in every situation, but a hedgehog needing treatment must be taken to one. The municipality must arrange euthanasia of sick or injured wild animals brought to its clinic – a hopeless case can always be taken to the municipal vet. A dead protected animal may not be taken into possession; it may be delivered to a state research institute to determine the cause of death.</p>
+      <span class="ref">Eläinten hyvinvointilaki 693/2023 §7, §23; Luonnonsuojelulaki 9/2023 §72</span>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    
+    
+    <p>This guide is for Siili-Saari's volunteers. It does not replace assessment by a vet experienced with wildlife – when in doubt, always ask first.</p>
+    <p class="fine">Siili-Saari Care Center · siilisaari.fi</p>
+  </div>
+</footer>
+
+<script>  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));</script>
+</body>
+</html>
