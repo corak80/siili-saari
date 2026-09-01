@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verksamhet — från räddning till frihet | Siili-Saari Care Center</title>
+<meta name="description" content="Så vårdas en igelkott på Siili-Saari: första hjälpen, veterinärvård, rehabilitering och utsläpp i naturen. Även rådgivning och frivilligverksamhet.">
+<link rel="canonical" href="https://siilisaari.fi/sv/toiminta.html">
+
+
+
+
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('/fonts/fraunces-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('/fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('/fonts/dmsans-latin.woff2') format('woff2-variations')}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--teal-deep:#1a5c52;--teal:#2d7a6d;--teal-light:#3d9b8a;--sunset:#e8a84c;--sunset-warm:#d4863a;--cream:#faf6f0;--cream-dark:#f0e8da;--bark:#5c4a3a;--moss:#4a6d45;--white:#fff;--text:#2c2418;--text-soft:#5a4d3e}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;color:var(--text);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.2;color:var(--teal-deep)}
+a{color:var(--teal)}
+.wrap{max-width:820px;margin:0 auto;padding:0 1.5rem}
+
+/* nav — identical chrome to the homepage */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:1rem;padding:0.9rem 2rem;background:rgba(250,246,240,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,92,82,0.08)}
+.nav-brand{display:flex;align-items:center;text-decoration:none;margin-right:auto}
+.nav-brand-logo{height:38px;width:auto;display:block}
+.nav-links{display:flex;gap:1.6rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text-soft);font-size:0.9rem;font-weight:500;letter-spacing:0.03em;position:relative;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--sunset);border-radius:1px;transition:width .3s ease}
+.nav-links a:hover{color:var(--teal-deep)}
+.nav-links a:hover::after{width:100%}
+.nav-links a.current{color:var(--teal-deep)}
+.nav-links a.current::after{width:100%}
+.lang-switcher{display:inline-flex;margin-left:1.2rem;background:rgba(255,255,255,.6);border:1px solid rgba(26,92,82,.12);border-radius:999px;padding:3px}
+.lang-btn{padding:.35rem .75rem;font-size:.78rem;font-weight:600;letter-spacing:.05em;color:var(--text-soft);border-radius:999px;text-decoration:none;transition:background .25s,color .25s}
+.lang-btn:hover{color:var(--teal-deep)}
+.lang-btn.active{background:var(--teal-deep);color:var(--cream)}
+.nav-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:.5rem}
+.nav-menu-btn span{display:block;width:24px;height:2px;background:var(--teal-deep);margin:5px 0;border-radius:2px}
+
+/* page head */
+.page-head{padding:4rem 0 2.5rem;background:linear-gradient(180deg,var(--cream-dark) 0%,var(--cream) 100%)}
+.page-label{font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-light);margin-bottom:.6rem}
+.page-head h1{font-size:clamp(2rem,5vw,2.9rem);margin-bottom:.9rem}
+.page-lede{font-size:1.1rem;color:var(--text-soft);max-width:62ch}
+
+main{padding:3rem 0 4rem}
+section{margin-bottom:2.8rem}
+main h2{font-size:1.5rem;margin-bottom:.8rem}
+main h3{font-size:1.1rem;margin:1.4rem 0 .4rem;color:var(--teal)}
+main p{margin-bottom:1rem;max-width:70ch}
+main ul{margin:0 0 1rem 1.2rem;max-width:70ch}
+main li{margin-bottom:.45rem}
+.latin-name{font-style:italic}
+
+.card{background:var(--white);border:1px solid rgba(26,92,82,.1);border-radius:14px;padding:1.4rem 1.6rem;margin-bottom:1rem}
+.card h3{margin-top:0}
+.facts{background:var(--white);border:1px solid rgba(26,92,82,.1);border-radius:14px;padding:1.4rem 1.6rem}
+.facts dl{display:grid;grid-template-columns:auto 1fr;gap:.45rem 1.2rem;font-size:.92rem}
+.facts dt{color:var(--text-soft);font-weight:600}
+.facts dd{color:var(--text)}
+
+/* the call to action Google specifically asked for */
+.cta{background:var(--teal-deep);color:var(--cream);border-radius:18px;padding:2rem 1.8rem;text-align:center;margin-top:2.5rem}
+.cta h2{color:var(--cream);font-size:1.4rem;margin-bottom:.5rem}
+.cta p{color:rgba(250,246,240,.85);margin:0 auto 1.3rem;max-width:52ch}
+.cta-row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:.8rem 1.5rem;border-radius:999px;font-weight:600;font-size:.92rem;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--sunset);color:#3a2a12;box-shadow:0 6px 16px rgba(232,168,76,.3)}
+.btn-ghost{background:rgba(250,246,240,.12);color:var(--cream);border:1px solid rgba(250,246,240,.35)}
+.btn-solid{background:var(--teal-deep);color:var(--cream);box-shadow:0 6px 16px rgba(26,92,82,.25)}
+
+/* the urgent path, repeated on every page */
+.urgent{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:#fff6e8;border:1px solid rgba(212,134,58,.3);border-left:4px solid var(--sunset-warm);border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:2.5rem}
+.urgent-text{flex:1;min-width:240px;font-size:.95rem}
+.urgent strong{color:var(--sunset-warm)}
+
+footer{background:var(--teal-deep);padding:3rem 2rem;text-align:center;color:rgba(250,246,240,.5);font-size:.85rem;margin-top:2rem}
+footer a{color:rgba(250,246,240,.7);text-decoration:none}
+footer a:hover{color:var(--sunset)}
+.footer-brand{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:rgba(250,246,240,.8);margin-bottom:.5rem}
+.footer-impressum{margin-top:.75rem;font-size:.78rem;opacity:.7}
+.footer-legal{margin-top:.5rem;font-size:.8rem}
+.footer-legal a{border-bottom:1px solid rgba(250,246,240,.3);padding-bottom:1px}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+@media(max-width:900px){
+  nav{padding:.8rem 1.2rem}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(250,246,240,.97);backdrop-filter:blur(12px);padding:1.4rem 1.6rem;gap:1rem;box-shadow:0 12px 24px rgba(0,0,0,.08)}
+  .nav-menu-btn{display:block}
+  .lang-switcher{margin-left:auto;margin-right:.6rem}
+  .lang-btn{padding:.3rem .55rem;font-size:.72rem}
+  .nav-brand-logo{height:32px}
+}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+
+<link rel="alternate" hreflang="fi" href="https://siilisaari.fi/toiminta.html">
+<link rel="alternate" hreflang="sv" href="https://siilisaari.fi/sv/toiminta.html">
+<link rel="alternate" hreflang="en" href="https://siilisaari.fi/en/toiminta.html">
+<link rel="alternate" hreflang="x-default" href="https://siilisaari.fi/toiminta.html">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="/sv/" class="nav-brand" aria-label="Siili-Saari Care Center">
+    <img src="/logo-horizontal.png" alt="Siili-Saari Care Center" class="nav-brand-logo">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/sv/meista.html">Om oss</a></li>
+    <li><a href="/sv/toiminta.html" class="current">Verksamhet</a></li>
+    <li><a href="/sv/siilinhoito.html">Guide för igelkottsvård</a></li>
+    <li><a href="/vapaaehtoiseksi.html">Bli frivillig</a></li>
+    <li><a href="/sv/yhteystiedot.html">Kontakt</a></li>
+  </ul>
+  <div class="lang-switcher" role="group" aria-label="Kielen valinta">
+    <a href="/toiminta.html" hreflang="fi" class="lang-btn">FI</a>
+    <a href="/sv/toiminta.html" hreflang="sv" class="lang-btn active">SV</a>
+    <a href="/en/toiminta.html" hreflang="en" class="lang-btn">EN</a>
+  </div>
+  <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <p class="page-label">Verksamhet</p>
+    <h1>Från räddning till frihet</h1>
+    <p class="page-lede">Varje igelkott går samma väg. Så här ser den ut — från fyndögonblicket till morgonen då igelkotten försvinner in under busken igen.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="urgent">
+      <div class="urgent-text"><strong>Hittat en igelkott?</strong> Håll den varm och lugn i en kartong och ring oss. Ge inte mjölk.</div>
+      <a class="btn btn-solid" href="tel:+35863217300"><span>Ring genast</span> +358 6 321 7300</a>
+    </div>
+    <section class="reveal">
+      <h2>1. Räddning och första hjälpen</h2>
+      <p>Akut mottagning och stabilisering. En upphittad igelkott är nästan alltid nedkyld och uttorkad, och det åtgärdas först: värme, vätska och lugn. Först när igelkotten är stabil lönar det sig att undersöka den närmare. Triage görs genast vid mottagningen.</p>
+    </section>
+    <section class="reveal">
+      <h2>2. Veterinärmedicinsk vård</h2>
+      <p>Fullständig diagnostik och vård under veterinärs tillsyn: röntgen, operationer, sårvård, parasitbehandling och medicineringsprotokoll. De vanligaste orsakerna är gräsklipparskador, hundbett, trassel i nät, flugägg och dålig kondition orsakad av parasiter.</p>
+    </section>
+    <section class="reveal">
+      <h2>3. Rehabilitering och utsläpp</h2>
+      <p>Gradvis återhämtning i naturliga uteinhägnader. Vikten följs upp, födosöksförmågan bedöms, och kontakten med människor hålls minimal så att igelkotten inte blir tam. Utsläppet sker i en lämplig livsmiljö — helst där igelkotten hittades.</p>
+    </section>
+    <section class="reveal">
+      <h2>4. Rådgivning och utbildning</h2>
+      <p>Information till allmänheten, skolbesök och medvetenhet om igelkottsskydd. De flesta igelkottar som hamnar i vård hade kunnat undvikas: kontrollera busken före klippning, ta bort nät, lämna en öppning i staketet. Vi publicerar två guider som vem som helst kan använda.</p>
+      <ul>
+        <li><a href="/sv/siilinhoito.html">Guide för igelkottsvård — när en igelkott behöver hjälp, första hjälpen och matning av ungar.</a></li>
+        <li><a href="/sv/siilin-pesa.html">Bygg ett bo åt igelkotten — mått, material, placering och skötselkalender.</a></li>
+      </ul>
+    </section>
+    <section class="reveal">
+      <h2>Året runt</h2>
+      <p>Igelkottsåret är ojämnt. På våren är igelkottarna magra och sårbara när de vaknar ur vinterdvalan. På sommaren kommer skadorna: klippare, hundar, nät. På sensommaren och hösten flyttas fokus till ungarna — för små individer klarar inte vinterdvalan utan hjälp. På vintern vårdas i regel de som inte hann växa tillräckligt.</p>
+    </section>
+    <section class="reveal">
+      <h2>Frivilliga</h2>
+      <p>Rehabilitering är handarbete: utfodring, rengöring, vägning och dokumentation, varje dag. Frivilliga utbildas för uppgiften, och alla börjar med en introduktion före första passet.</p>
+    </section>
+
+    <section class="cta reveal">
+      <h2>Så kan du hjälpa</h2>
+      <p>Just nu behöver vi framför allt händer, skjuts och igelkottssäkra gårdar.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/vapaaehtoiseksi.html">Bli frivillig</a>
+        <a class="btn btn-ghost" href="/sv/siilin-pesa.html">Bygg ett igelkottsbo</a>
+        <a class="btn btn-ghost" href="/sv/yhteystiedot.html">Kontakta oss</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-brand">Siili-Saari Care Center</div>
+  <p>Registrerad förening &middot; I samarbete med <a href="https://saarivet.fi">Djurkliniken Saari</a> &middot; Vasa, Finland</p>
+  <p class="footer-impressum">SiiliSaari Care Center rf &middot; FO-nummer 3632959-6 &middot; Gerbyvägen 18, 65230 Vasa</p>
+  <p class="footer-legal"><a href="/tietosuoja.html">Dataskyddsbeskrivning</a></p>
+  <p style="margin-top:0.75rem;font-size:0.8rem;">Varje igelkott har betydelse</p>
+</footer>
+
+<script>
+  const menuBtn=document.getElementById('menuBtn');
+  if(menuBtn){menuBtn.addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));}
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  setTimeout(()=>{document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'))},2500);
+  document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{try{localStorage.setItem('ss-lang',b.getAttribute('hreflang'))}catch(e){}}));
+</script>
+</body>
+</html>

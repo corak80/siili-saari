@@ -2,15 +2,16 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-test('sitemap lists all nine language URLs', () => {
+test('sitemap lists every page in every language', () => {
   const xml = readFileSync('sitemap.xml', 'utf8');
-  const expected = [
-    'https://siilisaari.fi/', 'https://siilisaari.fi/sv/', 'https://siilisaari.fi/en/',
-    'https://siilisaari.fi/siilinhoito.html', 'https://siilisaari.fi/sv/siilinhoito.html',
-    'https://siilisaari.fi/en/siilinhoito.html',
-    'https://siilisaari.fi/siilin-pesa.html', 'https://siilisaari.fi/sv/siilin-pesa.html',
-    'https://siilisaari.fi/en/siilin-pesa.html'
-  ];
+  const pages = ['siilinhoito.html', 'siilin-pesa.html',
+                 'meista.html', 'toiminta.html', 'yhteystiedot.html'];
+  const expected = ['https://siilisaari.fi/', 'https://siilisaari.fi/sv/', 'https://siilisaari.fi/en/'];
+  for (const page of pages) {
+    for (const prefix of ['', 'sv/', 'en/']) {
+      expected.push(`https://siilisaari.fi/${prefix}${page}`);
+    }
+  }
   for (const url of expected) assert.ok(xml.includes(`<loc>${url}</loc>`), `${url} missing`);
 });
 

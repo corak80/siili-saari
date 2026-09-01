@@ -55,4 +55,49 @@
     <lastmod>2026-06-29</lastmod>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://siilisaari.fi/meista.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://siilisaari.fi/sv/meista.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://siilisaari.fi/en/meista.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://siilisaari.fi/toiminta.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://siilisaari.fi/sv/toiminta.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://siilisaari.fi/en/toiminta.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://siilisaari.fi/yhteystiedot.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://siilisaari.fi/sv/yhteystiedot.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://siilisaari.fi/en/yhteystiedot.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>

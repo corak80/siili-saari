@@ -3,19 +3,20 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { buildAll } from '../build.js';
 
-test('buildAll writes six pages', () => {
-  const written = buildAll();
-  assert.equal(written.length, 6);
-  for (const p of ['sv/index.html', 'sv/siilinhoito.html', 'sv/siilin-pesa.html',
-                   'en/index.html', 'en/siilinhoito.html', 'en/siilin-pesa.html']) {
-    assert.ok(existsSync(p), `${p} missing`);
-  }
-});
-
+// Every page the build emits, in both output languages: the homepage, the two
+// guides, and the three text subpages.
 const GENERATED_PAGES = [
-  'sv/index.html', 'sv/siilinhoito.html', 'sv/siilin-pesa.html',
-  'en/index.html', 'en/siilinhoito.html', 'en/siilin-pesa.html'
+  'sv/index.html', 'sv/meista.html', 'sv/toiminta.html', 'sv/yhteystiedot.html',
+  'sv/siilinhoito.html', 'sv/siilin-pesa.html',
+  'en/index.html', 'en/meista.html', 'en/toiminta.html', 'en/yhteystiedot.html',
+  'en/siilinhoito.html', 'en/siilin-pesa.html'
 ];
+
+test('buildAll writes every page in both output languages', () => {
+  const written = buildAll();
+  assert.equal(written.length, GENERATED_PAGES.length);
+  for (const p of GENERATED_PAGES) assert.ok(existsSync(p), `${p} missing`);
+});
 
 test('generated pages are inert single-language HTML', () => {
   buildAll();

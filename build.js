@@ -10,6 +10,14 @@ import { stripRuntime } from './build/strip.js';
 const OUT_LANGS = ['sv', 'en'];
 const GUIDES = ['siilinhoito.html', 'siilin-pesa.html'];
 
+// Text subpages: same data-i18n mechanism as the homepage, but their <title>
+// and description come from the dictionary rather than seo.json.
+const SUBPAGES = [
+  { file: 'meista.html', title: 'pg.about.meta.title', description: 'pg.about.meta.description' },
+  { file: 'toiminta.html', title: 'pg.work.meta.title', description: 'pg.work.meta.description' },
+  { file: 'yhteystiedot.html', title: 'pg.contact.meta.title', description: 'pg.contact.meta.description' }
+];
+
 // node-html-parser treats <noscript> content as opaque raw text, not a
 // child element tree, so build/strip.js's DOM-based stripDeadLangCss (which
 // walks root.querySelectorAll('style')) never reaches the <style> the guides
@@ -58,6 +66,21 @@ export function buildAll() {
     rewriteLinks(home, lang);
     writeFileSync(`${lang}/index.html`, home.toString());
     written.push(`${lang}/index.html`);
+
+    // Text subpages: substitute from the dictionary, like the homepage.
+    for (const sub of SUBPAGES) {
+      const root = parse(readFileSync(sub.file, 'utf8'));
+      renderIndex(root, dict[lang]);
+      applyHead(root, {
+        lang, page: sub.file,
+        title: dict[lang][sub.title],
+        description: dict[lang][sub.description]
+      });
+      stripRuntime(root, sub.file, lang);
+      rewriteLinks(root, lang);
+      writeFileSync(`${lang}/${sub.file}`, root.toString());
+      written.push(`${lang}/${sub.file}`);
+    }
 
     // Guides: prune to one language.
     for (const page of GUIDES) {

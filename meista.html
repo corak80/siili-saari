@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!-- Siili-Saari Care Center · siilisaari.fi -->
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="pg.about.meta.title">Meistä — Siili-Saari Care Center rf, Vaasa</title>
+<meta name="description" data-i18n-attr="content" data-i18n="pg.about.meta.description" content="Siili-Saari Care Center rf on vaasalainen rekisteröity yhdistys, joka pelastaa, hoitaa ja kuntouttaa loukkaantuneita ja orpoja siilejä Pohjanmaalla.">
+<link rel="canonical" href="https://siilisaari.fi/meista.html">
+<link rel="alternate" hreflang="fi" href="https://siilisaari.fi/meista.html">
+<link rel="alternate" hreflang="sv" href="https://siilisaari.fi/sv/meista.html">
+<link rel="alternate" hreflang="en" href="https://siilisaari.fi/en/meista.html">
+<link rel="alternate" hreflang="x-default" href="https://siilisaari.fi/meista.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('/fonts/fraunces-latin.woff2') format('woff2-variations')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('/fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('/fonts/dmsans-latin.woff2') format('woff2-variations')}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--teal-deep:#1a5c52;--teal:#2d7a6d;--teal-light:#3d9b8a;--sunset:#e8a84c;--sunset-warm:#d4863a;--cream:#faf6f0;--cream-dark:#f0e8da;--bark:#5c4a3a;--moss:#4a6d45;--white:#fff;--text:#2c2418;--text-soft:#5a4d3e}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;color:var(--text);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.2;color:var(--teal-deep)}
+a{color:var(--teal)}
+.wrap{max-width:820px;margin:0 auto;padding:0 1.5rem}
+
+/* nav — identical chrome to the homepage */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:1rem;padding:0.9rem 2rem;background:rgba(250,246,240,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,92,82,0.08)}
+.nav-brand{display:flex;align-items:center;text-decoration:none;margin-right:auto}
+.nav-brand-logo{height:38px;width:auto;display:block}
+.nav-links{display:flex;gap:1.6rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text-soft);font-size:0.9rem;font-weight:500;letter-spacing:0.03em;position:relative;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--sunset);border-radius:1px;transition:width .3s ease}
+.nav-links a:hover{color:var(--teal-deep)}
+.nav-links a:hover::after{width:100%}
+.nav-links a.current{color:var(--teal-deep)}
+.nav-links a.current::after{width:100%}
+.lang-switcher{display:inline-flex;margin-left:1.2rem;background:rgba(255,255,255,.6);border:1px solid rgba(26,92,82,.12);border-radius:999px;padding:3px}
+.lang-btn{padding:.35rem .75rem;font-size:.78rem;font-weight:600;letter-spacing:.05em;color:var(--text-soft);border-radius:999px;text-decoration:none;transition:background .25s,color .25s}
+.lang-btn:hover{color:var(--teal-deep)}
+.lang-btn.active{background:var(--teal-deep);color:var(--cream)}
+.nav-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:.5rem}
+.nav-menu-btn span{display:block;width:24px;height:2px;background:var(--teal-deep);margin:5px 0;border-radius:2px}
+
+/* page head */
+.page-head{padding:4rem 0 2.5rem;background:linear-gradient(180deg,var(--cream-dark) 0%,var(--cream) 100%)}
+.page-label{font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-light);margin-bottom:.6rem}
+.page-head h1{font-size:clamp(2rem,5vw,2.9rem);margin-bottom:.9rem}
+.page-lede{font-size:1.1rem;color:var(--text-soft);max-width:62ch}
+
+main{padding:3rem 0 4rem}
+section{margin-bottom:2.8rem}
+main h2{font-size:1.5rem;margin-bottom:.8rem}
+main h3{font-size:1.1rem;margin:1.4rem 0 .4rem;color:var(--teal)}
+main p{margin-bottom:1rem;max-width:70ch}
+main ul{margin:0 0 1rem 1.2rem;max-width:70ch}
+main li{margin-bottom:.45rem}
+.latin-name{font-style:italic}
+
+.card{background:var(--white);border:1px solid rgba(26,92,82,.1);border-radius:14px;padding:1.4rem 1.6rem;margin-bottom:1rem}
+.card h3{margin-top:0}
+.facts{background:var(--white);border:1px solid rgba(26,92,82,.1);border-radius:14px;padding:1.4rem 1.6rem}
+.facts dl{display:grid;grid-template-columns:auto 1fr;gap:.45rem 1.2rem;font-size:.92rem}
+.facts dt{color:var(--text-soft);font-weight:600}
+.facts dd{color:var(--text)}
+
+/* the call to action Google specifically asked for */
+.cta{background:var(--teal-deep);color:var(--cream);border-radius:18px;padding:2rem 1.8rem;text-align:center;margin-top:2.5rem}
+.cta h2{color:var(--cream);font-size:1.4rem;margin-bottom:.5rem}
+.cta p{color:rgba(250,246,240,.85);margin:0 auto 1.3rem;max-width:52ch}
+.cta-row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:.8rem 1.5rem;border-radius:999px;font-weight:600;font-size:.92rem;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--sunset);color:#3a2a12;box-shadow:0 6px 16px rgba(232,168,76,.3)}
+.btn-ghost{background:rgba(250,246,240,.12);color:var(--cream);border:1px solid rgba(250,246,240,.35)}
+.btn-solid{background:var(--teal-deep);color:var(--cream);box-shadow:0 6px 16px rgba(26,92,82,.25)}
+
+/* the urgent path, repeated on every page */
+.urgent{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:#fff6e8;border:1px solid rgba(212,134,58,.3);border-left:4px solid var(--sunset-warm);border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:2.5rem}
+.urgent-text{flex:1;min-width:240px;font-size:.95rem}
+.urgent strong{color:var(--sunset-warm)}
+
+footer{background:var(--teal-deep);padding:3rem 2rem;text-align:center;color:rgba(250,246,240,.5);font-size:.85rem;margin-top:2rem}
+footer a{color:rgba(250,246,240,.7);text-decoration:none}
+footer a:hover{color:var(--sunset)}
+.footer-brand{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:rgba(250,246,240,.8);margin-bottom:.5rem}
+.footer-impressum{margin-top:.75rem;font-size:.78rem;opacity:.7}
+.footer-legal{margin-top:.5rem;font-size:.8rem}
+.footer-legal a{border-bottom:1px solid rgba(250,246,240,.3);padding-bottom:1px}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+@media(max-width:900px){
+  nav{padding:.8rem 1.2rem}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(250,246,240,.97);backdrop-filter:blur(12px);padding:1.4rem 1.6rem;gap:1rem;box-shadow:0 12px 24px rgba(0,0,0,.08)}
+  .nav-menu-btn{display:block}
+  .lang-switcher{margin-left:auto;margin-right:.6rem}
+  .lang-btn{padding:.3rem .55rem;font-size:.72rem}
+  .nav-brand-logo{height:32px}
+}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-brand" aria-label="Siili-Saari Care Center">
+    <img src="logo-horizontal.png" alt="Siili-Saari Care Center" class="nav-brand-logo">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="meista.html" class="current" data-i18n="nav.about">Meistä</a></li>
+    <li><a href="toiminta.html" data-i18n="nav.services">Toiminta</a></li>
+    <li><a href="siilinhoito.html" data-i18n="nav.guide">Siilin hoito-opas</a></li>
+    <li><a href="vapaaehtoiseksi.html" data-i18n="nav.volunteer">Vapaaehtoiseksi</a></li>
+    <li><a href="yhteystiedot.html" data-i18n="nav.contact">Yhteystiedot</a></li>
+  </ul>
+  <div class="lang-switcher" role="group" aria-label="Kielen valinta">
+    <a href="/" hreflang="fi" class="lang-btn active">FI</a>
+    <a href="/sv/" hreflang="sv" class="lang-btn">SV</a>
+    <a href="/en/" hreflang="en" class="lang-btn">EN</a>
+  </div>
+  <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <p class="page-label" data-i18n="pg.about.label">Meistä</p>
+    <h1 data-i18n="pg.about.h1">Rekisteröity yhdistys siilien puolesta</h1>
+    <p class="page-lede" data-i18n="pg.about.lede">Siili-Saari Care Center rf on vaasalainen yhdistys ja siilien kuntoutuskeskus. Pelastamme, hoidamme ja kuntoutamme loukkaantuneita ja orpoja siilejä — ja päästämme ne takaisin luontoon.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="urgent">
+      <div class="urgent-text" data-i18n="pg.contact.urgent" data-i18n-html="true"><strong>Löysitkö siilin?</strong> Pidä se lämpimänä ja rauhassa laatikossa ja soita meille. Älä syötä maitoa.</div>
+      <a class="btn btn-solid" href="tel:+35863217300"><span data-i18n="pg.contact.callnow">Soita heti</span> +358 6 321 7300</a>
+    </div>
+    <section class="reveal">
+      <h2 data-i18n="pg.about.what.h">Mitä teemme</h2>
+      <p data-i18n="pg.about.what.p1" data-i18n-html="true">Otamme vastaan Pohjanmaalta löydettyjä siilejä (<span class="latin-name">Erinaceus europaeus</span>), jotka ovat loukkaantuneet, sairastuneet tai jääneet orvoiksi. Jokainen siili tutkitaan, hoidetaan ja kuntoutetaan siihen asti, että se pärjää omillaan luonnossa.</p>
+      <p data-i18n="pg.about.what.p2" data-i18n-html="true">Työ tehdään yhteistyössä <a href="https://saarivet.fi">Eläinklinikka Saaren</a> kanssa, jonka tiloissa ja välineillä siilit tutkitaan ja hoidetaan. Yhdistys vastaa siilien vastaanotosta, kuntoutuksesta, vapaaehtoistoiminnasta ja neuvonnasta.</p>
+    </section>
+
+    <section class="reveal">
+      <h2 data-i18n="pg.about.why.h">Miksi siilit tarvitsevat apua</h2>
+      <p data-i18n="pg.about.why.p1">Euroopan siilikantaa uhkaavat elinympäristöjen häviäminen, liikenne, torjunta-aineet ja ilmastonmuutos. Siili on ihmisen naapuri: se elää pihoilla, puutarhoissa ja puistoissa, ja juuri siksi se törmää ihmisen toimintaan — ruohonleikkureihin, verkkoihin, teihin ja umpeen menneisiin aitoihin.</p>
+      <p data-i18n="pg.about.why.p2">Yksittäinen hoidettu siili ei pelasta lajia, mutta jokainen luontoon palautettu aikuinen naaras voi tuoda uuden poikueen. Sen rinnalla neuvonta on yhtä tärkeää: siilille turvallinen piha ehkäisee vahingot ennen kuin ne tapahtuvat.</p>
+    </section>
+
+    <section class="reveal">
+      <h2 data-i18n="pg.about.how.h">Miten toimimme</h2>
+      <p data-i18n="pg.about.how.p" data-i18n-html="true">Jokainen siili kulkee saman polun: ensiapu ja tilan vakauttaminen, eläinlääketieteellinen tutkimus ja hoito, kuntoutus ja lopulta vapautus sopivaan elinympäristöön. Kuvaamme vaiheet tarkemmin <a href="toiminta.html">Toiminta</a>-sivulla.</p>
+    </section>
+
+    <section class="reveal">
+      <h2 data-i18n="pg.about.team.h">Ketkä olemme</h2>
+      <div class="card">
+        <h3 data-i18n="pg.about.team.assaf.n">Assaf Wydra</h3>
+        <p data-i18n="pg.about.team.assaf.r">Eläinlääkäri ja perustajajäsen</p>
+        <p data-i18n="pg.about.team.assaf.b">Laillistettu eläinlääkäri ja Eläinklinikka Saaren omistaja. Vastaa siilien lääketieteellisestä hoidosta, leikkauksista ja hoitoprotokollien valvonnasta.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="pg.about.team.johanna.n">Johanna Tidström</h3>
+        <p data-i18n="pg.about.team.johanna.r">Perustaja ja toiminta</p>
+        <p data-i18n="pg.about.team.johanna.b">Vaasalainen yrittäjä, joka tuo organisatorista osaamista luonnonvaraisten eläinten hoitoon. Hoitaa keskuksen toimintaa, vapaaehtoisten koordinointia ja yhteisötiedotusta.</p>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2 data-i18n="pg.about.reg.h">Yhdistyksen tiedot</h2>
+      <p data-i18n="pg.about.reg.p">Siili-Saari Care Center rf on merkitty Patentti- ja rekisterihallituksen yhdistysrekisteriin. Toiminta on voittoa tavoittelematonta.</p>
+      <div class="facts">
+        <dl>
+          <dt data-i18n="pg.about.reg.name">Nimi</dt><dd>SiiliSaari Care Center rf</dd>
+          <dt data-i18n="pg.about.reg.id">Y-tunnus</dt><dd>3632959-6</dd>
+          <dt data-i18n="pg.about.reg.no">Rekisterinumero</dt><dd>963.452</dd>
+          <dt data-i18n="pg.about.reg.date">Rekisteröity</dt><dd data-i18n="pg.about.reg.datev">17.6.2026</dd>
+          <dt data-i18n="pg.about.reg.home">Kotipaikka</dt><dd data-i18n="pg.about.reg.homev">Vaasa</dd>
+          <dt data-i18n="pg.about.reg.addr">Osoite</dt><dd>Gerbyntie 18, 65230 Vaasa</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="cta reveal">
+      <h2 data-i18n="cta.h">Miten voit auttaa</h2>
+      <p data-i18n="cta.p">Juuri nyt tarvitsemme ennen kaikkea käsiä, kyytejä ja siileille turvallisia pihoja.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="vapaaehtoiseksi.html" data-i18n="cta.volunteer">Ryhdy vapaaehtoiseksi</a>
+        <a class="btn btn-ghost" href="siilin-pesa.html" data-i18n="cta.nest">Rakenna siilille pesä</a>
+        <a class="btn btn-ghost" href="yhteystiedot.html" data-i18n="cta.contact">Ota yhteyttä</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-brand">Siili-Saari Care Center</div>
+  <p data-i18n="footer.project" data-i18n-html="true">Rekisteröity yhdistys &middot; Yhteistyössä <a href="https://saarivet.fi">Eläinklinikka Saari</a> &middot; Vaasa, Suomi</p>
+  <p class="footer-impressum" data-i18n="footer.impressum" data-i18n-html="true">SiiliSaari Care Center rf &middot; Y-tunnus 3632959-6 &middot; Gerbyntie 18, 65230 Vaasa</p>
+  <p class="footer-legal"><a href="tietosuoja.html" data-i18n="footer.privacy">Tietosuojaseloste</a></p>
+  <p style="margin-top:0.75rem;font-size:0.8rem;" data-i18n="footer.motto">Jokaisella siilillä on merkitystä</p>
+</footer>
+
+<script>
+  const menuBtn=document.getElementById('menuBtn');
+  if(menuBtn){menuBtn.addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));}
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  setTimeout(()=>{document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'))},2500);
+  document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{try{localStorage.setItem('ss-lang',b.getAttribute('hreflang'))}catch(e){}}));
+</script>
+</body>
+</html>
