@@ -458,6 +458,7 @@ footer .fine{font-size:.8rem;opacity:.6;margin-top:1rem}
 <script>
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  setTimeout(()=>{document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'))},2500);
   document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{try{localStorage.setItem('ss-lang',b.getAttribute('hreflang'))}catch(e){}}));
 </script>
 </body>

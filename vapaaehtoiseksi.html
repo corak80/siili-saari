@@ -414,6 +414,7 @@ footer p{margin-bottom:.4rem}
   // scroll reveal
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  setTimeout(()=>{document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'))},2500);
 
   // volunteer form → clinic-tv endpoint (served under /tv/*)
   const ENDPOINT='https://dashboard.saarivet.fi/tv/api/volunteer-signup';

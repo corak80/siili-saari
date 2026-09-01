@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Siili-Saari Care Center — Registrering som ideell förening (ry) i Finland</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+@page {
+  size: A4;
+  margin: 2.2cm 2.5cm;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+  font-size: 11pt;
+  line-height: 1.65;
+  color: #1a1a1a;
+  background: white;
+}
+
+.cover {
+  page-break-after: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.cover img {
+  width: 200px;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.cover h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 28pt;
+  color: #1a5c52;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.cover .subtitle {
+  font-size: 14pt;
+  color: #5a4d3e;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.cover .meta {
+  font-size: 10pt;
+  color: #888;
+  margin-top: 3rem;
+}
+
+.cover .meta strong {
+  color: #555;
+}
+
+h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16pt;
+  color: #1a5c52;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid #e8a84c;
+}
+
+h3 {
+  font-size: 12pt;
+  font-weight: 700;
+  color: #2d7a6d;
+  margin-top: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+h4 {
+  font-size: 11pt;
+  font-weight: 600;
+  color: #5c4a3a;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+p {
+  margin-bottom: 0.7rem;
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+li {
+  margin-bottom: 0.3rem;
+}
+
+.highlight {
+  background: #f0f8f6;
+  border-left: 4px solid #2d7a6d;
+  padding: 0.8rem 1.2rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.warning {
+  background: #fef9f0;
+  border-left: 4px solid #e8a84c;
+  padding: 0.8rem 1.2rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 10.5pt;
+}
+
+.cost-table th {
+  background: #1a5c52;
+  color: white;
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.cost-table td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.cost-table tr:nth-child(even) td {
+  background: #f8f8f8;
+}
+
+.cost-table .total td {
+  font-weight: 700;
+  border-top: 2px solid #1a5c52;
+  background: #f0f8f6;
+}
+
+.checklist {
+  list-style: none;
+  margin-left: 0;
+}
+
+.checklist li {
+  padding-left: 1.6rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.checklist li::before {
+  content: '☐';
+  position: absolute;
+  left: 0;
+  color: #2d7a6d;
+  font-size: 13pt;
+}
+
+.step-num {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: #1a5c52;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-weight: 700;
+  font-size: 12pt;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.timeline {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline li {
+  padding: 0.8rem 0 0.8rem 2.5rem;
+  position: relative;
+  border-left: 2px solid #2d7a6d;
+  margin-left: 0.8rem;
+}
+
+.timeline li::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #e8a84c;
+  border: 2px solid #2d7a6d;
+  border-radius: 50%;
+  position: absolute;
+  left: -7px;
+  top: 1rem;
+}
+
+.timeline li:last-child {
+  border-left: 2px solid transparent;
+}
+
+.footer-note {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  font-size: 9pt;
+  color: #999;
+}
+
+.page-break {
+  page-break-before: always;
+}
+
+strong { color: #1a1a1a; }
+
+a { color: #2d7a6d; text-decoration: none; }
+
+.toc {
+  page-break-after: always;
+}
+
+.toc h2 {
+  border-bottom: none;
+  text-align: center;
+  font-size: 18pt;
+}
+
+.toc ol {
+  list-style: none;
+  margin: 2rem 0;
+  counter-reset: toc;
+}
+
+.toc > ol > li {
+  counter-increment: toc;
+  padding: 0.5rem 0;
+  border-bottom: 1px dotted #ccc;
+  font-size: 12pt;
+}
+
+.toc > ol > li::before {
+  content: counter(toc) ".";
+  font-weight: 700;
+  color: #1a5c52;
+  margin-right: 0.5rem;
+}
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <img src="logo.jpg" alt="Siili-Saari Care Center">
+  <h1>Siili-Saari Care Center ry</h1>
+  <p class="subtitle">Guide till registrering som ideell forening i Finland</p>
+  <p style="font-size: 12pt; color: #5a4d3e; max-width: 450px; margin: 0 auto;">
+    En steg-for-steg-handbok for att registrera var igelkottsrehabilitering som en registrerad forening (rekisteroity yhdistys) hos Patent- och registerstyrelsen (PRH).
+  </p>
+  <div class="meta">
+    Utarbetad: <strong>14 april 2026</strong><br>
+    For: <strong>Johanna Tidstrom</strong>, medgrundare & verksamhetschef<br>
+    Av: <strong>Assaf Wydra</strong>, veterinar & grundare
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h2>Innehall</h2>
+  <ol>
+    <li>Oversikt &mdash; Vad ar en registrerad forening (ry)?</li>
+    <li>Lagstiftning och krav</li>
+    <li>Steg-for-steg: Registreringsprocessen</li>
+    <li>Stadgar (saannot) &mdash; Obligatoriskt innehall</li>
+    <li>Grundandehandlingar</li>
+    <li>Konstituerande mote (perustavakokous)</li>
+    <li>Kostnader</li>
+    <li>Tidsplan</li>
+    <li>Efter registrering &mdash; Lopande skyldigheter</li>
+    <li>Sarskilda krav for djurrehabilitering</li>
+    <li>Bankkonto</li>
+    <li>Statsbidrag och finansiering</li>
+    <li>Checklista</li>
+  </ol>
+</div>
+
+<!-- SECTION 1 -->
+<h2>1. Oversikt &mdash; Vad ar en registrerad forening (ry)?</h2>
+
+<p>En <strong>rekisteroity yhdistys (ry)</strong> ar den vanligaste formen for ideella organisationer i Finland. Genom registrering hos Patent- och registerstyrelsen (PRH) far foreningen status som juridisk person, vilket innebar att den kan:</p>
+
+<ul>
+  <li>Oppna bankkonto i foreningens namn</li>
+  <li>Ingaa avtal och aga egendom</li>
+  <li>Ansoka om bidrag och understod</li>
+  <li>Agera som arbetsgivare</li>
+  <li>Medlemmarna har <strong>inget personligt ansvar</strong> for foreningens skulder</li>
+</ul>
+
+<div class="highlight">
+  <strong>Varfor ry for Siili-Saari?</strong> Registrering som ry ar nodvandig for att kunna ansoka om statsbidrag for vilddjursrehabilitering (upp till 75 % av driftskostnaderna). Utan ry-status kan vi inte fa dessa medel.
+</div>
+
+<!-- SECTION 2 -->
+<h2>2. Lagstiftning och krav</h2>
+
+<h3>Grundlag</h3>
+<p><strong>Foreningslagen (Yhdistyslaki) 503/1989</strong> reglerar alla registrerade foreningar i Finland. Lagen finns pa Finlex: <em>finlex.fi/fi/laki/ajantasa/1989/19890503</em></p>
+
+<h3>Grundlaggande krav</h3>
+<ul>
+  <li><strong>Minst 3 grundare</strong> som undertecknar grundandehandlingen</li>
+  <li>Grundare maste vara minst <strong>15 ar</strong> gamla</li>
+  <li><strong>Utlandska medborgare far grunda</strong> foreningar &mdash; inget krav pa finskt medborgarskap</li>
+  <li>Ordforanden maste vara bosatt i Finland (annars kravs dispens fran PRH)</li>
+  <li>Foreningen maste ha ett <strong>ideellt syfte</strong> (inte vinstdrivande)</li>
+  <li>Juridiska personer (foretag, andra foreningar) kan ocksa vara grundare</li>
+</ul>
+
+<div class="warning">
+  <strong>Viktigt om namn:</strong> Foreningens namn maste vara pa finska eller svenska (eller bada). "Siili-Saari Care Center ry" fungerar da "Siili-Saari" ar finska. Alternativt: "Siili-Saari ry" eller "Siili-Saari Hoitola ry" med engelsk undertext.
+</div>
+
+<!-- SECTION 3 -->
+<h2>3. Steg-for-steg: Registreringsprocessen</h2>
+
+<h3>Rekommenderad metod: Guidad registrering online</h3>
+<p>PRH erbjuder en guidad e-tjanst som genererar stadgar automatiskt baserat pa dina val. Detta ar <strong>snabbast, billigast och enklast</strong>.</p>
+
+<ol class="timeline">
+  <li>
+    <strong>Forberedelse</strong><br>
+    Samla minst 3 grundare. Bestam foreningens namn, hemort (Vasa), syfte och verksamhetsformer. Valj styrelsemedlemmar.
+  </li>
+  <li>
+    <strong>Konstituerande mote</strong><br>
+    Hall motet, godkann stadgarna, valj styrelse och revisorer, underteckna grundandehandlingen (perustamiskirja). Se kapitel 6 for detaljerad dagordning.
+  </li>
+  <li>
+    <strong>Logga in pa PRH:s e-tjanst</strong><br>
+    Ga till <em>prh.fi/yhdistysrekisteri/asiointi</em>. Krav: finskt personnummer + bankidentifiering eller mobilcertifikat.
+  </li>
+  <li>
+    <strong>Fyll i uppgifterna</strong><br>
+    Systemet vag leder dig genom stadgarna. Ange styrelsemedlemmar, undertecknare och ovriga uppgifter.
+  </li>
+  <li>
+    <strong>Bifoga grundandehandling</strong><br>
+    Ladda upp den undertecknade perustamiskirjan som PDF eller JPG. For utlandska grundare: bifoga passkopia.
+  </li>
+  <li>
+    <strong>Betala och skicka</strong><br>
+    Betala avgiften (60 EUR) direkt online. Signera elektroniskt. Registreringen skickas till PRH.
+  </li>
+  <li>
+    <strong>Invanta beslut</strong><br>
+    Handlaggningstid ca <strong>4 arbetsdagar</strong> for elektroniska anmalningar. Forsta registerutdraget ar gratis.
+  </li>
+</ol>
+
+<div class="highlight">
+  <strong>Tips:</strong> Om du anvander PRH:s guidade registrering behover stadgarna inte granskas separat &mdash; mallarna ar forhandsgodkanda. Egna stadgar (120 EUR) maste granskas av PRH, vilket kan ta langre tid.
+</div>
+
+<!-- SECTION 4 -->
+<h2 class="page-break">4. Stadgar (saannot) &mdash; Obligatoriskt innehall</h2>
+
+<p>Enligt Foreningslagen 8 ss. maste stadgarna innehalla foljande <strong>9 obligatoriska punkter</strong>:</p>
+
+<ol>
+  <li><strong>Foreningens namn</strong> &mdash; t.ex. "Siili-Saari Care Center ry"</li>
+  <li><strong>Hemort</strong> &mdash; en finsk kommun, t.ex. "Vasa" (Vaasa)</li>
+  <li><strong>Syfte och verksamhetsformer</strong> &mdash; rehabilitering av igelkottar, utbildning, samhallsupplysning</li>
+  <li><strong>Medlemsavgifter och andra avgifter</strong> &mdash; belopp eller att arsmotot beslutar</li>
+  <li><strong>Antal styrelsemedlemmar och revisorer</strong> &mdash; exakt antal eller min/max (t.ex. 3&ndash;7 styrelsemedlemmar)</li>
+  <li><strong>Mandatperiod</strong> &mdash; for styrelse och revisorer (t.ex. ett kalender ar)</li>
+  <li><strong>Rakenskapsperiod</strong> &mdash; t.ex. kalender aret (1.1&ndash;31.12)</li>
+  <li><strong>Kallelse till moten</strong> &mdash; hur och inom vilken tid moteskallelsen maste skickas (t.ex. "minst 14 dagar fore motet per e-post")</li>
+  <li><strong>Tillgangar vid upplosning</strong> &mdash; hur foreningens medel anvands om den upploses (t.ex. "doneras till djurskyddsandamal")</li>
+</ol>
+
+<h3>Forslag for Siili-Saari:s syftesparagraf</h3>
+<div class="highlight">
+  <em>"Foreningens syfte ar att framma skyddet av den europeiska igelkotten (Erinaceus europaeus) i Finland genom att bedriva rehabilitering av skadade och overgivna igelkottar, utbilda allmanheten om igelkottars levnadsvillkor, samt samarbeta med veterinarmedicinska inrattningar och myndigheter for att sakerstalla artens fortlevnad."</em>
+</div>
+
+<h3>PRH:s mallar</h3>
+<p>PRH erbjuder 5 fardiga stadgemallar (sääntömallit) pa finska. Tillgangliga pa: <em>prh.fi/fi/yhdistysrekisteri/saantojen-laatiminen/saantomallit.html</em></p>
+<ul>
+  <li><strong>Mall 1</strong> &mdash; Enkel (bara obligatoriska punkter)</li>
+  <li><strong>Mall 2</strong> &mdash; Ett mote, en medlemsgrupp (med distansdeltagande)</li>
+  <li><strong>Mall 3</strong> &mdash; Ett mote, flera medlemsgrupper</li>
+  <li><strong>Mall 4</strong> &mdash; Tva moten, en medlemsgrupp</li>
+  <li><strong>Mall 5</strong> &mdash; Tva moten, flera medlemsgrupper</li>
+</ul>
+<p><strong>Rekommendation:</strong> Mall 2 passar bra for Siili-Saari &mdash; enkel struktur med mojlighet till distansdeltagande.</p>
+
+<!-- SECTION 5 -->
+<h2>5. Grundandehandlingar</h2>
+
+<h3>Perustamiskirja (Grundandehandling)</h3>
+<p>Dokumentet som formellt grundar foreningen. Maste innehalla:</p>
+<ul>
+  <li>Datum och plats for undertecknande</li>
+  <li>Forklaring att undertecknarna grundar foreningen</li>
+  <li>Foreningens namn</li>
+  <li>Hanvisning till de antagna stadgarna</li>
+  <li><strong>Alla grundares underskrifter</strong> (minst 3 personer)</li>
+  <li>Personnummer for varje undertecknare</li>
+  <li>For icke-finska medborgare: passkopia (PDF/JPG)</li>
+</ul>
+
+<div class="warning">
+  <strong>Obs:</strong> Elektroniska signaturer godkanns om dokumentet tydligt visar att det signerats elektroniskt och identifierar signeringssystemet.
+</div>
+
+<!-- SECTION 6 -->
+<h2>6. Konstituerande mote (perustavakokous)</h2>
+
+<p>Dagordning for det konstituerande motet:</p>
+
+<ol>
+  <li><strong>Motets oppnande</strong></li>
+  <li><strong>Val av motesordforande, sekreterare och 2 protokolljusterare</strong></li>
+  <li><strong>Godkannande av dagordningen</strong></li>
+  <li><strong>Godkannande av foreningens stadgar</strong><br>
+    <em>(Ge styrelsen fullmakt att gora andringarna som PRH eventuellt kraver)</em></li>
+  <li><strong>Beslut om medlemsavgifter</strong></li>
+  <li><strong>Foreningen forklaras grundad &mdash; grundandehandlingen undertecknas</strong></li>
+  <li><strong>Val av styrelsens ordforande och ovriga medlemmar</strong><br>
+    <em>Minst 3 styrelsemedlemmar. Ordforanden maste vara minst 18 ar.</em></li>
+  <li><strong>Val av revisor/verksamhetsgranskare</strong><br>
+    <em>En verksamhetsgranskare (toiminnantarkastaja) racker for sma foreningar. Valj ocksa en suppleant.</em></li>
+  <li><strong>Ovriga arenden</strong> (t.ex. logo, forsta aktiviteter, bankkonto)</li>
+  <li><strong>Motets avslutande</strong></li>
+</ol>
+
+<div class="highlight">
+  <strong>For Siili-Saari:</strong> Vi behover minst 3 grundare pa motet. Forslag: Assaf (ordforande), Johanna (vice ordforande/kassoor), + 1 ytterligare grundande medlem.
+</div>
+
+<!-- SECTION 7 -->
+<h2 class="page-break">7. Kostnader</h2>
+
+<table class="cost-table">
+  <tr>
+    <th>Utgift</th>
+    <th>Belopp (EUR)</th>
+    <th>Anmarkning</th>
+  </tr>
+  <tr>
+    <td>PRH-registrering (guidad online)</td>
+    <td>60</td>
+    <td>Rekommenderat &mdash; snabbast</td>
+  </tr>
+  <tr>
+    <td>PRH-registrering (egna stadgar, online)</td>
+    <td>120</td>
+    <td>Om vi vill ha anpassade stadgar</td>
+  </tr>
+  <tr>
+    <td>Ruokavirasto &mdash; anmalan om djurrehabilitering</td>
+    <td>85</td>
+    <td>Obligatorisk for verksamheten</td>
+  </tr>
+  <tr>
+    <td>Bankkonto (oppningsavgift, ca)</td>
+    <td>0&ndash;300</td>
+    <td>Varierar per bank (Nordea ~300, OP billigare)</td>
+  </tr>
+  <tr>
+    <td>Registerutdrag (forsta)</td>
+    <td>0</td>
+    <td>Gratis vid registrering</td>
+  </tr>
+  <tr class="total">
+    <td>Totalt (minimum)</td>
+    <td>145</td>
+    <td>Guidad registrering + Ruokavirasto</td>
+  </tr>
+</table>
+
+<h3>Lopande kostnader</h3>
+<ul>
+  <li>Andring av stadgar: 60 EUR per anmalan</li>
+  <li>Ovriga anmalningar till PRH (styrelsebyten m.m.): 30 EUR</li>
+  <li>Medlemsavgifter: beslutas av arsmotot</li>
+</ul>
+
+<!-- SECTION 8 -->
+<h2>8. Tidsplan</h2>
+
+<table class="cost-table">
+  <tr>
+    <th>Aktivitet</th>
+    <th>Tidsatgang</th>
+  </tr>
+  <tr>
+    <td>Forberedelse (hitta grundare, skriva stadgar)</td>
+    <td>1&ndash;2 veckor</td>
+  </tr>
+  <tr>
+    <td>Konstituerande mote</td>
+    <td>1 dag</td>
+  </tr>
+  <tr>
+    <td>PRH-registrering (elektronisk)</td>
+    <td>~4 arbetsdagar</td>
+  </tr>
+  <tr>
+    <td>Oppna bankkonto</td>
+    <td>1&ndash;2 veckor</td>
+  </tr>
+  <tr>
+    <td>Ruokavirasto-anmalan</td>
+    <td>Minst 30 dagar fore verksamhetsstart</td>
+  </tr>
+  <tr class="total">
+    <td>Total tid till full verksamhet</td>
+    <td>Ca 6&ndash;8 veckor</td>
+  </tr>
+</table>
+
+<!-- SECTION 9 -->
+<h2>9. Efter registrering &mdash; Lopande skyldigheter</h2>
+
+<h3>Arsmote (vuosikokous)</h3>
+<p>Maste hallas enligt stadgarna (vanligtvis en gang per ar). Pa arsmotot ska foljande behandlas:</p>
+<ul>
+  <li>Bokslutet (tilinpaatos) fastastalls</li>
+  <li>Verksamhetsberattelse godkanns</li>
+  <li>Ansvarsfrihet for styrelsen beviljas</li>
+  <li>Styrelse och revisorer/granskare valjs</li>
+  <li>Budget och verksamhetsplan godkanns</li>
+  <li>Medlemsavgifter fastastalls</li>
+</ul>
+
+<h3>Bokforing och ekonomi</h3>
+<ul>
+  <li><strong>Bokforingsskyldighet</strong> galler alla foreningar enligt lag</li>
+  <li>Sma foreningar (under 30 000 EUR/ar) far anvanda forenklad bokforing</li>
+  <li><strong>Arligt bokslut</strong> maste uppratas</li>
+  <li>En <strong>verksamhetsgranskare</strong> (toiminnantarkastaja) racker for sma foreningar &mdash; behover inte vara professionell revisor</li>
+</ul>
+
+<h3>Skattestatus</h3>
+<ul>
+  <li>En <strong>allmannyttig forening</strong> (yleishyodyllinen yhdistys) beskattas bara for eventuell narringsverksamhet</li>
+  <li>Igelkottsrehabilitering kvalificerar med stor sannolikhet som allmannyttig verksamhet</li>
+  <li>Skattemyndigheten (Verohallinto) bedomer allmannyttigheten arligen</li>
+  <li>Skattedeklaration maste lamnas om den begars &mdash; annars pafoljs en straffavgift</li>
+</ul>
+
+<h3>Anmalningar till PRH</h3>
+<p>Forandringar i styrelsen, stadgar eller adress maste anmalas till PRH (30 EUR per anmalan).</p>
+
+<!-- SECTION 10 -->
+<h2 class="page-break">10. Sarskilda krav for djurrehabilitering</h2>
+
+<div class="warning">
+  <strong>VIKTIGT:</strong> Utover foreningsregistreringen behover vi en separat anmalan till Livsmedelsverket (Ruokavirasto) for att fa bedriva rehabiliteringsverksamhet med vilda djur.
+</div>
+
+<h3>Anmalan till Ruokavirasto</h3>
+<ul>
+  <li><strong>Myndighet:</strong> Ruokavirasto (Livsmedelsverket) &mdash; <em>ruokavirasto.fi</em></li>
+  <li><strong>Lag:</strong> Lagen om djurs valfard (Elainten hyvinvointilaki) 693/2023, 61 ss.</li>
+  <li><strong>Tidpunkt:</strong> Skriftlig anmalan minst <strong>30 dagar fore</strong> verksamhetsstart</li>
+  <li><strong>Avgift:</strong> 85 EUR</li>
+</ul>
+
+<h3>Anmalan maste innehalla</h3>
+<ol>
+  <li>Verksamhetsutovares namn, FO-nummer/personnummer, kontaktuppgifter</li>
+  <li>Djurarter och antal som ska vardas</li>
+  <li>Beskrivning av lokalerna/anlaggningarna</li>
+  <li>Kvalifikationer och utbildning hos vardpersonalen</li>
+  <li>Plan for hur djurvarden organiseras</li>
+</ol>
+
+<h3>Lopande krav</h3>
+<ul>
+  <li>Dokumentation maste bevaras i <strong>3 ar</strong> (djuruppgifter, intagsomstandigheter, behandlingar, resultat)</li>
+  <li>Malet maste vara <strong>aterslapning till naturen</strong> &mdash; permanent hushallning ar inte tillaten</li>
+  <li>Om aterslapning ar omojlig: placering pa djurpark eller avlivning</li>
+  <li>Verksamheten kan inspekteras av myndigheter</li>
+</ul>
+
+<div class="highlight">
+  <strong>Obs:</strong> Sedan 01-01-2024 ar det Ruokavirasto (inte Regionforvaltningsverket/AVI) som ansvarar for dessa anmalningar. Tidigare information som namner AVI ar foraaldrad.
+</div>
+
+<!-- SECTION 11 -->
+<h2>11. Bankkonto</h2>
+
+<h3>Nar?</h3>
+<p>Bankkontot kan oppnas <strong>efter att registreringen ar klar</strong> och ni har fatt registerutdraget fran PRH.</p>
+
+<h3>Dokument som behovs</h3>
+<ul>
+  <li>Styrelsens motesprotokoll med valda styrelsemedlemmar</li>
+  <li>Lista over styrelsemedlemmar (namn, medborgarskap, bosattningsland, personnummer, PEP-status)</li>
+  <li>Galdlande stadgar</li>
+  <li>Registerutdrag fran PRH</li>
+</ul>
+
+<h3>Bankalternativ</h3>
+<ul>
+  <li><strong>OP (Andelsbanken)</strong> &mdash; generellt foreningsvandlig, kontakta lokala kontoret</li>
+  <li><strong>Nordea</strong> &mdash; oppningsavgift ca 300 EUR for foreningar</li>
+  <li><strong>Holvi</strong> &mdash; digital bankplattform, populadr bland sma foreningar, enklare process</li>
+</ul>
+
+<!-- SECTION 12 -->
+<h2>12. Statsbidrag och finansiering</h2>
+
+<h3>Miljoministeriet (Ymparistoministerio)</h3>
+<p>Miljoministeriet delar arligen ut bidrag for vard av skyddade vilda djur:</p>
+<ul>
+  <li><strong>Budget 2025:</strong> upp till 220 000 EUR totalt (delas mellan alla sokande)</li>
+  <li>Tacker upp till <strong>75 %</strong> av driftskostnaderna</li>
+  <li><strong>Endast organisationer</strong> kan ansoka &mdash; darfor ar ry-registrering nodvandig</li>
+  <li>Ansokan via portalen <em>haeavustuksia.fi</em></li>
+  <li>Igelkottar ar en skyddad art i Finland, sa var verksamhet kvalificerar</li>
+</ul>
+
+<div class="highlight">
+  <strong>Nasta ansokningstillfalle:</strong> Vanligtvis oktober&ndash;december for foljande ar. Bevaka ymparistoministeriet.fi for 2027 ars ansokningsomgang.
+</div>
+
+<h3>Ovriga finansieringsmojligheter</h3>
+<ul>
+  <li><strong>SEY (Suomen elainsuojelu)</strong> &mdash; takorganisation for 38 djurskyddsforeningar. Medlemskap ger trovaardighet, natverk och resurser. <em>sey.fi</em></li>
+  <li><strong>Stiftelser och fonder</strong> &mdash; manga finlandska stiftelser stoder djurskydd och naturvard</li>
+  <li><strong>Donationer</strong> &mdash; som ry kan vi ta emot skattebefriade donationer</li>
+  <li><strong>Medlemsavgifter</strong> &mdash; lopande inkomstkalla</li>
+</ul>
+
+<!-- SECTION 13 -->
+<h2 class="page-break">13. Checklista</h2>
+
+<h3>Fore registrering</h3>
+<ul class="checklist">
+  <li>Hitta minst 3 grundare (alla 15+ ar)</li>
+  <li>Bestam foreningens namn: "Siili-Saari Care Center ry" (eller liknande)</li>
+  <li>Bestam hemort: Vasa</li>
+  <li>Skriv eller valj stadgemall (rekommendation: PRH:s guidade registrering)</li>
+  <li>Bestam styrelsesammansattning (min 3 personer, ordforande 18+ ar)</li>
+  <li>Valj verksamhetsgranskare + suppleant</li>
+  <li>Bestam rakenskapsperiod (rekommendation: kalender aret)</li>
+  <li>Bestam medlemsavgift</li>
+</ul>
+
+<h3>Registrering</h3>
+<ul class="checklist">
+  <li>Hall konstituerande mote &mdash; for protokoll</li>
+  <li>Godkann stadgar pa motet</li>
+  <li>Underteckna grundandehandlingen (alla 3+ grundare)</li>
+  <li>Valj styrelse och verksamhetsgranskare</li>
+  <li>Logga in pa PRH e-tjanst</li>
+  <li>Fyll i uppgifterna och ladda upp handlingar</li>
+  <li>Betala avgiften (60 EUR guidad / 120 EUR egen)</li>
+  <li>Invanta PRH-beslut (~4 arbetsdagar)</li>
+</ul>
+
+<h3>Efter registrering</h3>
+<ul class="checklist">
+  <li>Ta emot registerutdrag fran PRH</li>
+  <li>Oppna bankkonto</li>
+  <li>Skicka anmalan till Ruokavirasto (minst 30 dagar fore start, 85 EUR)</li>
+  <li>Registrera hos Skatteforvaltningen (Verohallinto)</li>
+  <li>Anslut till SEY eller annan takorganisation (frivilligt)</li>
+  <li>Bevaka nasta ansokningstillfalle for statsbidrag</li>
+  <li>Borja bokforing fran dag 1</li>
+</ul>
+
+<div class="footer-note">
+  <strong>Kallor:</strong> Patent- och registerstyrelsen (prh.fi), Finlex (finlex.fi), Ruokavirasto (ruokavirasto.fi), Miljoministeriet (ym.fi), SEY (sey.fi).<br>
+  Denna guide utarbetades i april 2026. Avgifter och forfaranden kan andras &mdash; kontrollera alltid aktuell information pa prh.fi.<br><br>
+  <em>Siili-Saari Care Center &mdash; Varje igelkott ar vard att raddas.</em>
+</div>
+
+</body>
+</html>

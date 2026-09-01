@@ -857,7 +857,13 @@ footer a:hover { color: var(--sunset); }
   .hero { padding: 5rem 1.5rem 3rem; }
   .help-emergency { flex-direction: column; text-align: center; }
 }
+
+/* A reader who asks for reduced motion gets the content, not the animation. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
 </style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 
 <link rel="alternate" hreflang="fi" href="https://siilisaari.fi/">
 <link rel="alternate" hreflang="sv" href="https://siilisaari.fi/sv/">
@@ -1132,6 +1138,15 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Failsafe: .reveal starts at opacity:0 and only the observer clears it, so a
+// renderer that never scrolls (crawler, link preview, Ad Grants policy review)
+// would otherwise capture the hero over an empty page. Reveal whatever is
+// still hidden shortly after load — humans have normally scrolled by then and
+// keep the animation; anything that just sits there still sees the content.
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+}, 2500);
 
 // Remember chosen language for pages not yet converted to this switcher
 document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{try{localStorage.setItem('ss-lang',b.getAttribute('hreflang'))}catch(e){}}));
