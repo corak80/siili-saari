@@ -15,7 +15,11 @@
 <meta property="og:image" content="https://siilisaari.fi/hoglet.jpg">
 <meta property="og:locale" content="fi_FI">
 <meta property="og:site_name" content="Siili-Saari Care Center">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/dmsans-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-latin.woff2" crossorigin>
 <style>
+@font-face{font-family:'DM Sans Fallback';src:local('Arial'),local('Helvetica');size-adjust:106.6%;ascent-override:93.0%;descent-override:29.1%;line-gap-override:0%}
+@font-face{font-family:'Fraunces Fallback';src:local('Georgia'),local('Times New Roman');size-adjust:119.2%;ascent-override:82.0%;descent-override:21.4%;line-gap-override:0%}
 @font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin.woff2') format('woff2-variations')}
 @font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
 @font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('fonts/dmsans-latin.woff2') format('woff2-variations')}
@@ -25,7 +29,7 @@
   --cream:#faf6f0; --white:#fff; --text:#2c2418; --text-soft:#5a4d3e;
   --border:#e7ddcc; --ok:#2e7d4f; --ok-bg:#eaf5ee; --danger:#b3392e; --danger-bg:#fbecea;
   --shadow-sm:0 6px 22px rgba(26,92,82,.07);
-  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Fraunces','Fraunces Fallback',Georgia,serif; --sans:'DM Sans','DM Sans Fallback',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --max:640px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -84,7 +88,7 @@ footer{background:var(--teal-deep);color:var(--cream);padding:1.8rem 0;text-alig
 </head>
 <body>
 <nav>
-  <a class="nav-brand" href="index.html" aria-label="Siili-Saari"><img class="nav-brand-logo" src="logo-horizontal.png" alt="Siili-Saari"></a>
+  <a class="nav-brand" href="index.html" aria-label="Siili-Saari"><img class="nav-brand-logo" src="logo-horizontal.webp" alt="Siili-Saari" width="1773" height="578"></a>
   <div class="nav-right">
     <a class="back-home" href="siilinhoito.html">
       <span data-lang="fi" class="show">← Hoito-opas</span><span data-lang="sv">← Skötselguide</span><span data-lang="en">← Care guide</span>

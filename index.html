@@ -47,8 +47,29 @@
   ]
 }
 </script>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/dmsans-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-latin.woff2" crossorigin>
+<link rel="preload" as="image" href="/logo-heart.webp" fetchpriority="high">
 <style>
 /* Self-hosted variable fonts (GDPR-friendly — no third-party CDN) */
+/* Metric-matched fallbacks: keep fallback text the same size as the real font
+   so swapping it in causes no layout shift (measured with fontTools). */
+@font-face {
+  font-family: 'DM Sans Fallback';
+  src: local('Arial'), local('Helvetica');
+  size-adjust: 106.6%;
+  ascent-override: 93.0%;
+  descent-override: 29.1%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Fraunces Fallback';
+  src: local('Georgia'), local('Times New Roman');
+  size-adjust: 119.2%;
+  ascent-override: 82.0%;
+  descent-override: 21.4%;
+  line-gap-override: 0%;
+}
 @font-face {
   font-family: 'Fraunces';
   font-style: normal;
@@ -100,7 +121,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   background: var(--cream);
   color: var(--text);
   line-height: 1.7;
@@ -174,7 +195,7 @@ nav.scrolled {
   border: none;
   cursor: pointer;
   padding: 0.35rem 0.75rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -277,7 +298,7 @@ nav.scrolled {
 }
 
 @keyframes floatIn {
-  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  from { transform: translateY(30px) scale(0.95); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
@@ -293,7 +314,7 @@ nav.scrolled {
 }
 
 .hero-subtitle {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 1.1rem;
   color: var(--text-soft);
   letter-spacing: 0.25em;
@@ -303,7 +324,7 @@ nav.scrolled {
 }
 
 .hero-tagline {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces', 'Fraunces Fallback', serif;
   font-style: italic;
   font-size: 1.3rem;
   font-weight: 400;
@@ -379,7 +400,7 @@ section {
 }
 
 .section-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces', 'Fraunces Fallback', serif;
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 600;
   color: var(--teal-deep);
@@ -439,7 +460,7 @@ section {
 }
 
 .stat-number {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces', 'Fraunces Fallback', serif;
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--teal-deep);
@@ -520,7 +541,7 @@ section {
 .service-icon.edu { background: rgba(92, 74, 58, 0.1); }
 
 .service-card h3 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces', 'Fraunces Fallback', serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--teal-deep);
@@ -582,7 +603,7 @@ section {
 .team-placeholder svg { opacity: 0.5; }
 
 .team-info h3 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces', 'Fraunces Fallback', serif;
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--teal-deep);
@@ -627,7 +648,7 @@ section {
 .help .section-title { color: var(--cream); }
 
 .help-intro {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces', 'Fraunces Fallback', serif;
   font-size: 1.5rem;
   font-style: italic;
   color: rgba(250, 246, 240, 0.85);
@@ -655,7 +676,7 @@ section {
 .step:hover { background: rgba(255, 255, 255, 0.1); }
 
 .step-number {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces', 'Fraunces Fallback', serif;
   font-size: 3rem;
   font-weight: 800;
   color: var(--sunset);
@@ -665,7 +686,7 @@ section {
 }
 
 .step h3 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces', 'Fraunces Fallback', serif;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--cream);
@@ -763,7 +784,7 @@ section {
 }
 
 .contact-item h3 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces', 'Fraunces Fallback', serif;
   font-size: 1.1rem;
   color: var(--teal-deep);
   margin-bottom: 0.5rem;
@@ -796,7 +817,7 @@ footer a {
 footer a:hover { color: var(--sunset); }
 
 .footer-brand {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces', 'Fraunces Fallback', serif;
   font-size: 1.1rem;
   font-weight: 600;
   color: rgba(250, 246, 240, 0.8);
@@ -883,7 +904,7 @@ footer a:hover { color: var(--sunset); }
 <!-- Navigation -->
 <nav id="navbar">
   <a href="#" class="nav-brand" aria-label="Siili-Saari Care Center">
-    <img src="logo-horizontal.png" alt="Siili-Saari Care Center" class="nav-brand-logo">
+    <img src="logo-horizontal.webp" alt="Siili-Saari Care Center" class="nav-brand-logo" width="1773" height="578">
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="meista.html" data-i18n="nav.about">Meistä</a></li>
@@ -904,7 +925,7 @@ footer a:hover { color: var(--sunset); }
 
 <!-- Hero -->
 <section class="hero">
-  <img src="logo-heart.png" alt="Siili-Saari Care Center" class="hero-logo">
+  <img src="logo-heart.webp" alt="Siili-Saari Care Center" class="hero-logo" width="1182" height="972" fetchpriority="high">
 
   <h1 class="hero-tagline" data-i18n="hero.tagline">Annamme siileille uuden mahdollisuuden, yksi pieni potilas kerrallaan</h1>
 
@@ -946,7 +967,7 @@ footer a:hover { color: var(--sunset); }
         </div>
       </div>
       <div class="about-visual reveal" style="transition-delay: 0.15s;">
-        <img src="logo-circle.png" alt="Siili-Saari Care Center logo">
+        <img src="logo-circle.webp" alt="Siili-Saari Care Center logo" width="1139" height="889" loading="lazy">
       </div>
     </div>
   </div>
@@ -1014,7 +1035,7 @@ footer a:hover { color: var(--sunset); }
     <h2 class="section-title reveal" data-i18n="team.title">Ihmiset piikkien takana</h2>
     <div class="team-grid">
       <div class="team-card reveal" style="transition-delay: 0.05s;">
-        <img src="assaf.webp" alt="Assaf Wydra" class="team-photo">
+        <img src="assaf.webp" alt="Assaf Wydra" class="team-photo" loading="lazy">
         <div class="team-info">
           <h3>Assaf Wydra</h3>
           <p class="team-role" data-i18n="team.assaf.role">Eläinlääkäri ja perustajajäsen</p>
@@ -1022,7 +1043,7 @@ footer a:hover { color: var(--sunset); }
         </div>
       </div>
       <div class="team-card reveal" style="transition-delay: 0.1s;">
-        <img src="johanna.png" alt="Johanna Tidström" class="team-photo">
+        <img src="johanna.webp" alt="Johanna Tidström" class="team-photo" width="430" height="442" loading="lazy">
         <div class="team-info">
           <h3>Johanna Tidström</h3>
           <p class="team-role" data-i18n="team.johanna.role">Perustaja ja toiminta</p>

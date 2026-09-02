@@ -21,7 +21,11 @@
 <meta property="og:image" content="https://siilisaari.fi/hoglet.jpg">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Siili-Saari Care Center">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/dmsans-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-latin.woff2" crossorigin>
 <style>
+@font-face{font-family:'DM Sans Fallback';src:local('Arial'),local('Helvetica');size-adjust:106.6%;ascent-override:93.0%;descent-override:29.1%;line-gap-override:0%}
+@font-face{font-family:'Fraunces Fallback';src:local('Georgia'),local('Times New Roman');size-adjust:119.2%;ascent-override:82.0%;descent-override:21.4%;line-gap-override:0%}
 @font-face{font-family:'Fraunces';font-style:normal;font-weight:300 900;font-display:swap;src:url('/fonts/fraunces-latin.woff2') format('woff2-variations')}
 @font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('/fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
 @font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('/fonts/dmsans-latin.woff2') format('woff2-variations')}
@@ -37,7 +41,7 @@
   --danger:#b3392e; --danger-bg:#fbecea;
   --warn:#9a6212; --warn-bg:#fcf3e2;
   --shadow:0 18px 50px rgba(26,92,82,.10); --shadow-sm:0 6px 22px rgba(26,92,82,.07);
-  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Fraunces','Fraunces Fallback',Georgia,serif; --sans:'DM Sans','DM Sans Fallback',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --max:900px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -162,7 +166,7 @@ footer .fine{font-size:.8rem;opacity:.6;margin-top:1rem}
 <body>
 
 <nav>
-  <a class="nav-brand" href="/en/" aria-label="Siili-Saari"><img class="nav-brand-logo" src="/logo-horizontal.png" alt="Siili-Saari"></a>
+  <a class="nav-brand" href="/en/" aria-label="Siili-Saari"><img class="nav-brand-logo" src="/logo-horizontal.webp" alt="Siili-Saari" width="1773" height="578"></a>
   <div class="nav-right">
     <a class="back-home" href="/en/">
       <span>← Home</span>

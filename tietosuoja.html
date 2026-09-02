@@ -7,7 +7,11 @@
 <meta name="description" data-i18n-attr="content" data-i18n="privacy.meta.description" content="Siili-Saari Care Centerin tietosuojaseloste — henkilötietojen käsittely, rekisteröidyn oikeudet ja tietojen suojaus.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/dmsans-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-latin.woff2" crossorigin>
 <style>
+@font-face{font-family:'DM Sans Fallback';src:local('Arial'),local('Helvetica');size-adjust:106.6%;ascent-override:93.0%;descent-override:29.1%;line-gap-override:0%}
+@font-face{font-family:'Fraunces Fallback';src:local('Georgia'),local('Times New Roman');size-adjust:119.2%;ascent-override:82.0%;descent-override:21.4%;line-gap-override:0%}
 @font-face {
   font-family: 'Fraunces';
   font-style: normal;
@@ -47,7 +51,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family:'DM Sans','DM Sans Fallback',sans-serif;
   background: var(--cream);
   color: var(--text);
   line-height: 1.7;
@@ -80,7 +84,7 @@ nav {
 .lang-btn {
   background: none; border: none; cursor: pointer;
   padding: 0.35rem 0.75rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family:'DM Sans','DM Sans Fallback',sans-serif;
   font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em;
   color: var(--text-soft);
   border-radius: 999px;
@@ -96,7 +100,7 @@ main {
 }
 
 .page-label {
-  font-family: 'DM Sans', sans-serif;
+  font-family:'DM Sans','DM Sans Fallback',sans-serif;
   color: var(--sunset);
   font-size: 0.85rem;
   font-weight: 600;
@@ -106,7 +110,7 @@ main {
 }
 
 h1 {
-  font-family: 'Fraunces', serif;
+  font-family:'Fraunces','Fraunces Fallback',serif;
   font-size: clamp(2rem, 5vw, 2.75rem);
   font-weight: 600;
   color: var(--teal-deep);
@@ -123,7 +127,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Fraunces', serif;
+  font-family:'Fraunces','Fraunces Fallback',serif;
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--teal-deep);
@@ -164,7 +168,7 @@ footer a {
 }
 footer p { margin-bottom: 0.4rem; }
 .footer-brand {
-  font-family: 'Fraunces', serif;
+  font-family:'Fraunces','Fraunces Fallback',serif;
   font-size: 1.1rem;
   font-weight: 600;
   color: rgba(250, 246, 240, 0.8);
@@ -176,7 +180,7 @@ footer p { margin-bottom: 0.4rem; }
 
 <nav>
   <a href="index.html" class="nav-brand" aria-label="Siili-Saari Care Center">
-    <img src="logo-horizontal.png" alt="Siili-Saari Care Center" class="nav-brand-logo">
+    <img src="logo-horizontal.webp" alt="Siili-Saari Care Center" class="nav-brand-logo" width="1773" height="578">
   </a>
   <div class="lang-switcher" role="group">
     <button type="button" data-lang="fi" class="lang-btn active">FI</button>
