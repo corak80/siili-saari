@@ -22,7 +22,7 @@
 @font-face{font-family:'Fraunces';font-style:italic;font-weight:300 900;font-display:swap;src:url('/fonts/fraunces-latin-italic.woff2') format('woff2-variations')}
 @font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('/fonts/dmsans-latin.woff2') format('woff2-variations')}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--teal-deep:#1a5c52;--teal:#2d7a6d;--teal-light:#3d9b8a;--sunset:#e8a84c;--sunset-warm:#d4863a;--cream:#faf6f0;--cream-dark:#f0e8da;--bark:#5c4a3a;--moss:#4a6d45;--white:#fff;--text:#2c2418;--text-soft:#5a4d3e}
+:root{--teal-deep:#1a5c52;--teal:#2d7a6d;--teal-light:#3d9b8a;--sunset:#e8a84c;--sunset-text:#9e6514;--sunset-on-dark:#eebe79;--sunset-warm:#d4863a;--cream:#faf6f0;--cream-dark:#f0e8da;--bark:#5c4a3a;--moss:#4a6d45;--white:#fff;--text:#2c2418;--text-soft:#5a4d3e}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans','DM Sans Fallback',system-ui,sans-serif;color:var(--text);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-weight:600;line-height:1.2;color:var(--teal-deep)}
@@ -83,10 +83,10 @@ main li{margin-bottom:.45rem}
 /* the urgent path, repeated on every page */
 .urgent{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:#fff6e8;border:1px solid rgba(212,134,58,.3);border-left:4px solid var(--sunset-warm);border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:2.5rem}
 .urgent-text{flex:1;min-width:240px;font-size:.95rem}
-.urgent strong{color:var(--sunset-warm)}
+.urgent strong{color:var(--sunset-text)}
 
-footer{background:var(--teal-deep);padding:3rem 2rem;text-align:center;color:rgba(250,246,240,.5);font-size:.85rem;margin-top:2rem}
-footer a{color:rgba(250,246,240,.7);text-decoration:none}
+footer{background:var(--teal-deep);padding:3rem 2rem;text-align:center;color:rgba(250,246,240,.75);font-size:.85rem;margin-top:2rem}
+footer a{color:rgba(250,246,240,.9);text-decoration:underline;text-underline-offset:2px}
 footer a:hover{color:var(--sunset)}
 .footer-brand{font-family:'Fraunces','Fraunces Fallback',serif;font-size:1.1rem;font-weight:600;color:rgba(250,246,240,.8);margin-bottom:.5rem}
 .footer-impressum{margin-top:.75rem;font-size:.78rem;opacity:.7}

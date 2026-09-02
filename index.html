@@ -106,6 +106,8 @@
   --teal: #2d7a6d;
   --teal-light: #3d9b8a;
   --sunset: #e8a84c;
+  --sunset-text: #9e6514;      /* >=4.5:1 on every light bg used */
+  --sunset-on-dark: #eebe79;   /* 4.6:1 on --teal-deep */
   --sunset-warm: #d4863a;
   --cream: #faf6f0;
   --cream-dark: #f0e8da;
@@ -394,7 +396,7 @@ section {
   font-size: 0.75rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--sunset);
+  color: var(--sunset-text);
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
@@ -612,7 +614,7 @@ section {
 
 .team-role {
   font-size: 0.85rem;
-  color: var(--sunset-warm);
+  color: var(--sunset-text);
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -644,7 +646,7 @@ section {
   border-radius: 50%;
 }
 
-.help .section-label { color: var(--sunset); }
+.help .section-label { color: var(--sunset-on-dark); }
 .help .section-title { color: var(--cream); }
 
 .help-intro {
@@ -804,13 +806,14 @@ footer {
   background: var(--teal-deep);
   padding: 3rem 2rem;
   text-align: center;
-  color: rgba(250, 246, 240, 0.5);
+  color: rgba(250, 246, 240, 0.75);
   font-size: 0.85rem;
 }
 
 footer a {
-  color: rgba(250, 246, 240, 0.7);
-  text-decoration: none;
+  color: rgba(250, 246, 240, 0.9);
+  text-decoration: underline;
+  text-underline-offset: 2px;
   transition: color 0.3s;
 }
 
@@ -827,7 +830,6 @@ footer a:hover { color: var(--sunset); }
 .footer-impressum {
   margin-top: 0.75rem;
   font-size: 0.78rem;
-  opacity: 0.7;
 }
 
 .footer-legal {
@@ -922,6 +924,8 @@ footer a:hover { color: var(--sunset); }
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<main id="main">
 
 <!-- Hero -->
 <section class="hero">
@@ -1131,6 +1135,8 @@ footer a:hover { color: var(--sunset); }
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- Footer -->
 <footer>
