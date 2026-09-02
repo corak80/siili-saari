@@ -236,12 +236,11 @@ nav.scrolled {
 
 /* ===== HERO ===== */
 .hero {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 6rem 2rem 4rem;
+  padding: 4.5rem 2rem 3.5rem;
   position: relative;
   overflow: hidden;
 }
@@ -271,7 +270,7 @@ nav.scrolled {
 }
 
 .hero-logo {
-  width: min(520px, 85vw);
+  width: min(360px, 70vw);
   height: auto;
   animation: floatIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   filter: drop-shadow(0 20px 40px rgba(26, 92, 82, 0.12));
@@ -316,31 +315,49 @@ nav.scrolled {
   animation: floatIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
 }
 
-.hero-scroll {
-  margin-top: 3rem;
-  animation: floatIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+.hero-lede {
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  max-width: 60ch;
+  text-align: center;
+  margin-top: 1.4rem;
+  animation: floatIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
 }
 
-.hero-scroll a {
+.hero-cta {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  animation: floatIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.85s both;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
   text-decoration: none;
-  color: var(--teal);
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.hero-scroll svg {
-  margin-top: 0.5rem;
-  animation: bobble 2s ease-in-out infinite;
+.hero-btn:hover { transform: translateY(-2px); }
+
+.hero-btn-primary {
+  background: var(--sunset);
+  color: #3a2a12;
+  box-shadow: 0 6px 16px rgba(232, 168, 76, 0.3);
 }
 
-@keyframes bobble {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
+.hero-btn-ghost {
+  background: transparent;
+  color: var(--teal-deep);
+  border: 1px solid rgba(26, 92, 82, 0.28);
 }
+
+.hero-btn-ghost:hover { border-color: var(--teal); }
 
 /* ===== SECTIONS ===== */
 section {
@@ -849,7 +866,8 @@ footer a:hover { color: var(--sunset); }
   .services-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .team-card { flex-direction: column; align-items: center; text-align: center; }
-  .hero { padding: 5rem 1.5rem 3rem; }
+  .hero { padding: 3.5rem 1.5rem 3rem; }
+  .hero-btn { width: 100%; text-align: center; }
   .help-emergency { flex-direction: column; text-align: center; }
 }
 
@@ -890,13 +908,11 @@ footer a:hover { color: var(--sunset); }
 
   <h1 class="hero-tagline" data-i18n="hero.tagline">Annamme siileille uuden mahdollisuuden, yksi pieni potilas kerrallaan</h1>
 
-  <div class="hero-scroll">
-    <a href="#about">
-      <span data-i18n="hero.discover">Tutustu</span>
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M10 4 L10 16 M5 11 L10 16 L15 11"/>
-      </svg>
-    </a>
+  <p class="hero-lede" data-i18n="hero.lede">Rekisteröity yhdistys ja siilien kuntoutuskeskus Vaasassa. Pelastamme, hoidamme ja kuntoutamme loukkaantuneita ja orpoja siilejä — ja vapautamme ne takaisin luontoon.</p>
+
+  <div class="hero-cta">
+    <a class="hero-btn hero-btn-primary" href="tel:+35863217300" data-i18n="hero.cta.help">Löysitkö siilin? Soita +358 6 321 7300</a>
+    <a class="hero-btn hero-btn-ghost" href="vapaaehtoiseksi.html" data-i18n="hero.cta.volunteer">Tule vapaaehtoiseksi</a>
   </div>
 </section>
 
