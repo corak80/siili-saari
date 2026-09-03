@@ -1,5 +1,5 @@
 export const IN_SCOPE = ['index.html', 'siilinhoito.html', 'siilin-pesa.html',
-  'meista.html', 'toiminta.html', 'yhteystiedot.html'];
+  'meista.html', 'toiminta.html', 'ajankohtaista.html', 'yhteystiedot.html'];
 
 const SKIP = /^(https?:|mailto:|tel:|#|\/|data:)/i;
 

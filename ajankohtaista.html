@@ -4,13 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="pg.work.meta.title">Toiminta — pelastuksesta vapauteen | Siili-Saari Care Center</title>
-<meta name="description" data-i18n-attr="content" data-i18n="pg.work.meta.description" content="Miten siili hoidetaan Siili-Saaressa: ensiapu, eläinlääketieteellinen hoito, kuntoutus ja vapautus luontoon. Myös neuvonta ja vapaaehtoistoiminta.">
-<link rel="canonical" href="https://siilisaari.fi/toiminta.html">
-<link rel="alternate" hreflang="fi" href="https://siilisaari.fi/toiminta.html">
-<link rel="alternate" hreflang="sv" href="https://siilisaari.fi/sv/toiminta.html">
-<link rel="alternate" hreflang="en" href="https://siilisaari.fi/en/toiminta.html">
-<link rel="alternate" hreflang="x-default" href="https://siilisaari.fi/toiminta.html">
+<title data-i18n="pg.news.meta.title">Ajankohtaista — Siili-Saari Care Center, Vaasa</title>
+<meta name="description" data-i18n-attr="content" data-i18n="pg.news.meta.description" content="Siili-Saari Care Centerin ajankohtaiset asiat ja virstanpylväät: yhdistyksen rekisteröinti, vapaaehtoistoiminta, oppaat ja talvipesärekisteri.">
+<link rel="canonical" href="https://siilisaari.fi/ajankohtaista.html">
+<link rel="alternate" hreflang="fi" href="https://siilisaari.fi/ajankohtaista.html">
+<link rel="alternate" hreflang="sv" href="https://siilisaari.fi/sv/ajankohtaista.html">
+<link rel="alternate" hreflang="en" href="https://siilisaari.fi/en/ajankohtaista.html">
+<link rel="alternate" hreflang="x-default" href="https://siilisaari.fi/ajankohtaista.html">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" as="font" type="font/woff2" href="/fonts/dmsans-latin.woff2" crossorigin>
@@ -62,6 +62,12 @@ main ul{margin:0 0 1rem 1.2rem;max-width:70ch}
 main li{margin-bottom:.45rem}
 .latin-name{font-style:italic}
 
+.news{list-style:none;margin:0;padding:0}
+.news li{border-left:3px solid var(--teal-light);padding:0 0 1.4rem 1.2rem;margin:0;position:relative}
+.news li::before{content:"";position:absolute;left:-8px;top:.35rem;width:13px;height:13px;border-radius:50%;background:var(--teal)}
+.news time{display:block;font-size:.85rem;font-weight:600;color:var(--teal-deep);letter-spacing:.02em}
+.news h2{margin:.15rem 0 .4rem;font-size:1.25rem}
+.news p{margin-bottom:0}
 .card{background:var(--white);border:1px solid rgba(26,92,82,.1);border-radius:14px;padding:1.4rem 1.6rem;margin-bottom:1rem}
 .card h3{margin-top:0}
 .facts{background:var(--white);border:1px solid rgba(26,92,82,.1);border-radius:14px;padding:1.4rem 1.6rem}
@@ -117,8 +123,8 @@ footer a:hover{color:var(--sunset)}
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="meista.html" data-i18n="nav.about">Meistä</a></li>
-    <li><a href="toiminta.html" class="current" data-i18n="nav.services">Toiminta</a></li>
-    <li><a href="ajankohtaista.html" data-i18n="nav.news">Ajankohtaista</a></li>
+    <li><a href="toiminta.html" data-i18n="nav.services">Toiminta</a></li>
+    <li><a href="ajankohtaista.html" class="current" data-i18n="nav.news">Ajankohtaista</a></li>
     <li><a href="siilinhoito.html" data-i18n="nav.guide">Siilin hoito-opas</a></li>
     <li><a href="vapaaehtoiseksi.html" data-i18n="nav.volunteer">Vapaaehtoiseksi</a></li>
     <li><a href="yhteystiedot.html" data-i18n="nav.contact">Yhteystiedot</a></li>
@@ -135,46 +141,41 @@ footer a:hover{color:var(--sunset)}
 
 <header class="page-head">
   <div class="wrap">
-    <p class="page-label" data-i18n="pg.work.label">Toiminta</p>
-    <h1 data-i18n="pg.work.h1">Pelastuksesta vapauteen</h1>
-    <p class="page-lede" data-i18n="pg.work.lede">Jokainen siili kulkee saman polun. Näin se etenee — löytöhetkestä siihen aamuun, kun siili katoaa pensaan alle omilleen.</p>
+    <p class="page-label" data-i18n="pg.news.label">Ajankohtaista</p>
+    <h1 data-i18n="pg.news.h1">Mitä yhdistyksessä tapahtuu</h1>
+    <p class="page-lede" data-i18n="pg.news.lede">Tälle sivulle kokoamme yhdistyksen virstanpylväät ja tiedotteet, uusin ensin.</p>
   </div>
 </header>
 
 <main>
   <div class="wrap">
-    <div class="urgent">
-      <div class="urgent-text" data-i18n="pg.contact.urgent" data-i18n-html="true"><strong>Löysitkö siilin?</strong> Pidä se lämpimänä ja rauhassa laatikossa ja soita meille. Älä syötä maitoa.</div>
-      <a class="btn btn-solid" href="tel:+35863217300"><span data-i18n="pg.contact.callnow">Soita heti</span> +358 6 321 7300</a>
-    </div>
-    <section class="reveal">
-      <h2 data-i18n="pg.work.s1.h">1. Pelastus ja ensiapu</h2>
-      <p data-i18n="pg.work.s1.p">Kiireellinen vastaanotto ja tilan vakauttaminen. Löydetty siili on lähes aina kylmettynyt ja kuivunut, ja se hoidetaan ensin: lämpö, nesteytys ja rauha. Vasta vakaassa tilassa olevaa siiliä kannattaa tutkia tarkemmin. Triage tehdään heti vastaanotossa.</p>
-    </section>
-    <section class="reveal">
-      <h2 data-i18n="pg.work.s2.h">2. Eläinlääketieteellinen hoito</h2>
-      <p data-i18n="pg.work.s2.p">Eläinlääkäri tutkii jokaisen siilin ja päättää hoidosta. Yleisimpiä syitä hoitoon ovat ruohonleikkurivammat, koiran purema, verkkoihin takertuminen, kärpäsenmunat ja loisten aiheuttama huono kunto. Hoitoon kuuluvat tarpeen mukaan haavanhoito, loishäätö, nesteytys ja kipulääkitys — tavoitteena on aina siilin paluu luontoon.</p>
-    </section>
-    <section class="reveal">
-      <h2 data-i18n="pg.work.s3.h">3. Kuntoutus ja vapauttaminen</h2>
-      <p data-i18n="pg.work.s3.p">Asteittainen toipuminen luonnonmukaisissa ulkoaitauksissa. Painoa seurataan, ravinnonhakutaidot arvioidaan, ja ihmiskontakti pidetään mahdollisimman vähäisenä, jotta siili ei kesyynny. Vapautus tehdään sopivaan elinympäristöön — mieluiten sinne, mistä siili löytyi.</p>
-    </section>
-    <section class="reveal">
-      <h2 data-i18n="pg.work.s4.h">4. Neuvonta ja koulutus</h2>
-      <p data-i18n="pg.work.s4.p">Yhteisötiedotus, koulukäynnit ja yleisötietoisuus siilien suojelusta. Suurin osa siileistä, jotka päätyvät hoitoon, olisi voitu välttää: tarkista pensas ennen leikkuuta, poista verkot, jätä aitaan kulkuaukko. Julkaisemme kaksi opasta, joita kuka tahansa voi käyttää.</p>
-      <ul>
-        <li><a href="siilinhoito.html" data-i18n="pg.work.guides.care">Siilin hoito-opas — milloin siili tarvitsee apua, ensiapu ja poikasten ruokinta.</a></li>
-        <li><a href="siilin-pesa.html" data-i18n="pg.work.guides.nest">Rakenna siilille pesä — mitat, materiaalit, sijoitus ja hoitokalenteri.</a></li>
-      </ul>
-    </section>
-    <section class="reveal">
-      <h2 data-i18n="pg.work.season.h">Vuodenkierto</h2>
-      <p data-i18n="pg.work.season.p">Siilivuosi on epätasainen. Keväällä talvihorroksesta heräävät siilit ovat laihoja ja alttiita. Kesällä tulevat vammat: leikkurit, koirat, verkot. Loppukesästä ja syksyllä painopiste siirtyy poikasiin — liian pienet yksilöt eivät selviä talvihorroksesta ilman apua. Talvella hoidossa on tyypillisesti niitä, jotka eivät ehtineet kasvaa tarpeeksi.</p>
-    </section>
-    <section class="reveal">
-      <h2 data-i18n="pg.work.vol.h">Vapaaehtoiset</h2>
-      <p data-i18n="pg.work.vol.p">Kuntoutus on käsityötä: ruokintaa, puhdistusta, punnitusta ja kirjaamista, joka päivä. Vapaaehtoiset koulutetaan tehtävään, ja jokainen aloittaa perehdytyksestä ennen ensimmäistä vuoroa.</p>
-    </section>
+    <ul class="news">
+      <li class="reveal">
+        <time datetime="2026-09" data-i18n="pg.news.e1.d">Syyskuu 2026</time>
+        <h2 data-i18n="pg.news.e1.h">Talvipesärekisteri avattu</h2>
+        <p data-i18n="pg.news.e1.p">Avasimme rekisterin pihoista, joihin voidaan sijoittaa talvipesä tai jotka sopivat siilin vapautuspaikaksi. Pesät on rakennettava ja sijoitettava ennen lokakuuta, jolloin siilit alkavat etsiä talvehtimispaikkaa.</p>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-08" data-i18n="pg.news.e2.d">Elokuu 2026</time>
+        <h2 data-i18n="pg.news.e2.h">Talvipesäopas julkaistu ja sivusto kolmella kielellä</h2>
+        <p data-i18n="pg.news.e2.p">Julkaisimme ohjeen siilin talvipesän rakentamiseen. Samalla koko sivusto avattiin suomeksi, ruotsiksi ja englanniksi.</p>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-07" data-i18n="pg.news.e3.d">Heinäkuu 2026</time>
+        <h2 data-i18n="pg.news.e3.h">Vapaaehtoisohjelma ja hoito-opas</h2>
+        <p data-i18n="pg.news.e3.p">Avasimme vapaaehtoisten ilmoittautumisen ja julkaisimme siilin hoito-oppaan vapaaehtoisten perehdytykseen. Yhdistyksen Facebook-sivu avattiin 23.7.2026.</p>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-06-17" data-i18n="pg.news.e4.d">17.6.2026</time>
+        <h2 data-i18n="pg.news.e4.h">Yhdistys rekisteröity</h2>
+        <p data-i18n="pg.news.e4.p">Siili-Saari Care Center rf merkittiin Patentti- ja rekisterihallituksen yhdistysrekisteriin (rekisterinumero 963.452, Y-tunnus 3632959-6). Kotipaikka Vaasa.</p>
+      </li>
+      <li class="reveal">
+        <time datetime="2026-04" data-i18n="pg.news.e5.d">Huhtikuu 2026</time>
+        <h2 data-i18n="pg.news.e5.h">Verkkosivut avattu</h2>
+        <p data-i18n="pg.news.e5.p">Siilisaari.fi avattiin kertomaan toiminnasta ja neuvomaan, mitä tehdä, kun löytää apua tarvitsevan siilin.</p>
+      </li>
+    </ul>
 
     <section class="cta reveal">
       <h2 data-i18n="cta.h">Miten voit auttaa</h2>

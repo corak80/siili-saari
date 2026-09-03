@@ -15,6 +15,7 @@ const GUIDES = ['siilinhoito.html', 'siilin-pesa.html'];
 const SUBPAGES = [
   { file: 'meista.html', title: 'pg.about.meta.title', description: 'pg.about.meta.description' },
   { file: 'toiminta.html', title: 'pg.work.meta.title', description: 'pg.work.meta.description' },
+  { file: 'ajankohtaista.html', title: 'pg.news.meta.title', description: 'pg.news.meta.description' },
   { file: 'yhteystiedot.html', title: 'pg.contact.meta.title', description: 'pg.contact.meta.description' }
 ];
 

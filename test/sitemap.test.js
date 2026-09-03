@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 test('sitemap lists every page in every language', () => {
   const xml = readFileSync('sitemap.xml', 'utf8');
   const pages = ['siilinhoito.html', 'siilin-pesa.html',
-                 'meista.html', 'toiminta.html', 'yhteystiedot.html'];
+                 'meista.html', 'toiminta.html', 'ajankohtaista.html', 'yhteystiedot.html'];
   const expected = ['https://siilisaari.fi/', 'https://siilisaari.fi/sv/', 'https://siilisaari.fi/en/'];
   for (const page of pages) {
     for (const prefix of ['', 'sv/', 'en/']) {

@@ -4,11 +4,11 @@ import { readFileSync, existsSync } from 'node:fs';
 import { buildAll } from '../build.js';
 
 // Every page the build emits, in both output languages: the homepage, the two
-// guides, and the three text subpages.
+// guides, and the four text subpages.
 const GENERATED_PAGES = [
-  'sv/index.html', 'sv/meista.html', 'sv/toiminta.html', 'sv/yhteystiedot.html',
+  'sv/index.html', 'sv/meista.html', 'sv/toiminta.html', 'sv/ajankohtaista.html', 'sv/yhteystiedot.html',
   'sv/siilinhoito.html', 'sv/siilin-pesa.html',
-  'en/index.html', 'en/meista.html', 'en/toiminta.html', 'en/yhteystiedot.html',
+  'en/index.html', 'en/meista.html', 'en/toiminta.html', 'en/ajankohtaista.html', 'en/yhteystiedot.html',
   'en/siilinhoito.html', 'en/siilin-pesa.html'
 ];
 
