@@ -108,7 +108,7 @@ footer{background:var(--teal-deep);color:var(--cream);padding:1.8rem 0;text-alig
 (function () {
   var API = 'https://dashboard.saarivet.fi/tv/api/roster';
   var token = (new URLSearchParams(location.search).get('v') || '').toLowerCase().trim();
-  var NAMES = { anneli:'Anneli', elina:'Elina', marika:'Marika', henna:'Henna', nea:'Nea', olga:'Olga', viveka:'Viveka', camilla:'Camilla', alicia:'Alicia', jamina:'Jamina' };
+  var NAMES = { anneli:'Anneli', elina:'Elina', marika:'Marika', henna:'Henna', nea:'Nea', olga:'Olga', viveka:'Viveka', camilla:'Camilla', alicia:'Alicia', jamina:'Jamina', kaisa:'Kaisa' };
   var myName = Object.prototype.hasOwnProperty.call(NAMES, token) ? NAMES[token] : '';
   var lang = 'fi';
   var LOCALE = { fi:'fi-FI', sv:'sv-SE', en:'en-GB' };
